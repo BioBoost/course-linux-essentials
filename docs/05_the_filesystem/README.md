@@ -408,6 +408,56 @@ There is no `-r` option as the `mv` command will by default move directories!
 
 When a file is moved, the file is removed from the original location and placed in a new location. This can be somewhat tricky in Linux because users need specific permissions to remove files from a directory. If you don't have the right permissions, you will receive a "Permission denied" error message.
 
+### Renaming Files and Directories
+
+Linux doesn't have a standard tool to rename files. Linux users use the `mv` command for this.
+
+### Removing Files
+
+To delete a file, use the `rm` command.
+
+The files are permanently deleted. There is no command to undelete a file and no "trash can" from which to recover deleted files.
+
+```bash
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  files  hello  Music  Pictures  Public  Templates  this  Videos
+nico@biosdeb:~$ rm hello
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  this  Videos
+```
+
+Use `-i` for interactive mode and `-v` for verbose mode.
+
+```bash
+nico@biosdeb:~$ rm -iv hello
+rm: remove regular empty file 'hello'? y
+removed 'hello'
+```
+
+To delete a directory the `-r` recursive flag is required.
+
+```bash
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  this  Videos
+nico@biosdeb:~$ rm -r files
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  this  Videos
+```
+
+When you delete a directory, all of the files and subdirectories are deleted without any question confirmation unless interactive mode is enabled.
+
+Empty directories can also be deleted using the `rmdir` command. This command can be a bit of a safe-guards if you wish to make sure no files are left in the directory before you delete it. Use `-v` for verbose mode and `-p` for also deleting the specified parent directories.
+
+```bash
+nico@biosdeb:~$ mkdir -p this/is/a/nested/dir
+nico@biosdeb:~$ rmdir -pv this/is/a/nested/dir/
+rmdir: removing directory, 'this/is/a/nested/dir/'
+rmdir: removing directory, 'this/is/a/nested'
+rmdir: removing directory, 'this/is/a'
+rmdir: removing directory, 'this/is'
+rmdir: removing directory, 'this'
+```
+
 ## Quick Recap on Filesystem Commands
 
 The most used commands to traverse and manipulate the file system of a Linux system are listed in the table below. You can always use the man-command to get a more detailed description.
@@ -422,7 +472,5 @@ The most used commands to traverse and manipulate the file system of a Linux sys
 | `mkdir` | `-p` (create parents as needed) | DIRS | Create directories |
 | `cp` | `-v` (verbose output), `-i` (interactive), `-r` (recursive) | SOURCE DESTINATION | Copy files/directories |
 | `mv` | `-v` (verbose output), `-i` (interactive) | SOURCE DESTINATION | Move files/directories |
-
-<!--
-| `rm` | ---- | ---- | Remove files |
-| `rmdir` | ---- | ---- | Remove an empty directory | -->
+| `rm` | `-i` (interactive), `-v` (verbose), `-r` (recursive) | FILE(S)/DIR(S) | Remove files/directories |
+| `rmdir` | `-p` (parents), `-v` (verbose) | DIR(S) | Remove empty directories |
