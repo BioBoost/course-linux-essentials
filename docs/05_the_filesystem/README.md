@@ -1,57 +1,79 @@
 ---
-description: ....
+description: As a linux power user you need to know your way around the filesystem
 title: 05 - The Filesystem
 ---
 
 # Chapter 05 - The Filesystem
 
+A filesystem typically allows us to store both files and directories. **Files are used to store data** such as text, graphics and programs. **Directories** (aka "folders") are used to provide a **hierarchical organization structure**. Next to our data, the filesystem also stores **metadata** such as who's the owner of the file, creation and modification timestamps, size information, ...
+
+## On Windows
+
+The way the linux filesystem is structured is quitte different from the way Windows handles it. On a Windows system, the top level of the directory structure is called `My Computer`.
+
+![](./img/windows_my_computer.png)
+
+Each physical device (hard drive, DVD drive, USB thumb drive, network drive, etc.) shows up under `My Computer`, each assigned a drive letter, such as `C:` or `D:`.
+
+![](./img/windows_drives.png)
+
+Each device may have a certain filesystem on it (examples are FAT, FAT32, NTFS, ...).
+
+## On Linux
+
+Like Windows, a Linux directory structure has a top level, however it is not called `My Computer`, but rather the **root directory** and it is symbolized by the `/` character.
+
+There are also **no drives in Linux**. Each physical device is accessible under a directory, not a drive letter.
+
+![](./img/linux_root.png)
+
 Linux inherits many of its concepts of filesystem organization from its Unix predecessors. As far back as 1979, Unix was establishing standards to control how compliant systems would organize their files.
 
-The Linux File system Hierarchy Standard (checkout [Filesystem Hierarchy Standard](http://www.pathname.com/fhs/)), or FHS for short, is a prescriptive standard maintained by the Linux Foundation that establishes the organizational layout that Linux distributions should uphold for interoperability, ease of administration, and the ability to implement cross-distro applications reliably.
+The **Linux File system Hierarchy Standard** (checkout [Filesystem Hierarchy Standard](http://www.pathname.com/fhs/)), or FHS for short, is a prescriptive standard maintained by the Linux Foundation that establishes the organizational layout that Linux distributions should uphold for **interoperability**, **ease of administration**, and the **ability to implement cross-distro applications reliably**.
 
+::: tip Everything is a File
 One important thing to mention when dealing with these systems is that Linux implements just about **everything as a file**. This means that a text file is a file, a directory is a file (simply a list of other files), a printer is represented by a file (the device drivers can send anything written to the printer file to the physical printer), a serial port is a file, etc.
 
 Although this is in some cases an oversimplification, it informs us of the approach that the designers of the system encouraged: passing text and bytes back and forth and being able to apply similar strategies for editing and accessing diverse components.
+:::
 
-## Traversing the Filesystem
+## Finding your Way
 
-Before actually delving into the file system layout, you need to know a few basics about how to navigate a file system from the command line. We will cover the bare minimum here to get you on your feet.
+Before actually delving into the file system layout, you need to know a few basics about how to navigate a file system from the command line. This course will cover the bare minimum here to get you on your feet.
 
-The first thing you need to do is orient yourself in the filesystem. There are a few ways to do this, but one of the most basic is with the `pwd` command, which stands for "print working directory":
+The first thing you need to do is orient yourself in the filesystem. There are a few ways to do this, but one of the most basic ways is with the `pwd` command, which stands for "print working directory":
 
-```shell
-pwd
+```bash
+nico@biosdeb:~$ pwd
+/home/nico
 ```
 
-This simply returns the full path of the directory you are currently located in, for example `/home/pi`.
+This simply returns the full path of the directory you are currently located in, for example `/home/nico`.
 
-To see what files are in the current directory, you can issue the `ls` command, which stands for "list":
+To see what files are in the current directory, you can issue the `ls` command, which stands for "list".
 
-```shell
-$ ls
-bin   dev  home  lost+found  mnt  proc  run   selinux  sys  usr
-boot  etc  lib   media       opt  root  sbin  srv      tmp  var
+```bash
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 ```
 
 This will give an overview of all directories and files in your current directory.
 
-The `ls` command can take some optional flags. Flags modify the commands default behavior to either process or display the data in a different way.
+The `ls` command can be used to display the contents of a directory as well as detailed information about the files that are within a directory. The `ls` command can take some option flags. Flags modify the commands default behavior to either process or display the data in a different way.
 
-The two most common flags are probable `-l` and `-a`. The `-l` flag forces the command to output information in long-form:
+The first most common option is probably `-l`, which forces the command to output information in long-form:
 
-```shell
-$ ls -l
-total 88
-drwxr-xr-x  2 root root  4096 Jun 20 10:55 bin
-drwxr-xr-x  2 root root 16384 Jan  1  1970 boot
-drwxr-xr-x 12 root root  3060 Sep 24 13:31 dev
-drwxr-xr-x 99 root root  4096 Sep 24 13:31 etc
-drwxr-xr-x  3 root root  4096 Jun 20 07:48 home
-drwxr-xr-x 12 root root  4096 Jun 20 10:42 lib
--rw-r--r--  1 root root     0 Sep 24 13:37 log.txt
-drwx------  2 root root 16384 Jun 20 07:34 lost+found
-drwxr-xr-x  2 root root  4096 Jun 20 07:36 media
-...
+```bash
+nico@biosdeb:~$ ls -l
+total 32
+drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Desktop
+drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Documents
+drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Downloads
+drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Music
+drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Pictures
+drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Public
+drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Templates
+drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Videos
 ```
 
 This produces output with one line for each file or directory (the name is on the far right). This has a lot of information that we are not interested in right now. One part we are interested in though is the very **first character**, which tells us what **kind of file** it is. The three most common types are:
@@ -60,53 +82,81 @@ This produces output with one line for each file or directory (the name is on th
 * `d`: Directory (a file of a specific format that lists other files)
 * `l`: A hard or soft link (basically a shortcut to another file on the system)
 
-The `-a` flag lists all files, including hidden files. In Linux, files are hidden automatically if they begin with a dot `.`:
+The second most important option to the `ls` command is the `-a` flag, which lists all files, including hidden files. In Linux, files are **hidden** automatically if they begin with a dot `.`:
 
-```shell
+```bash
 $ ls -a
 .   bin   dev  home  log.txt     media  opt   root  sbin     srv  tmp  var
 ..  boot  etc  lib   lost+found  mnt    proc  run   selinux  sys  usr
 ```
 
-The first two entries, `.` and `..` are special. The `.` directory is a shortcut that means "the current directory". The `..` directory is a shortcut that means "the current directory's parent directory".
+::: tip .git directory
+Hidden files always start with a `.`. That is why the `.git` directory in a git repo is also prefixed with a dot `.`.
+:::
+
+The first two entries, `.` and `..` have a special meaning. The `.` directory is a shortcut that means "the current directory". This is often used when executing shell scripts in the current directory. The `..` directory is a shortcut that means "the current directory's parent directory". In other words, one directory up.
+
+## Traversing the Filesystem
 
 Now that you can find out where you are in the file system and see what is around you, it is time to learn how to move throughout the file system.
 
 To change to a different directory, you issue the `cd` command, which stands for "change directory":
 
-```shell
+```bash
 cd /home
 ```
 
-You can follow the command with either an absolute or a relative pathname.
+The first `/` character represents the **root directory** while each other `/` character is used to separate the directory names.
 
-* An **absolute path** is a file path that specifies the location of a directory from at the top of the directory tree. Absolute paths begin with a "/", as you see above.
+You can follow the `cd` command with either an absolute or a relative pathname.
+
+* An **absolute path** is a file path that specifies the location of a directory from the top of the directory tree (the root of the filesystem `/`). Absolute paths begin with a "/", as can be seen in the example above.
 * A **relative path** is a file path that is relative to the current working directory. This means that instead of defining a location from the top of the directory structure, it defines the location in relation to where you currently are.
 
-For instance, if you want to move to the home directory of the pi user, while in the directory `/home`, you can issue the command:
+For instance, if you want to move to the home directory of the user `nico`, while in the directory `/home`, you can issue the command:
 
-```shell
-cd pi
+```bash
+nico@biosdeb:/home$ cd nico
+nico@biosdeb:~$
 ```
 
 The lack of the `/` from the beginning tells the shell to use the current directory as the base for looking for the path.
 
+::: tip
+Under this `/home` directory there will be a directory for most users on the system. The directory name will be the same as the name of the user.
+:::
+
 This is where the `..` directory link comes in handy. To move to the parent directory of your current directory, you can type:
 
-```shell
-cd ..
+```bash
+nico@biosdeb:~$ cd ..
+nico@biosdeb:/home$
 ```
 
-There is also a shortcut to traverse to your home directory, and that is by using the tilde `~`. You can immediately jump to your home directory by for example executing the following command:
+This will jump 1 level up towards the root of the filesystem.
 
-```shell
-cd ~
+Your home directory is a very important directory. To begin with, when you open a shell, you should automatically be placed in your home directory.
+
+```bash
+nico@biosdeb:~$
 ```
 
-This has the same effect as not specifying anything after the `cd` command:
+Additionally, your home directory is one of the few directories where you have the full control to create and delete additional files and directories. On most Linux distributions, the only users who can access any files in your home directory are you and the administrator on the system (the `root` user).
 
-```shell
-cd
+There is a shortcut to traverse to your home directory, and that is by issueing the `cd` command without any arguments.
+
+```bash
+nico@biosdeb:/$ cd
+nico@biosdeb:~$
+```
+
+This brings you immediately to your home directory.
+
+Another way to achieve this is to use the `~` symbol, which symbolizes the path to your home directory.
+
+```bash
+nico@biosdeb:/$ cd ~
+nico@biosdeb:~$
 ```
 
 ## An Overview of the Linux Filesystem Layout
@@ -119,7 +169,7 @@ In Linux, every file and device on the system resides under the **root**, which 
 
 Thus, if we want to go to the top-level directory of the entire operating system and see what is there, we can type:
 
-```shell
+```bash
 cd /
 ```
 
@@ -193,17 +243,22 @@ Want to find out what shells are available on your system, then display the cont
 
 The most used commands to traverse and manipulate the file system of a Linux system are listed in the table below. You can always use the man-command to get a detailed description.
 
-| Command | Description |
-| ---- | ---- |
-| `ls` | List files |
-| `cp` | Copy files |
-| `rm` | Remove files |
-| `mv` | Move files |
-| `cd` | Change working dir |
-| `cat` | Concatenate files and output to terminal |
-| `touch` | Create an empty file |
-| `mkdir` | Make directory |
-| `rmdir` | Remove an empty directory |
+## Quick Recap on Filesystem Commands
+
+| Command | Options | Arguments | Description |
+| ---- | ---- | ---- | ---- |
+| `pwd` |  |  | Print working dir |
+| `ls` | `-l` (long format), `-a` (all), `-h` (human readable) | absolute path / relative path / `~`, `..` or `.` | List files and directories |
+| `cd` |  | absolute path / relative path / `~`, `..` or `.` | Change working dir |
+
+<!-- | `cp` | ---- | ---- | Copy files |
+| `rm` | ---- | ---- | Remove files |
+| `mv` | ---- | ---- | Move files |
+| `cat` | ---- | ---- | Concatenate files and output to terminal |
+| `touch` | ---- | ---- | Create an empty file |
+| `mkdir` | ---- | ---- | Make directory |
+| `rmdir` | ---- | ---- | Remove an empty directory | -->
+
 
 ## Shell Globbing
 
@@ -230,7 +285,7 @@ To match a single character, one can use the question mark `?`.
 
 If you do not wish a glob character to be expanded by the shell, you can always enclose it into single quotes:
 
-```shell
+```bash
 echo '*'
 ```
 
@@ -248,7 +303,7 @@ An action often required on any operating system is the ability to search for fi
 
 To search for a file use the following syntax:
 
-```shell
+```bash
 find <where> -name <filename>
 ```
 
