@@ -28,7 +28,7 @@
   "homepage": "https://github.com/BioBoost/course_programming_from_base_to_ace#readme",
   "devDependencies": {
     "vuepress": "^1.0.3",
-    "vuepress-plugin-zooming": "^1.1.1"
+    "vuepress-plugin-zooming": "^1.1.5"
   },
   "dependencies": {
     "vuepress-plugin-container": "^2.0.2"
