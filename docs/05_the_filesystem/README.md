@@ -303,22 +303,104 @@ Some shortcuts in nano:
 * `CTRL-k`: cut
 * `CTRL-u`: uncut
 
+### Creating Directories
+
+To create a directory, one can use the `mkdir` command. Just specify the name of the directory after the command as an argument.
+
+```bash
+nico@biosdeb:~$ mkdir files
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  Videos
+```
+
+When trying to create a directory with a name that already exists, linux will stop you in your tracks.
+
+```bash
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  Videos
+nico@biosdeb:~$ mkdir files
+mkdir: cannot create directory ‘files’: File exists
+```
+
+Creating nested directories requires the `-p` flag, indicating that parent directories should be created as needed.
+
+```bash
+nico@biosdeb:~$ mkdir this/is/a/deep/directory
+mkdir: cannot create directory ‘this/is/a/deep/directory’: No such file or directory
+nico@biosdeb:~$ mkdir -p this/is/a/deep/directory
+nico@biosdeb:~$
+```
+
+### Copying Files
+
+To copy files on a linux system, one can make use of the `cp` command. It's general syntax is `cp [OPTION] SOURCE DEST`.
+
+It requires that you specify a source and a destination. When successful, the `cp` command will not have any output.
+
+```bash
+nico@biosdeb:~$ cp hello hello.backup
+nico@biosdeb:~$
+```
+
+This can be changed by applying the `-v` option, which will cause the `cp` command to produce output if successful. The `-v` option stands for verbose.
+
+```bash
+nico@biosdeb:~$ cp -v hello hello.backup
+'hello' -> 'hello.backup'
+```
+
+When the destination is a directory, the resulting new file will have the same name as the original file. If you want the new file to have a different name, you must provide the new name as part of the destination.
+
+The `cp` command can be destructive to existing data if the destination file already exists. In the case where the destination file exists, the `cp` command will overwrite the existing file's contents with the contents of the source file. With the `-i` (interactive) option, the `cp` will prompt before overwriting a file. If you want to automatically answer no to each prompt, use the `-n` option. It essentially stands for "no rewrite".
+
+```bash
+nico@biosdeb:~$ cp -vi hello hello.backup
+cp: overwrite 'hello.backup'? y
+'hello' -> 'hello.backup'
+```
+
+::: warning Many commands can be destructive
+Be warned that many commands in the linux shell can be destructive. This means that often these commands will not ask you if you are sure you wish to delete or overwrite certain data. Linux assumes if you are working via the command line, you know what you are doing.
+:::
+
+### Copy Directories
+
+The `cp` command does not copy directories by default.
+
+```bash
+nico@biosdeb:~$ ls files
+hello  project.md
+nico@biosdeb:~$ cp files files_backups
+cp: -r not specified; omitting directory 'files'
+```
+
+However, the `-r` option to the `cp` command will have it copy both files and directories. `-r` stands for recursive.
+
+```bash
+nico@biosdeb:~$ cp -r files files_backups
+nico@biosdeb:~$ ls files_backups
+hello  project.md
+```
+
 ## Quick Recap on Filesystem Commands
 
 The most used commands to traverse and manipulate the file system of a Linux system are listed in the table below. You can always use the man-command to get a more detailed description.
 
-| Command | Options | Arguments | Description |
+| Command | Common Options | Arguments | Description |
 | ---- | ---- | ---- | ---- |
 | `pwd` |  |  | Print working dir |
 | `ls` | `-l` (long format), `-a` (all), `-h` (human readable) | absolute path / relative path / `~`, `..` or `.` | List files and directories |
 | `cd` |  | absolute path / relative path / `~`, `..` or `.` | Change working dir |
+| `cat` |  | FILE(S) | Concatenate files and output to terminal |
+| `touch` |  | FILE(S) | Update timestamps of existing file or create an empty file |
+| `mkdir` | `-p` (create parents as needed) | DIRS | Creating directories |
+| `cp` | `-v` (verbose output), `-i` (interactive), `-r` (recursive) | SOURCE DESTINATION | Copy files |
 
-<!-- | `cp` | ---- | ---- | Copy files |
+
+
+<!--
 | `rm` | ---- | ---- | Remove files |
 | `mv` | ---- | ---- | Move files |
-| `cat` | ---- | ---- | Concatenate files and output to terminal |
-| `touch` | ---- | ---- | Create an empty file |
-| `mkdir` | ---- | ---- | Make directory |
 | `rmdir` | ---- | ---- | Remove an empty directory | -->
 
 
