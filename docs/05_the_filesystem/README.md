@@ -96,6 +96,32 @@ Hidden files always start with a `.`. That is why the `.git` directory in a git 
 
 The first two entries, `.` and `..` have a special meaning. The `.` directory is a shortcut that means "the current directory". This is often used when executing shell scripts in the current directory. The `..` directory is a shortcut that means "the current directory's parent directory". In other words, one directory up.
 
+### Recursive Listing
+
+There will be times when you want to display all of the files in a directory as well as all of the files in all subdirectories under a directory. This is called a **recursive listing**. To perform a recursive listing, use the `-R` option to the `ls` command.
+
+```shell
+nico@biosdeb:~$ ls -R
+.:
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+./Desktop:
+./Documents:
+./Downloads:
+./Music:
+./Pictures:
+./Public:
+./Templates:
+./Videos:
+```
+
+::: warning Recursive Listing Large Hierarchies
+Try the command `ls -R /` to recursively list the whole filesystem. Use CTRL-C to stop the command.
+:::
+
+::: tip tree
+A more visual tool for listing directories recursively is the `tree` tool. You can install it using the command `sudo apt install tree`.
+:::
+
 ## Traversing the Filesystem
 
 Now that you can find out where you are in the file system and see what is around you, it is time to learn how to move throughout the file system.
@@ -465,7 +491,7 @@ The most used commands to traverse and manipulate the file system of a Linux sys
 | Command | Common Options | Arguments | Description |
 | ---- | ---- | ---- | ---- |
 | `pwd` |  |  | Print working dir |
-| `ls` | `-l` (long format), `-a` (all), `-h` (human readable) | absolute path / relative path / `~`, `..` or `.` | List files and directories |
+| `ls` | `-l` (long format), `-a` (all), `-h` (human readable), `-R` (recursive) | absolute path / relative path / `~`, `..` or `.` | List files and directories |
 | `cd` |  | absolute path / relative path / `~`, `..` or `.` | Change working dir |
 | `cat` |  | FILE(S) | Concatenate files and output to terminal |
 | `touch` |  | FILE(S) | Update timestamps of existing file or create an empty file |
