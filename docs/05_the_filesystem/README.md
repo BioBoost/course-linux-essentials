@@ -11,11 +11,11 @@ A filesystem typically allows us to store both files and directories. **Files ar
 
 The way the linux filesystem is structured is quitte different from the way Windows handles it. On a Windows system, the top level of the directory structure is called `My Computer`.
 
-![](./img/windows_my_computer.png)
+![My Computer on Windows](./img/windows_my_computer.png)
 
 Each physical device (hard drive, DVD drive, USB thumb drive, network drive, etc.) shows up under `My Computer`, each assigned a drive letter, such as `C:` or `D:`.
 
-![](./img/windows_drives.png)
+![Device Hierarchy on Windows](./img/windows_drives.png)
 
 Each device may have a certain filesystem on it (examples are FAT, FAT32, NTFS, ...).
 
@@ -25,7 +25,7 @@ Like Windows, a Linux directory structure has a top level, however it is not cal
 
 There are also **no drives in Linux**. Each physical device is accessible under a directory, not a drive letter.
 
-![](./img/linux_root.png)
+![Linux Root](./img/linux_root.png)
 
 Linux inherits many of its concepts of filesystem organization from its Unix predecessors. As far back as 1979, Unix was establishing standards to control how compliant systems would organize their files.
 
@@ -231,25 +231,81 @@ Let's take a closer look at the different directories which can be found under t
 
 **/var** - This directory is supposed to contain **variable data**. In practice, this means it is used to contain information or directories that you expect to grow as the system is used. For example, **system logs** and **backups** are housed here. Another popular use of this directory is to store **web content if you are operating a web server**.
 
-## Overview of Basic Filesystem Commands
+## Basic Filesystem Manipulation
 
-<!-- TODO: These should be further elaborated. Next year. -->
+While looking at files and directories is all nice, but in the end you will probable want to create your own directories and files. For this you will need to enlarge your command line toolset a bit more.
 
-### Outputting the content of a file
+### Viewing File Content
 
-To output the content of one or more files to the terminal, use the `cat` command. The general syntax is `cat file1 file2 ...`. The `cat` command actually concatenates the content of the files specified and outputs it to the terminal.
+To output the content of one or more files to the terminal, use the `cat` command. The general syntax is `cat file1 file2 ...`. The `cat` command actually **concatenates the content of the files specified** and outputs it to the terminal.
 
-Try all the examples below and notice the difference:
+To view for example the file systems that are mounted on your current setup, you can view the file `/etc/fstab`.
 
-* `cat /etc/passwd`
-* `cat /proc/cpuinfo`
-* `cat /proc/cpuinfo /proc/meminfo`
+```bash
+cat /etc/fstab
+```
+
+Or to display some information about the CPU of your system, check the kernel mapped file `/proc/cpuinfo`.
+
+```bash
+cat /proc/cpuinfo
+```
 
 Want to find out what shells are available on your system, then display the content of the file `/etc/shells` using the command `cat /etc/shells`.
 
-The most used commands to traverse and manipulate the file system of a Linux system are listed in the table below. You can always use the man-command to get a detailed description.
+```bash
+nico@biosdeb:/etc$ cat /etc/shells
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/bin/dash
+/usr/bin/dash
+```
+
+### Creating a File
+
+There are several ways of creating a new file, including using a program designed to edit a file (a text editor).
+
+One of the most common command line tools used to create an empty file, is the `touch` command.
+
+```bash
+nico@biosdeb:~$ touch hello
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  hello  Music  Pictures  Public  Templates  Videos
+```
+
+::: tip Touch
+Touch is actually not intended to be used as a command to create files. It's primary use is to update the timestamps (creation and modification) on files to the current time. As a side-effect, if the file is non-existent, it is created.
+:::
+
+### Editing files
+
+A file can be edited using a text-editor. Many command line editors exist. From basic usage to full blown programming tools.
+
+Some beginner friendly editors are `nano` and `joe`. More common editors used for programming are `vim` and `emacs`.
+
+`nano` should be pre-installed on your system. Use it to edit the content of a file in your home directory. If you specify a file that doesn't exist yet, nano will create it for you.
+
+```bash
+nico@biosdeb:~$ nano hello
+```
+
+![Nano Text Editor](./img/nano.png)
+
+Some shortcuts in nano:
+
+* `CTRL-x`: exit
+* `CTRL-c`: cancel
+* `CTRL-o`: write to filesystem
+* `CTRL-k`: cut
+* `CTRL-u`: uncut
 
 ## Quick Recap on Filesystem Commands
+
+The most used commands to traverse and manipulate the file system of a Linux system are listed in the table below. You can always use the man-command to get a more detailed description.
 
 | Command | Options | Arguments | Description |
 | ---- | ---- | ---- | ---- |
