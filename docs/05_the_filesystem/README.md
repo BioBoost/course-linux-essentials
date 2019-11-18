@@ -382,6 +382,32 @@ nico@biosdeb:~$ ls files_backups
 hello  project.md
 ```
 
+### Moving Files and Directories
+
+To move a file, use the `mv` command. The syntax for the `mv` command is much like the `cp` command.
+
+If the destination for the `mv` command is a directory, the file will be moved to the directory specified. The file name will change only if a destination file name is also specified.
+
+```bash
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  files  linux-commands  Music  Pictures  Public  Templates  this  Videos
+nico@biosdeb:~$ mv linux-commands files
+nico@biosdeb:~$ ls
+Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  this  Videos
+nico@biosdeb:~$ ls files
+hello  linux-commands  project.md
+```
+
+Like the `cp` command, the `mv` command provides the following options:
+
+* `-i` - Interactive move: ask if a file is to be overwritten.
+* `-n` - Do not overwrite a destination files' contents
+* `-v` - Verbose: show the resulting move
+
+There is no `-r` option as the `mv` command will by default move directories!
+
+When a file is moved, the file is removed from the original location and placed in a new location. This can be somewhat tricky in Linux because users need specific permissions to remove files from a directory. If you don't have the right permissions, you will receive a "Permission denied" error message.
+
 ## Quick Recap on Filesystem Commands
 
 The most used commands to traverse and manipulate the file system of a Linux system are listed in the table below. You can always use the man-command to get a more detailed description.
@@ -393,12 +419,10 @@ The most used commands to traverse and manipulate the file system of a Linux sys
 | `cd` |  | absolute path / relative path / `~`, `..` or `.` | Change working dir |
 | `cat` |  | FILE(S) | Concatenate files and output to terminal |
 | `touch` |  | FILE(S) | Update timestamps of existing file or create an empty file |
-| `mkdir` | `-p` (create parents as needed) | DIRS | Creating directories |
-| `cp` | `-v` (verbose output), `-i` (interactive), `-r` (recursive) | SOURCE DESTINATION | Copy files |
-
-
+| `mkdir` | `-p` (create parents as needed) | DIRS | Create directories |
+| `cp` | `-v` (verbose output), `-i` (interactive), `-r` (recursive) | SOURCE DESTINATION | Copy files/directories |
+| `mv` | `-v` (verbose output), `-i` (interactive) | SOURCE DESTINATION | Move files/directories |
 
 <!--
 | `rm` | ---- | ---- | Remove files |
-| `mv` | ---- | ---- | Move files |
 | `rmdir` | ---- | ---- | Remove an empty directory | -->
