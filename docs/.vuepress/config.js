@@ -12,7 +12,8 @@ module.exports = {
         '/02_using_linux/',
         '/03_the_command_line/',
         '/04_getting_help/',
-        '/05_the_filesystem/'
+        '/05_the_filesystem/',
+        '/06_ownership_and_permissions/'
       ]
     },
     sidebarDepth: 1,
