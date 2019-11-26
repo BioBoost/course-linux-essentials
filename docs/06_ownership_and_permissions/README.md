@@ -40,6 +40,8 @@ vboxadd:x:999:1::/var/run/vboxadd:/bin/false
 
 ![passwd entries](./img/passwd_entries.png)
 
+Although, most commands will usually show the user owner as a name, the operating system is actually associating the user ownership with the `UID` for that user name. This is also reflected in the `/etc/passwd` file.
+
 ### Super user
 
 In addition to the two user types, there is the **superuser**, or **root user**, who has the ability to override any file ownership and permission restrictions. In practice, this means that the superuser has the rights to access anything on his/her own server. This user is used to make system-wide changes, and must be kept secure.
@@ -99,6 +101,45 @@ For example `id bioboost` would output:
 uid=1000(bioboost) gid=1000(bioboost) groups=1000(bioboost),4(adm),
 24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),110(sambashare)
 ```
+
+Similar to user ownership, the association of a file with a group is not actually done internally by the operating system by name, but by the `GID` of the group.
+
+## Adding Users to the System
+
+<!-- Needs some refactoring later on -->
+
+Adding users to the system can be achieved using the command line tools `useradd` or `adduser`.
+
+`useradd` is native binary compiled with the system. `adduser` is a perl script which uses `useradd` binary in back-end. `adduser` is more user friendly and interactive than its back-end `useradd`. There's no difference in features provided.
+
+To create a new user account named `mark` using the `adduser` command one would run:
+
+```bash
+nico@biosdeb:/tmp$ sudo adduser mark
+[sudo] password for nico:               
+Adding user `mark' ...
+Adding new group `mark' (1001) ...
+Adding new user `mark' (1001) with group `mark' ...
+Creating home directory `/home/mark' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for mark
+Enter the new value, or press ENTER for the default
+	Full Name []: Mark Jenkins
+	Room Number []: 101
+	Work Phone []: 0
+	Home Phone []: 0
+	Other []: 
+Is the information correct? [Y/n] Y
+```
+
+From this point on `mark` can log in to the system.
+
+::: tip Switching Users
+To switch to another user account, use the `su` command. However if not logged in as root, one will need to provide the password of the user account that is being switched to. When logged in as root, or when prefixing the `su` command with `sudo`, the switch can be made without having to enter the user account password. Example: `sudo su mark`
+:::
 
 ## File Metadata
 
@@ -167,9 +208,9 @@ Dissecting the above output a bit results in the next diagram.
    * Every directory contains the "." link that points back to itself. So that gives the minimum value of 2 links per directory.
    * Every subdirectory has a ".." link that points back to its parent, incrementing the link count on the parent directory by one for each subdirectory created.
 
-4. The following part contains the **user** that owns the file.
+4. The following part contains the **user** that owns the file. By default, users will own the files that they create. While this ownership can be changed, this function requires administrative privileges.
 
-5. Next is the **group** on which the group permissions are applied. Members of this group will have these permissions applied when they want to access the file/directory.
+5. Next is the **group** on which the group permissions are applied. Members of this group will have these permissions applied when they want to access the file/directory. By default, the primary group of the user who creates the file will be the group owner of any new files. Users are allowed to change the group owner of a file to any group that they belong. 
 
 6. After the group comes the **file size** in bytes (unless you provided the `-h` flag to `ls` to request human readable file sizes). For directories this does not actually describe the total size of the directory, but rather how many bytes are reserved to track the filenames in the directory.
 
@@ -238,3 +279,83 @@ While a bit weird, the permissions `--x` do not allow the user to traverse to th
 :::
 
 As you may have noticed, the owner of a file usually enjoys the most permissions, when compared to the other two classes. Typically, you will see that the group and other classes only have a subset of the owner's permissions (equivalent or less).
+
+## Changing Ownership
+
+To change the ownership of files and directories the `chown` (change owner) and `chgrp` (change group) commands can be used.
+
+To change the owner of a file, use the `chown` command followed by the new owner and the file you wish to change. For example to set `mark` as the owner of the file `/tmp/test.txt`, execute:
+
+```bash
+chown mark /tmp/test.txt
+```
+
+This command can also be used to change the group. In this case the name of the group needs to be prefixed with a color `:` as shown in the next example.
+
+```bash
+chown :teachers /tmp/test.txt
+```
+
+To change both the owner and group separate both using a colon `:`.
+
+```bash
+chown mark:teachers /tmp/test.txt
+```
+
+All these commands can also be executed recursively by adding `-R` as an argument. This will change the owner, group or mode (according to the issued command) for the given directory and all files and other directories inside that specified directory. Be careful when using the recursive argument as it can really mess up your day, especially in combination with the `sudo` prefix.
+
+::: tip Temporary Files
+If you wish to experiment with the permissions, feel free to create some files and directories below `/tmp`. No harm to experiment there. Restarting the system will remove all the files and reset the temporary filesystem.
+:::
+
+## Changing Permissions
+
+On Linux and other Unix-like operating systems, there is a set of rules for each file which defines who can access that file, and how they can access it. These rules are called file permissions or file modes. The command `chmod` stands for "change mode", and it is used to define the way a file can be accessed.
+
+In general, the `chmod` command take the following form:
+
+```bash
+chmod <options> <permissions> <filenames>
+```
+
+Permissions define the permissions for the owner of the file (the "user"), members of the group who own the file (the "group"), and anyone else ("others"). There are two ways to represent these permissions: with symbols (alphanumeric characters), or with octal numbers (the digits 0 through 7).
+
+##### Symbolic
+
+The `chmod` has a really user friendly approach for changing user permissions. All you need to do is specify the class (user, group or others), the type of change (adding, removing or setting the permissions) and the permissions themselves (read, write or execute). This can all be done using a symbolic approach.
+
+* The letters `u`, `g`, and `o` stand for "user", "group", and "other".
+* The equals sign `=` means "set the permissions exactly like this"
+* The equal sign can also be replaced by a plus sign `+` or a minus sign `-`. This respectively adds the permissions or removes permissions for the user, group or others.
+* The letters `r`, `w`, and `x` stand for "read", "write", and "execute", respectively.
+* The commas separate the different classes of permissions, and there are no spaces in between them.
+
+The next table shows some examples.
+
+| Command | Description |
+| ---- | ---- |
+| `chmod g+w /tmp/file` | Add write permissions for the group |
+| `chmod g-x /tmp/file` | Remove executions permissions from the group |
+| `chmod ugo+r /tmp/file` | Give the owner, group and others read permissions |
+| `chmod u+rwx,g-x,o-rwx /tmp/file` | Give the owner all the permissions, take away the execute permissions for the group and give none to the rest. |
+| `chmod u=rw,g=rw,o=r /tmp/file` | Give the owner read and write permissions, same as the group and leave other wist just read permissions |
+
+<!-- Maybe add before and after to examples above -->
+
+##### Octal numbers
+
+In this case an octal value specifies the permissions for each class. Here the digits `7`, `5`, and `4` each individually represent the permissions for the user, group, and others, in that order. Each digit is a combination of the numbers `4`, `2`, `1`, and `0`:
+
+* `4` stands for "read",
+* `2` stands for "write",
+* `1` stands for "execute", and
+* `0` stands for "no permission."
+
+For example:
+
+* `chmod 700 /tmp/file` will result in `rwx------`
+* `chmod 744 /tmp/file` will result in `rwxr--r--`
+* `chmod 664 /tmp/file` will result in `rw-rw-r--`
+
+<!-- TODO: -->
+<!-- Creation mode -->
