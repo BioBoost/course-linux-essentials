@@ -48,7 +48,7 @@ In addition to the two user types, there is the **superuser**, or **root user**,
 
 Changing to the superuser can be achieved by executing the command `su`, after which you are required to provide the password of the root user. Once logged in as the root user, notice how the prompt changes from `$` to `#`.
 
-Be carefull because the root user has the ability to do anything on the system. When executing commands as the root user there are some disadvantages that need to be kept in mind:
+Be careful because the root user has the ability to do anything on the system. When executing commands as the root user there are some disadvantages that need to be kept in mind:
 
 * no record of system altering commands
 * no record of the user that performed the system altering commands
@@ -219,6 +219,20 @@ Dissecting the above output a bit results in the next diagram.
 ::: tip Directory Link Counts and Hidden Directories
 Interesting dissection on where the link count comes from [Directory Link Counts and Hidden Directories](https://digital-forensics.sans.org/blog/2009/06/19/directory-link-counts-and-hidden-directories).
 :::
+
+Even more detailed information about a file can be obtained using the `stat` command.
+
+```bash
+nico@biosdeb:/tmp$ stat test.txt 
+  File: test.txt
+  Size: 6         	Blocks: 8          IO Block: 4096   regular file
+Device: 801h/2049d	Inode: 661187      Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 1000/    nico)   Gid: ( 1000/    nico)
+Access: 2019-11-26 09:45:19.271159998 +0100
+Modify: 2019-11-26 09:45:16.124734000 +0100
+Change: 2019-11-26 09:45:16.124734000 +0100
+ Birth: -
+```
 
 ## About Ownership and Permissions
 
