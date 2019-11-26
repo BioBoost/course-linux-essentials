@@ -13,7 +13,8 @@ module.exports = {
         '/03_the_command_line/',
         '/04_getting_help/',
         '/05_the_filesystem/',
-        '/06_ownership_and_permissions/'
+        '/06_ownership_and_permissions/',
+        '/08_remote_access/'
       ]
     },
     sidebarDepth: 1,

@@ -266,7 +266,7 @@ Here is a quick breakdown of the access that the three basic permission types gr
 
 * Write
   * For a normal file, write permission allows a user to modify and delete the file.
-  * For a directory, write permission allows a user to delete the directory, modify its contents (create, delete, and rename files in it), and modify the contents of files that the user can read.
+  * For a directory, write permission allows a user to delete the directory or modify its contents (create, delete, and rename files in it).
 
 * Execute
   * For a normal file, execute permission allows a user to execute a file (the user must also have read permission). As such, execute permissions must be set for executable programs and shell scripts before a user can run them.
@@ -289,7 +289,7 @@ Let's see some examples
 | `d` | `rwxrw---` | `mark` | `developers` | `mark` (the owner of the directory) has full control. `developers` can list the directory content but cannot traverse to it using `cd` or access any of its files. |
 
 ::: warning Read but not Traverse
-While a bit weird, the permissions `--x` do not allow the user to traverse to the directory or list its content. It does however not restrict access to existing files. Another example of this is an upload directory which is often given the permissions `-wx`. This allows you to traverse to the directory and create new files. However you can only access files you know of, because you can't list the existing files inside of the directory.
+While a bit weird, the permissions `--x` do not allow the user to list the content of the directory, it does however not restrict access to existing files. Another example of this is an upload directory which is often given the permissions `-wx`. This allows you to traverse to the directory and create new files. However you can only access files you know of, because you can't list the existing files inside of the directory.
 :::
 
 As you may have noticed, the owner of a file usually enjoys the most permissions, when compared to the other two classes. Typically, you will see that the group and other classes only have a subset of the owner's permissions (equivalent or less).
