@@ -14,6 +14,7 @@ module.exports = {
         '/04_getting_help/',
         '/05_the_filesystem/',
         '/06_ownership_and_permissions/',
+        '/08_remote_access/',
         '/10_linux_on_the_raspberry_pi/'
       ]
     },
