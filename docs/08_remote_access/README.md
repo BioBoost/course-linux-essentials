@@ -174,3 +174,78 @@ Copying the files "foo.txt" and "bar.txt" from the local host to your home direc
 ```bash
 scp foo.txt bar.txt <username>@<remotehost>:~
 ```
+
+## Setting up a Share
+
+To share network folders to a Windows computer we need to install some special software on the Raspberry Pi. The software providing the secret sauce this time is called *Samba*. The Samba software package implements the SMB protocol and provides support for the Windows naming service (WINS) and for joining a Windows Workgroup.
+
+Installing the software using the commands below:
+
+```bash
+sudo apt-get update
+sudo apt-get install samba samba-common-bin
+```
+
+After installation configure the software by opening the file `/etc/samba/smb.conf` using nano.
+
+```bash
+sudo nano /etc/samba/smb.conf
+```
+
+Read through the file and make sure you have the following parameters set:
+
+```text
+workgroup = WORKGROUP
+wins support = yes
+```
+
+You can use anything as your workgroup name as long as it is alphanumerical and matches the workgroup you would like to join. The default workgroup in Windows 7, 8 and 10 is WORKGROUP.
+
+### Setup a folder to share
+
+Next step is to create the folder you would like to share. To create a folder called `pi_share` in your home directory do the following:
+
+```bash
+mkdir ~/pi_share
+```
+
+With the folder created we can now tell the Samba software to share it on the network. Open the file `/etc/samba/smb.conf` using nano.
+
+```bash
+sudo nano /etc/samba/smb.conf
+```
+
+Scroll to the bottom and add the following:
+
+```config
+# Sharing our Raspberry Pi directory
+[pi_share]
+ comment=Raspberry Pi Share
+ path=/home/pi/pi_share
+ browseable=Yes
+ writeable=Yes
+ only guest=no
+ public=no
+ create mask=0664
+ directory mask=0775
+```
+
+Notice how we tell Samba that public access is not allowed via `public=no` – this means that anyone wanting to access the shared folder must login with a valid user.
+
+In this case the valid user is the user called `pi`. To set the Samba access password for the `pi` user, execute the `smbpasswd` command.
+
+```bash
+sudo smbpasswd -a pi
+```
+
+**Restart the Samba service** using `sudo service smbd restart`.
+
+### Opening the shared folder from Windows
+
+Now you should be able to traverse to the share using the network url: `\\<ip>\pi_share`. It will request the credentials of the `pi` user so enter the password of the Samba `pi` user.
+
+![RPi Network Share](./img/network_share.png)
+
+Make sure to regularly backup the folder so you don't lose any projects during the course.
+
+<!-- How about MAC and Linux? -->
