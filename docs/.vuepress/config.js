@@ -16,7 +16,8 @@ module.exports = {
         '/06_ownership_and_permissions/',
         '/07_package_managers/',
         '/08_remote_access/',
-        '/10_linux_on_the_raspberry_pi/'
+        '/10_linux_on_the_raspberry_pi/',
+        '/11_basic_shell_scripting/',
       ]
     },
     sidebarDepth: 1,
