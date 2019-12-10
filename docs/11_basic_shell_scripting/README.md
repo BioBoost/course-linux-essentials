@@ -304,9 +304,9 @@ The condition is a bit different from the conditions we know from programming la
 
 #### Exit status
 
-A first option for the condition can be the exit status of a command. Each command or program that is executed will end with a status code between 0 and 255 (can be negative on windows). By convention, the value 0 means that everything went fine, while an exit status different from 0 means that something went wrong.
+A first option for the condition can be the exit status of a command. Each command or program that is executed will end with a status code between `0` and `255` (can be negative on windows). By convention, the value `0` means that everything went fine, while an exit status different from `0` means that something went wrong.
 
-You can actually output the return values of Linux system commands such as ls and all by echoing `$?` on the command line. Try the following example:
+You can actually output the return values of Linux system commands such as `ls` and all by echoing `$?` on the command line. Try the following example:
 
 ```bash
 nico@biosdeb:~$ ls /usr/bin
@@ -314,7 +314,7 @@ nico@biosdeb:~$ echo $?
 0
 ```
 
-The status of 0 indicates all went well.
+The status of `0` indicates all went well.
 
 Now try:
 
@@ -333,15 +333,15 @@ Putting it all together you can build an if statement based on the output of a c
 #!/usr/bin/env bash
 
 if touch /usr/bin/hello; then
-    echo "Created hello in bin"
+  echo "Created hello in bin"
 else
-    echo "Failed to create hello in bin."
+  echo "Failed to create hello in bin."
 fi
 
 if touch /tmp/hello; then
-    echo "Created hello in tmp"
+  echo "Created hello in tmp"
 else
-    echo "Failed to create hello in tmp."
+  echo "Failed to create hello in tmp."
 fi
 ```
 
@@ -349,7 +349,7 @@ This construct is less used but can sometimes be helpful.
 
 #### Testing
 
-The test condition is most often used for the if statement. While there are two syntactically different form, both work exactly the same.
+The test condition is most often used for the if statement. While there are two syntactically different forms, both work exactly the same.
 
 ```bash
 #!/usr/bin/env bash
