@@ -107,6 +107,81 @@ echo "My name is $MYNAME"
 
 <!-- Need to explain that we can also place {} around the variable. Example $MY_NAME_file.txt would not work -->
 
+### Command Line Arguments
+
+When starting a script, one can pass command line arguments as shown next:
+
+```bash
+nico@biosdeb:~$ ./hello mark
+```
+
+These are accessible through variables in the script.
+
+An overview:
+
+| Variable | Description |
+| ---- | ---- |
+| `$0` | First command line argument (name of script) |
+| `$1` - `$...` | One for each command line argument |
+| `$@` | All command line arguments (except `$0`) |
+| `$#` | Number of command line arguments |
+
+Example script:
+
+```bash
+#!/usr/bin/env bash
+
+echo
+echo "Number of arguments: $#"
+echo "First: $0"
+echo "Second: $1"
+echo "All: $@"
+```
+
+Execution example:
+
+```bash
+nico@biosdeb:~$ ./hello my name is nico
+
+Number of arguments: 4
+First: ./demo
+Second: my
+All: my name is nico
+```
+
+If you wish the whole sentence to be treated as a single argument, you need to place quotes around the arguments.
+
+```bash
+nico@biosdeb:~$ ./hello "my name is nico"
+
+Number of arguments: 1
+First: ./demo
+Second: my name is nico
+All: my name is nico
+```
+
+## Reading Input from User
+
+You can read input from the user using the `read` command.
+
+```bash
+#!/usr/bin/env bash
+
+echo "Please enter your full name"
+read fullname
+
+echo "Welcome to bash $fullname"
+```
+
+Running the script
+
+```bash
+nico@biosdeb:~$ ./demo
+Please enter your full name
+Nico De Witte
+Welcome to bash Nico De Witte
+```
+
 ## Command substitution
 
 You can substitute the output of a command into your script by using a dollar sign `$` followed by parentheses. Let's for example say we want to combine the output of a `cat` command with the output of a `date` command to make some sort of log entry.
