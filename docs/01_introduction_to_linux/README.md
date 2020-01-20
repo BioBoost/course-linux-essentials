@@ -94,3 +94,6 @@ Because everything in Red Hat Enterprise Linux is open source, a project called 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aurDHyL7bTA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jowCUo_UGts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<!-- Ideas: Maybe we should give an overview here of all the things this course is going to cover. -->
+<!-- Short introduction into each and how they are tight together. -->
