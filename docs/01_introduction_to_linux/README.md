@@ -113,3 +113,22 @@ Because everything in Red Hat Enterprise Linux is open source, a project called 
 
 <!-- Ideas: Maybe we should give an overview here of all the things this course is going to cover. -->
 <!-- Short introduction into each and how they are tight together. -->
+
+
+<!-- This chapter needs a serious refactor. Maybe we should speak about the difference between graphics and non-graphics mode. Then difference between linux for a developer and linux as a server os. Best practices? -->
+
+Linux can be used in one of two ways: Graphically and non-graphically.
+
+<!-- Screenshots here -->
+
+Most servers will be running in non-graphically mode, since people don't log into them directly, which makes a graphical interface a waste of resources.
+
+If you log in through non-graphical mode, you're immediately at the console. If you log in graphically, then you'll need to launch a graphical shell which is just a text console with a window around it so that you can resize and move it around.
+
+Linux doesn't care if you are on the keyboard of a computer or connecting over the Internet, so you'll want to take some basic precautions to make sure your data is safe and secure.
+
+* Use strong passwords or passphrases
+* Check for updates on a daily basis
+* Use a firewall to block undesired connections
+* Use an antivirus tool
+* Use SSH (Secure Shell) for remote management
