@@ -1,5 +1,7 @@
 # Linux Essentials
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/98253275-d374-47c3-ac28-833970eb61fc/deploy-status)](https://app.netlify.com/sites/linux-essentials/deploys)
+
 Welcome to the draft version of this Linux Essentials Course for VIVES University of Applied Sciences in Bruges.
 
 Comments and additions are more than welcome.
