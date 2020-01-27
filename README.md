@@ -6,10 +6,12 @@ Comments and additions are more than welcome.
 
 ## Development
 
+The static site is generated from markdown using VuePress.
+
 Setup local dev server
 
 ```shell
-npm run docs:dev
+yarn run docs:dev
 ```
 
 ## License
