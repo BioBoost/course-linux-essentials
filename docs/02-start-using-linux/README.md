@@ -1,9 +1,9 @@
 ---
 description: ....
-title: 02 - Using Linux
+title: 02 - Start Using Linux
 ---
 
-# Chapter 02 - Using Linux
+# Chapter 02 - Start Using Linux
 
 Starting with Linux has neven been easier than the last few years. Several Linux operating systems have become extremely user friendly and approachable the last decade. Even the installation process of many distributions have become ridiculously easy.
 

@@ -9,7 +9,7 @@ module.exports = {
       '/': [
         '',
         '/01_introduction_to_linux/',
-        '/02_using_linux/',
+        '/02-start-using-linux/',
         '/03_the_command_line/',
         '/04_getting_help/',
         '/05_the_filesystem/',
