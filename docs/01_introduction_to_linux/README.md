@@ -5,7 +5,13 @@ title: 01 - Introduction to Linux
 
 # Chapter 01 - Introduction to Linux
 
+Most people these days have heard of Linux but cannot always place it. Many know it has something to do with computers but thats it.
+
+Wel basically Linux is the heart (kernel) of many operatings systems, including Android. Many operatings systems these days are Linux-based and therefore are using a Linux kernel. Some popular examples include Ubuntu, Debian, Fedora, Red Hat ...
+
 ## A Brief History
+
+Linux has come a far way since 1991 where it came to life by the hands by Linus Torvalds. To get an idea about the history, the following sections will introduce the most important milestones in its history.
 
 ### UNIX
 
@@ -73,6 +79,34 @@ A Linux distribution is usually built around a package management system, which 
 
 Some popular distributions are listed below.
 
+Red Hat
+
+Suse
+
+Debian
+
+Raspbian
+
+OpenWRT
+
+Fedora
+
+OpenSuse
+
+Ubuntu
+
+Kali
+
+CentOS
+
+Linux Mint
+
+
+
+
+
+
+
 #### Ubuntu
 
 ![Ubuntu](./img/ubuntu.png)
@@ -132,3 +166,7 @@ Linux doesn't care if you are on the keyboard of a computer or connecting over t
 * Use a firewall to block undesired connections
 * Use an antivirus tool
 * Use SSH (Secure Shell) for remote management
+
+
+
+However, UNIX is now both a trademark and a specification, owned by an industry consortium called the Open Group. Only software that has been certified by the Open Group may call itself UNIX. Despite adopting all the requirements of the UNIX specification, Linux has not been certified, so Linux really isn’t UNIX! It’s just… UNIX-like.
