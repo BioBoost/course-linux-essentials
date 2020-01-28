@@ -5,6 +5,7 @@ module.exports = {
     nav: [
       {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
       {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
+      {text: 'Report Issue', link: 'https://www.devbit.courses/'},
     ],
     sidebar: {
       // fallback
@@ -25,7 +26,8 @@ module.exports = {
     sidebarDepth: 1,
     repo: 'BioBoost/course_programming_from_base_to_ace',
     docsDir: 'docs',
-    docsBranch: 'master'
+    docsBranch: 'master',
+    lastUpdated: 'Last Updated', // string | boolean
   },
   markdown: {
     lineNumbers: true,
