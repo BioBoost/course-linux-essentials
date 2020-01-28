@@ -1,7 +1,7 @@
 {
-  "name": "course_programming_from_base_to_ace",
+  "name": "course_linux_essentials",
   "version": "0.0.1",
-  "description": "CSharp Programming Course for VIVES University of Applied Sciences (Bachelor Degree)",
+  "description": "Linux Essentials Course for VIVES University of Applied Sciences (Bachelor Degree)",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BioBoost/course_programming_from_base_to_ace.git"
+    "url": "git+https://github.com/BioBoost/course_linux_essentials.git"
   },
   "keywords": [
     "csharp",
@@ -23,9 +23,9 @@
   "author": "Nico De Witte <aka BioBoost>",
   "license": "SEE LICENSE IN README.md",
   "bugs": {
-    "url": "https://github.com/BioBoost/course_programming_from_base_to_ace/issues"
+    "url": "https://github.com/BioBoost/course_linux_essentials/issues"
   },
-  "homepage": "https://github.com/BioBoost/course_programming_from_base_to_ace#readme",
+  "homepage": "https://github.com/BioBoost/course_linux_essentials#readme",
   "devDependencies": {
     "vuepress": "^1.2.0",
     "vuepress-plugin-zooming": "^1.1.7"
