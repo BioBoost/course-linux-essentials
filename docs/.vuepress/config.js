@@ -28,6 +28,7 @@ module.exports = {
     docsDir: 'docs',
     docsBranch: 'master',
     lastUpdated: 'Last Updated', // string | boolean
+    smoothScroll: true
   },
   markdown: {
     lineNumbers: true,
