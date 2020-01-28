@@ -144,7 +144,7 @@ Execution example:
 nico@biosdeb:~$ ./hello my name is nico
 
 Number of arguments: 4
-First: ./demo
+First: ./hello
 Second: my
 All: my name is nico
 ```
@@ -155,7 +155,7 @@ If you wish the whole sentence to be treated as a single argument, you need to p
 nico@biosdeb:~$ ./hello "my name is nico"
 
 Number of arguments: 1
-First: ./demo
+First: ./hello
 Second: my name is nico
 All: my name is nico
 ```
