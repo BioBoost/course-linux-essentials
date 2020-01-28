@@ -3,6 +3,8 @@ module.exports = {
   description: 'Linux Essentials Course for VIVES University of Applied Sciences (Bachelor Degree)',
   themeConfig: {
     nav: [
+      {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
+      {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
     ],
     sidebar: {
       // fallback
