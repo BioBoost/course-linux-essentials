@@ -5,13 +5,112 @@ title: 01 - Introduction to Linux
 
 # Chapter 01 - Introduction to Linux
 
-Most people these days have heard of Linux but cannot always place it. Many know it has something to do with computers but thats it.
+Most youngsters these days have heard of Linux and many of them may know it as an operating system for a computer. But Linux is so much more than that.
 
-Well basically Linux is the heart (kernel) of many op eratings systems, including Android. Many operatings systems these days are Linux-based and therefore are using a Linux kernel. Some popular examples include Ubuntu, Debian, Fedora, Red Hat ...
+Basically Linux is not the operating system itself but rather the heart (kernel) of it. Linux-based operating systems such as Android, Ubuntu, Debian, Fedora, Red Hat ... are bundles of system tools, package managers, libraries, a window manager and so on and the Linux kernel.
 
 ## A Brief History
 
 Linux has come a far way since 1991 where it came to life by the hands by Linus Torvalds. To get an idea about the history, the following sections will introduce the most important milestones in its history.
+
+### 1965 - Multics
+
+Multics (Multiplexed Information and Computing Service) was a **mainframe timesharing operating system** that began at MIT (Massachusetts Institute of Technology) as a research project in 1965. It was a cooperation between MIT, Bell Labs and GE (General Electric). While it was a monstrous system, it also was an important influence on operating system development.
+
+Since it was designed to be a utility, such as electricity and telephone services, it had numerous features to provide high availability and security. Both the hardware and software were highly modular so that the system could grow in size by adding more of the appropriate resource even while the service was running.
+
+The **GE 645 mainframe** was the first computer to run the new Multics operating system.
+
+![GE 645 mainframe](./img/ge_654.jpg)
+
+Multics was partly developed by **Ken Thompson** (UTF-8 character encoding and Google GO language) and **Dennis Ritchie** (invented C programming language).
+
+![Ken Thompson and Dennis Ritchie](./img/ken_thompson_dennis_ritchie.png)
+
+### 1969 - DEC PDP-7
+
+The PDP-7 was a **minicomputer** produced by Digital Equipment Corporation (DEC) as part of the PDP series. With a cost of US$72,000, it was cheap but powerful by the standards of the time. The PDP-7 is the third of Digital's 18-bit machines. The computer I/O includes a keyboard, printer, paper-tape and dual transport DECtape drives. The standard memory capacity is 4K words (9 KB) but expandable up to 64K words (144 KB). The PDP-7 weighed about 500 kg.
+
+![DEC PDP-7](./img/decpdp7.jpg)
+
+**DECsys**, the first operating system for DEC's 18-bit computer family (and DEC’s first operating system for a computer smaller than its 36-bit timesharing systems), was introduced in 1965. It provided an interactive, single user, program development environment for Fortran and assembly language programs.
+
+In 1969, **Ken Thompson and Dennis Ritchie** wrote **Unics** (Uniplexed Information & Computing Service) in assembly language on a PDP-7 as the operating system for **Space Travel**, a game which requires graphics to depict the motion of the planets.
+
+::: tip Unics
+The name actually came from **Brian Kernighan**, the co-author of the book "The C Programming Language" with Richie, also knows as the "K" in *awk*. It was meant as a pun on Multics. Its like Multics, but only simpler as it should of been. It also sounds like a eunuch, which he taught was funny because its like Multics but castrated.
+:::
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/de2Hsvxaf8M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Unics was later renamed to **Unix**, only nobody seems to remember when that happened.
+
+### September 27, 1983 - net.unix-wizards
+
+On *Tue, 27-Sep-83 12:35:59 EST*, **Richard Stallman** wrote the following post on the news group `net.unix-wizards`:
+
+```text
+Free Unix!
+
+Starting this Thanksgiving I am going to write a complete
+Unix-compatible software system called GNU (for Gnu's Not Unix), and
+give it away free(1) to everyone who can use it.
+Contributions of time, money, programs and equipment are greatly
+needed.
+
+To begin with, GNU will be a kernel plus all the utilities needed to
+write and run C programs: editor, shell, C compiler, linker,
+assembler, and a few other things.  After this we will add a text
+formatter, a YACC, an Empire game, a spreadsheet, and hundreds of
+other things.  We hope to supply, eventually, everything useful that
+normally comes with a Unix system, and anything else useful, including
+on-line and hardcopy documentation.
+
+GNU will be able to run Unix programs, but will not be identical
+to Unix.  We will make all improvements that are convenient, based
+on our experience with other operating systems.  In particular,
+we plan to have longer filenames, file version numbers, a crashproof
+file system, filename completion perhaps, ...
+  
+Who Am I?
+  
+I am Richard Stallman, inventor of the original much-imitated EMACS
+editor, now at the Artificial Intelligence Lab at MIT.  I have worked
+extensively on compilers, editors, debuggers, command interpreters, ...
+
+Why I Must Write GNU
+
+I consider that the golden rule requires that if I like a program I
+must share it with other people who like it.  I cannot in good
+conscience sign a nondisclosure agreement or a software license
+agreement.
+
+So that I can continue to use computers without violating my principles,
+I have decided to put together a sufficient body of free software so that
+I will be able to get along without any software that is not free.
+
+...
+```
+
+[Full Post](./free_unix.md)
+
+This first post by Richard started the free software revolution. Historically, most software has been issued under a closed-source license, meaning that you get the right to use the machine code, but cannot see the source code. The open source philosophy is that you have a right to obtain the software, and to modify it for your own use.
+
+**Richard Stallman** (creator of GPL) was looking to create a truly free and open source alternative to the proprietary Unix system. He was working on the utilities and programs under the name **GNU**, a recursive acronym meaning "GNU's not Unix!".
+
+![Richard Stallman](./img/richard_stallman.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### UNIX
 
@@ -145,6 +244,10 @@ Because everything in Red Hat Enterprise Linux is open source, a project called 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jowCUo_UGts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
+
+
+
 <!-- Ideas: Maybe we should give an overview here of all the things this course is going to cover. -->
 <!-- Short introduction into each and how they are tight together. -->
 
@@ -170,3 +273,12 @@ Linux doesn't care if you are on the keyboard of a computer or connecting over t
 
 
 However, UNIX is now both a trademark and a specification, owned by an industry consortium called the Open Group. Only software that has been certified by the Open Group may call itself UNIX. Despite adopting all the requirements of the UNIX specification, Linux has not been certified, so Linux really isn’t UNIX! It’s just… UNIX-like.
+
+
+
+
+
+
+<!-- https://www.youtube.com/watch?v=UjDQtNYxtbU -->
+<!-- https://www.oreilly.com/library/view/running-linux-third/156592469X/ch01s02.html -->
+<!-- https://www.digitalocean.com/community/tutorials/brief-history-of-linux -->
