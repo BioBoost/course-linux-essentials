@@ -251,7 +251,7 @@ with linux are GNU software and are under the GNU copyleft. These tools
 aren't in the distribution - ask me (or GNU) for more info.
 ```
 
-Which came with the [original release notes](./original_realease_notes_linux.md).
+Which came with the [original release notes](./original_release_notes_linux.md).
 
 
 
