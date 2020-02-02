@@ -106,6 +106,8 @@ Several software packages are available to create and run virtual machines. Exam
 Hyper-V, codenamed Viridian and formerly known as Windows Server Virtualization, is a native hypervisor; it can create virtual machines on x86-64 systems. Starting with Windows 8, Hyper-V supersedes Windows Virtual PC as the hardware virtualization component of the client editions of Windows NT.
 :::
 
+<!-- Some more info: https://www.serial-server.net/virtual-machine/ -->
+
 ## Installing Virtual Box
 
 Start by surfing to the download section of the website of VirtualBox ([https://www.virtualbox.org](https://www.virtualbox.org)). Download the VirtualBox platform package for your system. At the moment of this writing the current version of VirtualBox is 6.1.2. When running the installer package make sure to install VirtualBox with all features enabled as shown in the next figure.
