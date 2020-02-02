@@ -403,26 +403,29 @@ Windows 3.1x is a series of 16-bit operating environments produced by Microsoft 
 
 ### December 1992 - Yggdrasil
 
-The **first commercial**, in the sense that it was developed for public consumption rather than in-house use only, Linux distribution was Yggdrasil. This also had the distinction of being the first "Live" Linux CD. You could boot from a diskette and run everything off the CD. This was back in days of 1x and 2x CD-ROM drive speeds so it wasn't exactly setting the world on fire. You could start X then literally go get a cup of coffee before it finished coming up. Yggdrasil had some nice features dealing with configuration, though, especially for the time. It was actually the first Linux distribution that came with a pre-configured X Window System.
+The **first commercial**, in the sense that it was developed for public consumption rather than in-house use only, Linux distribution was **Yggdrasil**. This also had the distinction of being the first "Live" Linux CD. You could boot from a diskette and run everything off the CD. This was back in days of 1x and 2x CD-ROM drive speeds so it wasn't exactly setting the world on fire. You could start X then literally go get a cup of coffee before it finished coming up. Yggdrasil had some nice features dealing with configuration, though, especially for the time. It was actually the first Linux distribution that came with a pre-configured X Window System.
 
 ![Yggdrasil](./img/yggdrasil.png)
 
+### September 15 1993 - Debian
 
+Debian, also known as Debian GNU/Linux, is a Linux distribution composed of free and open-source software, developed by the community-supported Debian Project, which was established by Ian Murdock on August 16, 1993. The first version, Debian 0.01, was released on September 15, 1993. The Debian Stable branch is the most popular edition for personal computers and servers, and is the basis for many other distributions.
 
+Debian is one of the oldest operating systems based on the Linux kernel. Since its founding, Debian has been developed openly and distributed freely according to the principles of the GNU Project. Because of this, the Free Software Foundation sponsored the project from November 1994 to November 1995. When the sponsorship ended, the Debian Project formed the nonprofit organization Software in the Public Interest to continue financially supporting development.
 
+### March 14 1994 - Linux kernel 1.0
 
+Up until this point all Linux distributions were build around a kernel that didn't even hit the 1.0 version yet. Before 1.0 the kernel was still really buggy and unstable. It was very promising and highly functional but it was still buggy.
 
-Now, all of this took place in the span of about 3 years. In those days the speed with which changes happened was unbelievable. By the time '94/'95 came around you started seeing more distributions popping up. Familiar names like Red Hat, Debian, Caldera, TurboLinux, and SuSE were becoming popular. There were also a few other distributions that came and went between '91 and '95. However, they had little impact on the overall direction that Linux distributions would take. If you search the 'Net you can still find references to these early distributions, and possibly even some archives of the releases themselves. If you have some free time you should look at these old releases. Not only will you be able to see how far Linux has come, you'll also see what life was like in the early days of Linux distributions.
+It was not only a technological milestone but more so a psychological point in time the moment the kernel was released as 1.0 with its stagering 176,250 lines of code.
 
+### August 15 1994 - Some Jerk
 
+On august 15, 1994, William R. Della Croce, Jr. (also known as Some Jerk) trademarked "Linux and demanded 10% royalties from every company selling Linux or having Linux in its name. This was a serious problem at the moment because most of these companies did not have huge profit margins and therefore did not have the money to fight this.
 
+The case got settled in 1997.
 
-Today there are many different variants of the GNU/Linux system (often called “distros”). Most of them include nonfree programs—their developers follow the “open source” philosophy associated with Linux rather than the “free software” philosophy of GNU. But there are also completely free GNU/Linux distros. The FSF supports computer facilities for a few of them.
-
-Making a free GNU/Linux distribution is not just a matter of eliminating various nonfree programs. Nowadays, the usual version of Linux contains nonfree programs too. These programs are intended to be loaded into I/O devices when the system starts, and they are included, as long series of numbers, in the "source code" of Linux. Thus, maintaining free GNU/Linux distributions now entails maintaining a free version of Linux too.
-
-Whether you use GNU/Linux or not, please don't confuse the public by using the name “Linux” ambiguously. Linux is the kernel, one of the essential major components of the system. The system as a whole is basically the GNU system, with Linux added. When you're talking about this combination, please call it “GNU/Linux”.
-
+<!-- ### November 3 1994 - Red Hat -->
 
 ### Timeline
 
@@ -436,39 +439,17 @@ The definition of the word Linux depends on the context in which it is used.
 
 Linux means the kernel of the system, which is the central controller of everything that happens on the computer. People that say their computer "runs Linux" usually refer to the kernel and suite of tools that come with it, called the **distribution**.
 
+Today there are many different variants of the GNU/Linux system (often called “distros”). Most of them include nonfree programs—their developers follow the “open source” philosophy associated with Linux rather than the “free software” philosophy of GNU. But there are also completely free GNU/Linux distros. The FSF supports computer facilities for a few of them.
+
+Making a free GNU/Linux distribution is not just a matter of eliminating various nonfree programs. Nowadays, the usual version of Linux contains nonfree programs too. These programs are intended to be loaded into I/O devices when the system starts, and they are included, as long series of numbers, in the "source code" of Linux. Thus, maintaining free GNU/Linux distributions now entails maintaining a free version of Linux too.
+
+Whether you use GNU/Linux or not, please don't confuse the public by using the name “Linux” ambiguously. Linux is the kernel, one of the essential major components of the system. The system as a whole is basically the GNU system, with Linux added. When you're talking about this combination, please call it “GNU/Linux”.
+
 ### Popular Linux Distributions
 
 A Linux distribution is usually built around a package management system, which puts together the Linux kernel, free and open-source software, and often some proprietary software.
 
 Some popular distributions are listed below.
-
-Red Hat
-
-Suse
-
-Debian
-
-Raspbian
-
-OpenWRT
-
-Fedora
-
-OpenSuse
-
-Ubuntu
-
-Kali
-
-CentOS
-
-Linux Mint
-
-
-
-
-
-
 
 #### Ubuntu
 
@@ -484,23 +465,35 @@ Ubuntu also has a massive user base, which means its has a highly active communi
 
 Red Hat started out as a simple distribution that introduced the Red Hat Package Manager (RPM). The developer eventually formed a company around it, which tried to commercialize a Linux desktop for business. Over time, Red Hat started to focus more on the server applications such as web and file serving, and released Red Hat Enterprise Linux, which was a paid service on a long release cycle.
 
-#### CentOS
+<!-- #### CentOS -->
 
-![CentOS](./img/CentOS-7.jpg)
+<!-- ![CentOS](./img/CentOS-7.jpg) -->
 
-Because everything in Red Hat Enterprise Linux is open source, a project called CentOS came to be, that recompiled all the RHEL packages and gave them away for free. CentOS and others like it (such as Scientific Linux) are largely compatible with RHEL and integrate some newer software, but do not offer the paid support that Red Hat does.
+<!-- Because everything in Red Hat Enterprise Linux is open source, a project called CentOS came to be, that recompiled all the RHEL packages and gave them away for free. CentOS and others like it (such as Scientific Linux) are largely compatible with RHEL and integrate some newer software, but do not offer the paid support that Red Hat does. -->
 
-**Scientific Linux** is an example of a specific use distribution based on Red Hat. The project is a Fermilab sponsored distribution designed to enable scientific computing. Among its many applications, Scientific Linux is used with particle accelerators including the Large Hadron Collider at CERN.
+<!-- **Scientific Linux** is an example of a specific use distribution based on Red Hat. The project is a Fermilab sponsored distribution designed to enable scientific computing. Among its many applications, Scientific Linux is used with particle accelerators including the Large Hadron Collider at CERN. -->
 
-**Open SUSE** was originally derived from Slackware, yet incorporates many aspects of Red Hat. While Open SUSE is desktop based and available to the general public, SUSE Linux Enterprise contains proprietary code and is sold as a server product.
+<!-- **Open SUSE** was originally derived from Slackware, yet incorporates many aspects of Red Hat. While Open SUSE is desktop based and available to the general public, SUSE Linux Enterprise contains proprietary code and is sold as a server product. -->
 
-**Debian** is more of a community effort (promotes the use of open source software and adherence to standards). Debian came up with its own package management system, based on the .deb file format. Red Hat leaves non Intel and AMD platform support to derivative projects, while Debian supports many of these platforms directly.
+<!-- **Debian** is more of a community effort (promotes the use of open source software and adherence to standards). Debian came up with its own package management system, based on the .deb file format. Red Hat leaves non Intel and AMD platform support to derivative projects, while Debian supports many of these platforms directly. -->
 
-**Ubuntu** is the most popular Debian derived distribution.
+<!-- **Ubuntu** is the most popular Debian derived distribution. -->
 
-**Linux Mint** was started as a fork of Ubuntu Linux, while still relying upon the Ubuntu repositories. There are various versions, all free of cost, but some include proprietary codecs, which can not be distributed without license restrictions in certain countries. Linux Mint is quickly supplanting Ubuntu as the world's most popular desktop Linux solution.
+<!-- **Linux Mint** was started as a fork of Ubuntu Linux, while still relying upon the Ubuntu repositories. There are various versions, all free of cost, but some include proprietary codecs, which can not be distributed without license restrictions in certain countries. Linux Mint is quickly supplanting Ubuntu as the world's most popular desktop Linux solution. -->
 
-[Checkout this interactive Timeline](https://futurist.se/gldt/wp-content/uploads/12.10/gldt1210.svg)
+<!-- [Checkout this interactive Timeline](https://futurist.se/gldt/wp-content/uploads/12.10/gldt1210.svg) -->
+
+<!-- Red Hat -->
+<!-- Suse -->
+<!-- Debian -->
+<!-- Raspbian -->
+<!-- OpenWRT -->
+<!-- Fedora -->
+<!-- OpenSuse -->
+<!-- Ubuntu -->
+<!-- Kali -->
+<!-- CentOS -->
+<!-- Linux Mint -->
 
 ## Some Good Videos
 
@@ -508,43 +501,7 @@ Because everything in Red Hat Enterprise Linux is open source, a project called 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jowCUo_UGts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-
-
-
-<!-- Ideas: Maybe we should give an overview here of all the things this course is going to cover. -->
-<!-- Short introduction into each and how they are tight together. -->
-
-
-<!-- This chapter needs a serious refactor. Maybe we should speak about the difference between graphics and non-graphics mode. Then difference between linux for a developer and linux as a server os. Best practices? -->
-
-Linux can be used in one of two ways: Graphically and non-graphically.
-
-<!-- Screenshots here -->
-
-Most servers will be running in non-graphically mode, since people don't log into them directly, which makes a graphical interface a waste of resources.
-
-If you log in through non-graphical mode, you're immediately at the console. If you log in graphically, then you'll need to launch a graphical shell which is just a text console with a window around it so that you can resize and move it around.
-
-Linux doesn't care if you are on the keyboard of a computer or connecting over the Internet, so you'll want to take some basic precautions to make sure your data is safe and secure.
-
-* Use strong passwords or passphrases
-* Check for updates on a daily basis
-* Use a firewall to block undesired connections
-* Use an antivirus tool
-* Use SSH (Secure Shell) for remote management
-
-
-
-However, UNIX is now both a trademark and a specification, owned by an industry consortium called the Open Group. Only software that has been certified by the Open Group may call itself UNIX. Despite adopting all the requirements of the UNIX specification, Linux has not been certified, so Linux really isn’t UNIX! It’s just… UNIX-like.
-
-
-
-
-
-
 <!-- https://www.youtube.com/watch?v=UjDQtNYxtbU -->
 <!-- https://www.oreilly.com/library/view/running-linux-third/156592469X/ch01s02.html -->
 <!-- https://www.digitalocean.com/community/tutorials/brief-history-of-linux -->
-
-https://www.cs.cmu.edu/~awb/linux.history.html
+<!-- https://www.cs.cmu.edu/~awb/linux.history.html -->
