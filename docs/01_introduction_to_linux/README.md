@@ -45,6 +45,12 @@ The name actually came from **Brian Kernighan**, the co-author of the book "The 
 
 Unics was later renamed to **Unix**, only nobody seems to remember when that happened.
 
+### August 12, 1981 - MSDOS
+
+MS-DOS (Microsoft Disk Operating System) is an operating system for x86-based personal computers mostly developed by Microsoft. Collectively, MS-DOS, its rebranding as IBM PC DOS, and some operating systems attempting to be compatible with MS-DOS, are sometimes referred to as "DOS" (which is also the generic acronym for disk operating system). MS-DOS was the main operating system for IBM PC compatible personal computers during the 1980s.
+
+![MSDOS Disks](./img/msdos_disks.jpg)
+
 ### September 27, 1983 - net.unix-wizards
 
 On *Tue, 27-Sep-83 12:35:59 EST*, **Richard Stallman** wrote the following post on the news group `net.unix-wizards`:
@@ -110,7 +116,13 @@ This first post by Richard started the free software revolution. Historically, m
 
 ### 1984 - GNU Project
 
-It was when AT&T started to sell copies of Unix without source code that Richard Stallman and one of many students at MIT who had helped to code it, decided that enough was enough. He was convinced that free software was what the world needed and so he **left the MIT Artificial Intelligence Lab in 1984** and founded the **GNU project**, with the intention to create a completely open source version of Unix.  
+It was when AT&T started to sell copies of Unix without source code that Richard Stallman and one of many students at MIT who had helped to code it, decided that enough was enough. He was convinced that free software was what the world needed and so he **left the MIT Artificial Intelligence Lab in 1984** and founded the **GNU project**, with the intention to create a completely open source version of Unix.
+
+**Richard Stallman** (creator of GPL) was looking to create a truly free and open source alternative to the proprietary Unix system. He was working on the utilities and programs under the name **GNU**, a recursive acronym meaning "GNU's not Unix!".
+
+![Richard Stallman](./img/richard_stallman.jpg)
+
+Although there was a kernel project underway, it turned out to be difficult going, and without a kernel, the free and open source operating system (HURD) dream could not be realized.
 
 ### March 1985, Dr. Dobbs Journal
 
@@ -170,17 +182,19 @@ The Finnish university system allowed Linus to get a student loan. Since he was 
 
 In the time that follows Linus wrote the basic components required for the operating system he wished to build just for fun:
 
-* One of his first experiments was to test the task-switching capabilities of the processor. He created two processes, one that would write the letter A and one that would write the letter B, and a timer that switched tasks.
-* a keyboard driver
-* a driver for text-mode VGA
-* a driver for the serial line, to connect to the University network
-* Wanting to download files on his PC, Linus had to write a disk driver and a file system
+* a simple 386-assembly task-switcher ("it switched between two processes that printed AAAA... and BBBB... respectively by using the timer-interrupt")
+* a keyboard driver in assembler
+* serial drivers
+* a simple terminal program ("the same two processes... read and wrote to the console/serial lines")
+* started using C
+* harddisk driver ("seriously buggy")
+* a small filesystem
 
 So, he now had task-switching, a file system, and device drivers. This is an operating system in its simplest form. This was the birth of Linux. But it wasn't yet named so.
 
 One subject that interested Linus on the newsgroups was the POSIX. POSIX stands for Portable Operating System Interface, and it is a set of standards to ensure compatibility between different Unix-like operating systems.
 
-Ari Lemmke, a member of the Helsinki University staff, informed Linus that the POSIX wasn't free online, and Linus wasn't in the position to pay for it. However, Lemmke was also interested in kernels and operating systems. So, he decided to create a directory on the `ftp.funet.fi` server for Linus which he called `/pub/os/linux`.
+**Ari Lemmke**, a member of the Helsinki University staff, informed Linus that the POSIX wasn't free online, and Linus wasn't in the position to pay for it. However, Lemmke was also interested in kernels and operating systems. So, he decided to create a directory on the `ftp.funet.fi` server for Linus which he called `/pub/os/linux`.
 
 Linux was Linus's working name. He didn't want to use it for the operating system because he didn't want people to think he was so egomaniac to name it after himself.
 
@@ -253,55 +267,162 @@ aren't in the distribution - ask me (or GNU) for more info.
 
 Which came with the [original release notes](./original_release_notes_linux.md).
 
+You can download the original source of the first release at [https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/).
 
+So Linus made the project open source and allowed people to freely use and contribute to the Linux kernel.
 
+### Spring 1991 - X Window System
 
+**Orest Zborowski** writes a patch adding Unix sockets to Linux. This allows Linux to run **Xfree86**. XFree86 is an implementation of the **X Window System** (`X11`, or simply `X`). It was originally written for Unix-like operating systems on IBM PC compatibles and was available for many other operating systems and platforms. It is free and open source software under the XFree86 License version 1.1.
 
+X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface - this is handled by individual programs. As such, the visual styling of X-based environments varies greatly; different programs may present radically different interfaces.
 
+X originated at the Project Athena at Massachusetts Institute of Technology (MIT) in 1984. The X protocol has been at version 11 (hence "X11") since September 1987.
 
+![X Window System](./img/x-window-system.png)
 
+In other words it allowed linux to have a graphical user interface instead of the terminal.
 
+### January 13, 1992 - Linux 0.12
 
+In 1992, Linus suggested releasing the kernel under the GNU General Public License (GPL). He first announced this decision in the release notes of version 0.12. In the middle of December 1992 he published version 0.99 using the GNU GPL. Linux and GNU developers worked to integrate GNU components with Linux to make a fully functional and free operating system.
 
+> "Best decision I ever made" -- Linus
 
+In 1992, the GNU project also adapted GNU utilities for use with Linux, while they waited for the HURD kernel (original kernel for the GNU System).
 
+Basically this translated into the system called "GNU/Linux" - a version of the GNU system which also contained Linux. The GNU/Linux system, in other words. Given that Linus was using several GNU tools (e.g., the GNU Compiler Collection, or GCC), the marriage of GNU and the Linux kernel was a perfect match. It was Linus Torvald's work - producing a working and viable kernel that he called Linux - that brought the complete operating system to life.
 
-
-
-### UNIX
-
-UNIX was originally an operating system developed at AT&T Bell Labs in the 1970's by **Ken Thompson** (UTF-8 character encoding and Google GO language) and **Dennis Ritchie** (invented C programming language).
-
-![Ken Thompson and Dennis Ritchie](./img/ken_thompson_dennis_ritchie.png)
-
-AT&T Bell Labs licensed the source code of UNIX.
-
-At 1980 *Unix System V* was being sold as commercial version by AT&T and BSD (Berkeley Software Distribution) was being developed based on the original licensed sources
-
-### HURD
-
-Historically, most software has been issued under a closed-source license, meaning that you get the right to use the machine code, but cannot see the source code. The open source philosophy is that you have a right to obtain the software, and to modify it for your own use.
-
-**Richard Stallman** (creator of GPL) was looking to create a truly free and open source alternative to the proprietary Unix system. He was working on the utilities and programs under the name **GNU**, a recursive acronym meaning "GNU's not Unix!".
-
-![Richard Stallman](./img/richard_stallman.jpg)
-
-Although there was a kernel project underway, it turned out to be difficult going, and without a kernel, the free and open source operating system (HURD) dream could not be realized.
-
-### Linux Kernel
-
-Linus made the project open source and allowed people to freely use and contribute to the Linux kernel.
-
-
-
-
-Currently the official kernel received contributions from over 12000 programmers.
-
-It was Linus Torvald's work - producing a working and viable kernel that he called Linux - that brought the complete operating system to life.
-
-Given that Linus was using several GNU tools (e.g., the GNU Compiler Collection, or GCC), the marriage of the GNU tools and the Linux kernel was a perfect match.
+::: warning GNU/Linux vs Linux
+Linux is the kernel: the program in the system that allocates the machine's resources to the other programs that you run. The kernel is an essential part of an operating system, but useless by itself; it can only function in the context of a complete operating system. Linux is normally used in combination with the GNU operating system: the whole system is basically GNU with Linux added, or GNU/Linux.
+:::
 
 ![Linus and Stallman](./img/linus_stallman.jpg)
+
+### Around 1991 / 1992 - The First Linux Distribution
+
+Back in late 1991, when Linux first hit the 'Net, there were no distributions per se. The closest thing was **HJ Lu's Boot/Root** floppies. They were 5.25" diskettes that could be used to get a Linux system running. You booted from the boot disk and then, when prompted, inserted the root disk. After a while you got a command prompt.
+
+![HJ Lu's Boot/Root](./img/boot_root.jpg)
+
+### January 29 1992 - Tanenbaum flames Linus
+
+Andrew Tanenbaum is a well-respected researcher who has made a very good living thinking about operating systems and OS design. In early 1992, noticing the way that the Linux discussion had taken over the discussion in `comp.os.minix`, he decided it was time to comment on Linux. This starts the whole debate known to the community as **the Tanenbaum/Linus "Linux is obsolete" debates**.
+
+```text
+From: ast@cs.vu.nl (Andy Tanenbaum)
+Newsgroups: comp.os.minix
+Subject: LINUX is obsolete
+Date: 29 Jan 92 12:12:50 GMT
+ 
+I was in the U.S. for a couple of weeks, so I haven't commented much on
+LINUX (not that I would have said much had I been around), but for what 
+it is worth, I have a couple of comments now.
+ 
+As most of you know, for me MINIX is a hobby, something that I do in the
+evening when I get bored writing books and there are no major wars,
+revolutions, or senate hearings being televised live on CNN. My real
+job is a professor and researcher in the area of operating systems.
+ 
+As a result of my occupation, I think I know a bit about where operating
+are going in the next decade or so. Two aspects stand out:
+ 
+1. MICROKERNEL VS MONOLITHIC SYSTEM
+   Most older operating systems are monolithic, that is, the whole operating
+   system is a single a.out file that runs in 'kernel mode.'  This binary
+   contains the process management, memory management, file system and the
+   rest. Examples of such systems are UNIX, MS-DOS, VMS, MVS, OS/360, 
+   MULTICS, and many more.
+ 
+   The alternative is a microkernel-based system, in which most of the OS
+   runs as separate processes, mostly outside the kernel.  They communicate
+   by message passing.  The kernel's job is to handle the message passing,
+   interrupt handling, low-level process management, and possibly the I/O.
+   Examples of this design are the RC4000, Amoeba, Chorus, Mach, and the
+   not-yet-released Windows/NT.
+ 
+   While I could go into a long story here about the relative merits of the
+   two designs, suffice it to say that among the people who actually design
+   operating systems, the debate is essentially over.  Microkernels have won.
+   The only real argument for monolithic systems was performance, and there
+   is now enough evidence showing that microkernel systems can be just as
+   fast as monolithic systems (e.g., Rick Rashid has published papers comparing
+   Mach 3.0 to monolithic systems) that it is now all over but the shoutin'.
+ 
+   MINIX is a microkernel-based system.  The file system and memory management
+   are separate processes, running outside the kernel.  The I/O drivers are
+   also separate processes (in the kernel, but only because the brain-dead
+   nature of the Intel CPUs makes that difficult to do otherwise).  LINUX is
+   a monolithic style system.  This is a giant step back into the 1970s.
+   That is like taking an existing, working C program and rewriting it in
+   BASIC.  To me, writing a monolithic system in 1991 is a truly poor idea.
+ 
+2. PORTABILITY
+   Once upon a time there was the 4004 CPU.  When it grew up it became an
+   8008.  Then it underwent plastic surgery and became the 8080.  It begat
+   the 8086, which begat the 8088, which begat the 80286, which begat the
+   80386, which begat the 80486, and so on unto the N-th generation.  In
+   the meantime, RISC chips happened, and some of them are running at over
+   100 MIPS.  Speeds of 200 MIPS and more are likely in the coming years.
+   These things are not going to suddenly vanish.  What is going to happen
+   is that they will gradually take over from the 80x86 line.  They will
+   run old MS-DOS programs by interpreting the 80386 in software.  (I even
+   wrote my own IBM PC simulator in C, which you can get by FTP from
+   ftp.cs.vu.nl =  192.31.231.42 in dir minix/simulator.)  I think it is a
+   gross error to design an OS for any specific architecture, since that is
+   not going to be around all that long.
+ 
+   MINIX was designed to be reasonably portable, and has been ported from the
+   Intel line to the 680x0 (Atari, Amiga, Macintosh), SPARC, and NS32016.
+   LINUX is tied fairly closely to the 80x86.  Not the way to go.
+ 
+Don't get me wrong, I am not unhappy with LINUX.  It will get all the people
+who want to turn MINIX in BSD UNIX off my back.  But in all honesty, I would
+suggest that people who want a **MODERN** "free" OS look around for a 
+microkernel-based, portable OS, like maybe GNU or something like that.
+ 
+Andy Tanenbaum (ast@cs.vu.nl)
+ 
+P.S. Just as a random aside, Amoeba has a UNIX emulator (running in user
+space), but it is far from complete.  If there are any people who would
+like to work on that, please let me know.  To run Amoeba you need a few 386s,
+one of which needs 16M, and all of which need the WD Ethernet card.
+```
+
+You can read a summary of the whole discussing at [https://www.oreilly.com/openbook/opensources/book/appa.html](https://www.oreilly.com/openbook/opensources/book/appa.html).
+
+### February 1992 - The First Real Linux Distro
+
+The first real distribution was from the Manchester Computing Centre (MCC). Known as **MCC Interim Linux**, it was a collection of diskettes that, once installed on your system, let you have a basic Linux environment. It was console only, no X. Compared to Boot-Root it also contained all sorts of utilities that were pre-compiled and ready to go.
+
+### April 1992 - Windows 3.1
+
+Windows 3.1x is a series of 16-bit operating environments produced by Microsoft for use on personal computers, released on April 6, 1992. The series began with Windows 3.1, which was first sold during April 1992 as a successor to Windows 3.0. Subsequent versions were released between 1992 and 1993 until the series was superseded by the Windows 9x series starting in 1995 with Windows 95. During its lifespan, Windows 3.1 introduced several enhancements to the still MS-DOS-based platform, including improved system stability, expanded support for multimedia, TrueType fonts, and workgroup networking.
+
+![Windows 3.1](./img/windows31.png)
+
+### December 1992 - Yggdrasil
+
+The **first commercial**, in the sense that it was developed for public consumption rather than in-house use only, Linux distribution was Yggdrasil. This also had the distinction of being the first "Live" Linux CD. You could boot from a diskette and run everything off the CD. This was back in days of 1x and 2x CD-ROM drive speeds so it wasn't exactly setting the world on fire. You could start X then literally go get a cup of coffee before it finished coming up. Yggdrasil had some nice features dealing with configuration, though, especially for the time. It was actually the first Linux distribution that came with a pre-configured X Window System.
+
+![Yggdrasil](./img/yggdrasil.png)
+
+
+
+
+
+
+Now, all of this took place in the span of about 3 years. In those days the speed with which changes happened was unbelievable. By the time '94/'95 came around you started seeing more distributions popping up. Familiar names like Red Hat, Debian, Caldera, TurboLinux, and SuSE were becoming popular. There were also a few other distributions that came and went between '91 and '95. However, they had little impact on the overall direction that Linux distributions would take. If you search the 'Net you can still find references to these early distributions, and possibly even some archives of the releases themselves. If you have some free time you should look at these old releases. Not only will you be able to see how far Linux has come, you'll also see what life was like in the early days of Linux distributions.
+
+
+
+
+Today there are many different variants of the GNU/Linux system (often called “distros”). Most of them include nonfree programs—their developers follow the “open source” philosophy associated with Linux rather than the “free software” philosophy of GNU. But there are also completely free GNU/Linux distros. The FSF supports computer facilities for a few of them.
+
+Making a free GNU/Linux distribution is not just a matter of eliminating various nonfree programs. Nowadays, the usual version of Linux contains nonfree programs too. These programs are intended to be loaded into I/O devices when the system starts, and they are included, as long series of numbers, in the "source code" of Linux. Thus, maintaining free GNU/Linux distributions now entails maintaining a free version of Linux too.
+
+Whether you use GNU/Linux or not, please don't confuse the public by using the name “Linux” ambiguously. Linux is the kernel, one of the essential major components of the system. The system as a whole is basically the GNU system, with Linux added. When you're talking about this combination, please call it “GNU/Linux”.
+
 
 ### Timeline
 
