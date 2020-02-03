@@ -91,17 +91,19 @@ must share it with other people who like it.  I cannot in good
 conscience sign a nondisclosure agreement or a software license
 agreement.
 
-So that I can continue to use computers without violating my principles,
-I have decided to put together a sufficient body of free software so that
-I will be able to get along without any software that is not free.
+So that I can continue to use computers
+without violating my principles,
+I have decided to put together a sufficient body of
+free software so that I will be able to get along
+without any software that is not free.
 
 ...
 
-One computer manufacturer has already offered to provide a machine.  But
-we could use more.  One consequence you can expect if you donate
-machines is that GNU will run on them at an early date.  The machine had
-better be able to operate in a residential area, and not require
-sophisticated cooling or power.
+One computer manufacturer has already offered to provide a machine.
+But we could use more. One consequence you can expect if you donate
+machines is that GNU will run on them at an early date.
+The machine had better be able to operate in a residential area,
+and not require sophisticated cooling or power.
 
 ...
 ```
@@ -118,11 +120,7 @@ This first post by Richard started the free software revolution. Historically, m
 
 It was when AT&T started to sell copies of Unix without source code that Richard Stallman and one of many students at MIT who had helped to code it, decided that enough was enough. He was convinced that free software was what the world needed and so he **left the MIT Artificial Intelligence Lab in 1984** and founded the **GNU project**, with the intention to create a completely open source version of Unix.
 
-**Richard Stallman** (creator of GPL) was looking to create a truly free and open source alternative to the proprietary Unix system. He was working on the utilities and programs under the name **GNU**, a recursive acronym meaning "GNU's not Unix!".
-
-![Richard Stallman](./img/richard_stallman.jpg)
-
-Although there was a kernel project underway, it turned out to be difficult going, and without a kernel, the free and open source operating system (HURD) dream could not be realized.
+Although a GNU kernel project was underway, it turned out to be difficult going, and without a kernel, named **HURD**, the free and open source operating system dream could not be realized.
 
 ### March 1985, Dr. Dobbs Journal
 
@@ -135,7 +133,14 @@ Dr. Dobb's Journal entire purpose was to **distribute Tiny Basic**, a dialect of
 In 1985 the [GNU Manifesto](https://www.drdobbs.com/open-source/the-gnu-manifesto/222200498) was published in Dr Dobb's Journal and this set out the philosophy:
 
 ```text
-I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way. I cannot in good conscience sign a nondisclosure agreement or a software license agreement.
+I consider that the Golden Rule requires that
+if I like a program I must share it
+with other people who like it.
+Software sellers want to divide the users and conquer them,
+making each user agree not to share with others.
+I refuse to break solidarity with other users in this way.
+I cannot in good conscience sign a nondisclosure
+agreement or a software license agreement.
 
 by Richard Stallman
 ```
@@ -160,11 +165,13 @@ Tanenbaum originally developed Minix for compatibility with the IBM PC and IBM P
 
 ![IBM PC/AT](./img/ibm_pc_at.jpg)
 
+<!-- Apparently some version of Minix is running on modern Intel CPU's as a management system (https://www.networkworld.com/article/3236064/minix-the-most-popular-os-in-the-world-thanks-to-intel.html -->
+
 ### Autumn 1990 - Linus Torvalds
 
 In 1988, a young Finnish man entered the **Helsinki University** to study Computer Science. His name was **Linus Torvalds**. It would have been impossible to imagine that the operating system he would create would be eventually used by tens of millions of users across the globe.
 
-![Linus Torvalds](./img/linus_torvalds.png)
+![Linus Torvalds](./img/young_linus_torvalds.jpg)
 
 Linus Torvalds was at the beginning of his third year of studies, in the autumn of 1990, when he first came in contact with Unix. The university had a short Unix course, which could only take 16 students because the university's MicroVAX hardware couldn't support more users.
 
@@ -214,10 +221,12 @@ I'd like any feedback on things people like/dislike in minix,
 as my OS resembles it somewhat (same physical layout of
 the file-system (due to practical reasons) among other things).
 
-I've currently ported bash(1.08) and gcc(1.40), and things seem to work.
-This implies that I'll get something practical within a few months,
+I've currently ported bash(1.08) and gcc(1.40),
+and things seem to work. This implies that I'll get something
+practical within a few months,
 and I'd like to know what features most people would want.
-Any suggestions are welcome, but I won't promise I'll implement them :-)
+Any suggestions are welcome,
+but I won't promise I'll implement them :-)
 
 Linus (torvalds@kruuna.helsinki.fi)
 
@@ -245,24 +254,26 @@ Originally, linux came with it's own custom license:
 This kernel is (C) 1991 Linus Torvalds, but all or part of it may be
 redistributed provided you do the following:
 
-	- Full source must be available (and free), if not with the
-	  distribution then at least on asking for it.
+- Full source must be available (and free), if not with the
+  distribution then at least on asking for it.
 
-	- Copyright notices must be intact. (In fact, if you distribute
-	  only parts of it you may have to add copyrights, as there aren't
-	  (C)'s in all files.) Small partial excerpts may be copied
-	  without bothering with copyrights.
+- Copyright notices must be intact. (In fact, if you distribute
+  only parts of it you may have to add copyrights, as there aren't
+  (C)'s in all files.) Small partial excerpts may be copied
+  without bothering with copyrights.
 
-	- You may not distibute this for a fee, not even "handling"
-	  costs.
+- You may not distibute this for a fee, not even "handling"
+  costs.
 
 Mail me at "torvalds@kruuna.helsinki.fi" if you have any questions.
 
-Sadly, a kernel by itself gets you nowhere. To get a working system you
-need a shell, compilers, a library etc. These are separate parts and may
-be under a stricter (or even looser) copyright. Most of the tools used
-with linux are GNU software and are under the GNU copyleft. These tools
-aren't in the distribution - ask me (or GNU) for more info.
+Sadly, a kernel by itself gets you nowhere.
+To get a working system you need a shell, compilers, a library etc.
+These are separate parts and may be under
+a stricter (or even looser) copyright. Most of the tools used
+with linux are GNU software and are under the GNU copyleft.
+These tools aren't in the distribution - ask me (or GNU)
+for more info.
 ```
 
 Which came with the [original release notes](./original_release_notes_linux.md).
@@ -273,7 +284,7 @@ So Linus made the project open source and allowed people to freely use and contr
 
 ### Spring 1991 - X Window System
 
-**Orest Zborowski** writes a patch adding Unix sockets to Linux. This allows Linux to run **Xfree86**. XFree86 is an implementation of the **X Window System** (`X11`, or simply `X`). It was originally written for Unix-like operating systems on IBM PC compatibles and was available for many other operating systems and platforms. It is free and open source software under the XFree86 License version 1.1.
+**Orest Zborowski** writes a patch **adding Unix sockets to Linux**. This allows Linux to run **Xfree86**. XFree86 is an implementation of the **X Window System** (`X11`, or simply `X`). It was originally written for Unix-like operating systems on IBM PC compatibles and was available for many other operating systems and platforms. It is free and open source software under the XFree86 License version 1.1.
 
 X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface - this is handled by individual programs. As such, the visual styling of X-based environments varies greatly; different programs may present radically different interfaces.
 
@@ -282,6 +293,12 @@ X originated at the Project Athena at Massachusetts Institute of Technology (MIT
 ![X Window System](./img/x-window-system.png)
 
 In other words it allowed linux to have a graphical user interface instead of the terminal.
+
+### Around 1991 / 1992 - The First Linux Distribution
+
+Back in late 1991, when Linux first hit the Net, there were no distributions per se. The closest thing was **HJ Lu's Boot/Root** floppies. They were 5.25" diskettes that could be used to get a Linux system running. You booted from the boot disk and then, when prompted, inserted the root disk. After a while you got a command prompt.
+
+![HJ Lu's Boot/Root](./img/boot_root.jpg)
 
 ### January 13, 1992 - Linux 0.12
 
@@ -299,90 +316,86 @@ Linux is the kernel: the program in the system that allocates the machine's reso
 
 ![Linus and Stallman](./img/linus_stallman.jpg)
 
-### Around 1991 / 1992 - The First Linux Distribution
-
-Back in late 1991, when Linux first hit the 'Net, there were no distributions per se. The closest thing was **HJ Lu's Boot/Root** floppies. They were 5.25" diskettes that could be used to get a Linux system running. You booted from the boot disk and then, when prompted, inserted the root disk. After a while you got a command prompt.
-
-![HJ Lu's Boot/Root](./img/boot_root.jpg)
-
 ### January 29 1992 - Tanenbaum flames Linus
 
 Andrew Tanenbaum is a well-respected researcher who has made a very good living thinking about operating systems and OS design. In early 1992, noticing the way that the Linux discussion had taken over the discussion in `comp.os.minix`, he decided it was time to comment on Linux. This starts the whole debate known to the community as **the Tanenbaum/Linus "Linux is obsolete" debates**.
+
+![Andrew Tanenbaum and Linus Torvalds](./img/tanenbaum_linus.png)
 
 ```text
 From: ast@cs.vu.nl (Andy Tanenbaum)
 Newsgroups: comp.os.minix
 Subject: LINUX is obsolete
 Date: 29 Jan 92 12:12:50 GMT
- 
+
 I was in the U.S. for a couple of weeks, so I haven't commented much on
-LINUX (not that I would have said much had I been around), but for what 
+LINUX (not that I would have said much had I been around), but for what
 it is worth, I have a couple of comments now.
- 
+
 As most of you know, for me MINIX is a hobby, something that I do in the
 evening when I get bored writing books and there are no major wars,
 revolutions, or senate hearings being televised live on CNN. My real
 job is a professor and researcher in the area of operating systems.
- 
+
 As a result of my occupation, I think I know a bit about where operating
 are going in the next decade or so. Two aspects stand out:
- 
+
 1. MICROKERNEL VS MONOLITHIC SYSTEM
-   Most older operating systems are monolithic, that is, the whole operating
-   system is a single a.out file that runs in 'kernel mode.'  This binary
-   contains the process management, memory management, file system and the
-   rest. Examples of such systems are UNIX, MS-DOS, VMS, MVS, OS/360, 
-   MULTICS, and many more.
- 
-   The alternative is a microkernel-based system, in which most of the OS
-   runs as separate processes, mostly outside the kernel.  They communicate
-   by message passing.  The kernel's job is to handle the message passing,
-   interrupt handling, low-level process management, and possibly the I/O.
-   Examples of this design are the RC4000, Amoeba, Chorus, Mach, and the
-   not-yet-released Windows/NT.
- 
-   While I could go into a long story here about the relative merits of the
-   two designs, suffice it to say that among the people who actually design
-   operating systems, the debate is essentially over.  Microkernels have won.
-   The only real argument for monolithic systems was performance, and there
-   is now enough evidence showing that microkernel systems can be just as
-   fast as monolithic systems (e.g., Rick Rashid has published papers comparing
-   Mach 3.0 to monolithic systems) that it is now all over but the shoutin'.
- 
-   MINIX is a microkernel-based system.  The file system and memory management
-   are separate processes, running outside the kernel.  The I/O drivers are
-   also separate processes (in the kernel, but only because the brain-dead
-   nature of the Intel CPUs makes that difficult to do otherwise).  LINUX is
-   a monolithic style system.  This is a giant step back into the 1970s.
-   That is like taking an existing, working C program and rewriting it in
-   BASIC.  To me, writing a monolithic system in 1991 is a truly poor idea.
- 
+  Most older operating systems are monolithic, that is, the whole operating
+  system is a single a.out file that runs in 'kernel mode.'  This binary
+  contains the process management, memory management, file system and the
+  rest. Examples of such systems are UNIX, MS-DOS, VMS, MVS, OS/360,
+  MULTICS, and many more.
+
+  The alternative is a microkernel-based system, in which most of the OS
+  runs as separate processes, mostly outside the kernel.  They communicate
+  by message passing.  The kernel's job is to handle the message passing,
+  interrupt handling, low-level process management, and possibly the I/O.
+  Examples of this design are the RC4000, Amoeba, Chorus, Mach, and the
+  not-yet-released Windows/NT.
+
+  While I could go into a long story here about the relative merits of the
+  two designs, suffice it to say that among the people who actually design
+  operating systems, the debate is essentially over.  Microkernels have won.
+  The only real argument for monolithic systems was performance, and there
+  is now enough evidence showing that microkernel systems can be just as
+  fast as monolithic systems (e.g., Rick Rashid has published papers comparing
+  Mach 3.0 to monolithic systems) that it is now all over but the shoutin'.
+
+  MINIX is a microkernel-based system.  The file system and memory management
+  are separate processes, running outside the kernel.  The I/O drivers are
+  also separate processes (in the kernel, but only because the brain-dead
+  nature of the Intel CPUs makes that difficult to do otherwise).  LINUX is
+  a monolithic style system.  This is a giant step back into the 1970s.
+  That is like taking an existing, working C program and rewriting it in
+  BASIC.  To me, writing a monolithic system in 1991 is a truly poor idea.
+
 2. PORTABILITY
-   Once upon a time there was the 4004 CPU.  When it grew up it became an
-   8008.  Then it underwent plastic surgery and became the 8080.  It begat
-   the 8086, which begat the 8088, which begat the 80286, which begat the
-   80386, which begat the 80486, and so on unto the N-th generation.  In
-   the meantime, RISC chips happened, and some of them are running at over
-   100 MIPS.  Speeds of 200 MIPS and more are likely in the coming years.
-   These things are not going to suddenly vanish.  What is going to happen
-   is that they will gradually take over from the 80x86 line.  They will
-   run old MS-DOS programs by interpreting the 80386 in software.  (I even
-   wrote my own IBM PC simulator in C, which you can get by FTP from
-   ftp.cs.vu.nl =  192.31.231.42 in dir minix/simulator.)  I think it is a
-   gross error to design an OS for any specific architecture, since that is
-   not going to be around all that long.
- 
-   MINIX was designed to be reasonably portable, and has been ported from the
-   Intel line to the 680x0 (Atari, Amiga, Macintosh), SPARC, and NS32016.
-   LINUX is tied fairly closely to the 80x86.  Not the way to go.
- 
+  Once upon a time there was the 4004 CPU.  When it grew up it became an
+  8008.  Then it underwent plastic surgery and became the 8080.  It begat
+  the 8086, which begat the 8088, which begat the 80286, which begat the
+  80386, which begat the 80486, and so on unto the N-th generation.  In
+  the meantime, RISC chips happened, and some of them are running at over
+  100 MIPS.  Speeds of 200 MIPS and more are likely in the coming years.
+  These things are not going to suddenly vanish.  What is going to happen
+  is that they will gradually take over from the 80x86 line.  They will
+  run old MS-DOS programs by interpreting the 80386 in software.  (I even
+  wrote my own IBM PC simulator in C, which you can get by FTP from
+  ftp.cs.vu.nl =  192.31.231.42 in dir minix/simulator.)  I think it is a
+  gross error to design an OS for any specific architecture, since that is
+  not going to be around all that long.
+
+  MINIX was designed to be reasonably portable, and has been ported from the
+  Intel line to the 680x0 (Atari, Amiga, Macintosh), SPARC, and NS32016.
+  LINUX is tied fairly closely to the 80x86.  Not the way to go.
+
 Don't get me wrong, I am not unhappy with LINUX.  It will get all the people
 who want to turn MINIX in BSD UNIX off my back.  But in all honesty, I would
-suggest that people who want a **MODERN** "free" OS look around for a 
+suggest that people who want a **MODERN** "free" OS look around for a
 microkernel-based, portable OS, like maybe GNU or something like that.
- 
+
 Andy Tanenbaum (ast@cs.vu.nl)
- 
+
 P.S. Just as a random aside, Amoeba has a UNIX emulator (running in user
 space), but it is far from complete.  If there are any people who would
 like to work on that, please let me know.  To run Amoeba you need a few 386s,
@@ -407,7 +420,7 @@ The **first commercial**, in the sense that it was developed for public consumpt
 
 ![Yggdrasil](./img/yggdrasil.png)
 
-### September 15 1993 - Debian
+### September 15 1993 - Debian 0.01
 
 Debian, also known as Debian GNU/Linux, is a Linux distribution composed of free and open-source software, developed by the community-supported Debian Project, which was established by Ian Murdock on August 16, 1993. The first version, Debian 0.01, was released on September 15, 1993. The Debian Stable branch is the most popular edition for personal computers and servers, and is the basis for many other distributions.
 
@@ -421,7 +434,7 @@ It was not only a technological milestone but more so a psychological point in t
 
 ### August 15 1994 - Some Jerk
 
-On august 15, 1994, William R. Della Croce, Jr. (also known as Some Jerk) trademarked "Linux and demanded 10% royalties from every company selling Linux or having Linux in its name. This was a serious problem at the moment because most of these companies did not have huge profit margins and therefore did not have the money to fight this.
+On august 15, 1994, William R. Della Croce, Jr. (also known as Some Jerk) trademarked Linux and demanded 10% royalties from every company selling Linux or having Linux in its name. This was a serious problem at the moment because most of these companies did not have huge profit margins and therefore did not have the money to fight this.
 
 The case got settled in 1997.
 
@@ -437,7 +450,7 @@ Linux was originally developed as a free operating system for personal computers
 
 The definition of the word Linux depends on the context in which it is used.
 
-Linux means the kernel of the system, which is the central controller of everything that happens on the computer. People that say their computer "runs Linux" usually refer to the kernel and suite of tools that come with it, called the **distribution**.
+**Linux means the kernel of the system**, which is the central controller of everything that happens on the computer. People that say their computer "runs Linux" usually refer to the kernel and suite of tools that come with it, called the **distribution**.
 
 Today there are many different variants of the GNU/Linux system (often called “distros”). Most of them include nonfree programs—their developers follow the “open source” philosophy associated with Linux rather than the “free software” philosophy of GNU. But there are also completely free GNU/Linux distros. The FSF supports computer facilities for a few of them.
 
