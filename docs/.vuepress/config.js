@@ -11,7 +11,7 @@ module.exports = {
       // fallback
       '/': [
         '',
-        '/01_introduction_to_linux/',
+        '/01-introduction-to-linux/',
         '/02-start-using-linux/',
         // '/03_the_command_line/',
         // '/04_getting_help/',
