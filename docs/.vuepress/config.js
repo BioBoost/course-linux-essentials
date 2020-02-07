@@ -13,7 +13,7 @@ module.exports = {
         '',
         '/01-introduction-to-linux/',
         '/02-start-using-linux/',
-        // '/03_the_command_line/',
+        '/03-the-command-line/',
         // '/04_getting_help/',
         // '/05_the_filesystem/',
         // '/06_ownership_and_permissions/',
