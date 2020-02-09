@@ -119,6 +119,8 @@ Some key features of zsh are:
 
 Fish is a smart and user-friendly command line shell for Linux, macOS, Windows and the rest of the family. It aims to be a modern-day replacement of the early open source shells for Linux. Fish offers a rich set of powerful features which makes it easier to discover, remember, and use exciting Linux commands on your machine. If you’re looking for a smart command-line shell for your Linux desktop, Fish is certainly worth a try.
 
+![The Fish shell - Source: https://fishshell.com/](./img/fish.png)
+
 Some cool features of Fish:
 
 * Autosuggestions
