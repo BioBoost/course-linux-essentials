@@ -1,5 +1,7 @@
 # Chapter 06 - Making Linux Your Own
 
+https://www.youtube.com/watch?v=QAaT6BTUnPg
+
 <!-- These are some ideas -->
 
 Neofetch is a command-line system information tool written in bash 3.2+. Neofetch displays information about your operating system, software and hardware in an aesthetic and visually pleasing way.
