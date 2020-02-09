@@ -14,7 +14,7 @@ module.exports = {
         '/01-introduction-to-linux/',
         '/02-start-using-linux/',
         '/03-the-command-line/',
-        // '/04_getting_help/',
+        '/04-getting-help/',
         // '/05_the_filesystem/',
         // '/06_ownership_and_permissions/',
         // '/07_package_managers/',
