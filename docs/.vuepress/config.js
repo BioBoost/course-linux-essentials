@@ -16,7 +16,7 @@ module.exports = {
         '/02-start-using-linux/',
         '/03-the-command-line/',
         '/04-getting-help/',
-        // '/05_the_filesystem/',
+        '/05-the-filesystem/',
         // '/06_ownership_and_permissions/',
         // '/07_package_managers/',
         // '/08_remote_access/',
