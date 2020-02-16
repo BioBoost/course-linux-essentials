@@ -9,11 +9,11 @@ A filesystem typically allows us to store both files and directories. **Files ar
 
 ## On Windows
 
-The way the linux filesystem is structured is quitte different from the way Windows handles it. On a Windows system, the top level of the directory structure is called `My Computer`.
+The way the linux filesystem is structured is quitte different from the way Windows handles it. On a Windows system, the top level of the directory structure is called `This PC`.
 
-![My Computer on Windows](./img/windows_my_computer.png)
+![This PC on Windows](./img/windows_this_pc.png)
 
-Each physical device (hard drive, DVD drive, USB thumb drive, network drive, etc.) shows up under `My Computer`, each assigned a drive letter, such as `C:` or `D:`.
+Each physical device (hard drive, DVD drive, USB thumb drive, network drive, etc.) shows up under `This PC`, each assigned a drive letter, such as `C:` or `D:`.
 
 ![Device Hierarchy on Windows](./img/windows_drives.png)
 
@@ -39,42 +39,58 @@ Although this is in some cases an oversimplification, it informs us of the appro
 
 ## Finding your Way
 
-Before actually delving into the file system layout, you need to know a few basics about how to navigate a file system from the command line. This course will cover the bare minimum here to get you on your feet.
+Before actually delving into the file system layout, you need to know a few basics about how to navigate a file system from the command line. The next sections will cover the bare minimum to get you on your feet.
 
 The first thing you need to do is orient yourself in the filesystem. There are a few ways to do this, but one of the most basic ways is with the `pwd` command, which stands for "print working directory":
 
 ```bash
-nico@biosdeb:~$ pwd
-/home/nico
+bioboost@pop-os:~$ pwd
 ```
 
-This simply returns the full path of the directory you are currently located in, for example `/home/nico`.
+::: codeoutput
+<pre>
+/home/bioboost
+</pre>
+:::
+
+This simply returns the **full path of the directory you are currently located in**, for example `/home/bioboost`.
 
 To see what files are in the current directory, you can issue the `ls` command, which stands for "list".
 
 ```bash
-nico@biosdeb:~$ ls
-Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+bioboost@pop-os:~$ ls
 ```
 
-This will give an overview of all directories and files in your current directory.
+::: codeoutput
+<pre>
+Desktop   Documents  Downloads  Music
+Pictures  Public     Templates  Videos
+</pre>
+:::
+
+This will give an overview of all (excluding hidden files and directories) directories and files in your current directory.
 
 The `ls` command can be used to display the contents of a directory as well as detailed information about the files that are within a directory. The `ls` command can take some option flags. Flags modify the commands default behavior to either process or display the data in a different way.
 
 The first most common option is probably `-l`, which forces the command to output information in long-form:
 
 ```bash
-nico@biosdeb:~$ ls -l
-total 32
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Desktop
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Documents
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Downloads
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Music
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Pictures
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Public
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Templates
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Videos
+bioboost@pop-os:~$ ls -l
 ```
+
+::: codeoutput
+<pre>
+total 32
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Desktop
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Documents
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Downloads
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Music
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Pictures
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Public
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Templates
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Videos
+</pre>
+:::
 
 This produces output with one line for each file or directory (the name is on the far right). This has a lot of information that we are not interested in right now. One part we are interested in though is the very **first character**, which tells us what **kind of file** it is. The three most common types are:
 
@@ -82,13 +98,30 @@ This produces output with one line for each file or directory (the name is on th
 * `d`: Directory (a file of a specific format that lists other files)
 * `l`: A hard or soft link (basically a shortcut to another file on the system)
 
-The second most important option to the `ls` command is the `-a` flag, which lists all files, including hidden files. In Linux, files are **hidden** automatically if they begin with a dot `.`:
+The second most important option to the `ls` command is the `-a` flag, which lists all files, **including hidden files**. In Linux, files are **hidden** automatically if they begin with a dot `.`:
 
 ```bash
-$ ls -a
-.   bin   dev  home  log.txt     media  opt   root  sbin     srv  tmp  var
-..  boot  etc  lib   lost+found  mnt    proc  run   selinux  sys  usr
+bioboost@pop-os:~$ ls -a
 ```
+
+::: codeoutput
+<pre>
+.                           .npm
+..                          .nuget
+.bash_history               .oh-my-zsh
+.bash_logout                .omnisharp
+.bashrc                     .pam_environment
+.bashrc.save                Pictures
+.bzr.log                    .pki
+.cache                      .profile
+.config                     Public
+Desktop                     snap
+Documents                   .ssh
+dotfiles                    .templateengine
+.dotnet                     Templates
+...
+</pre>
+:::
 
 ::: tip .git directory
 Hidden files always start with a `.`. That is why the `.git` directory in a git repo is also prefixed with a dot `.`.
@@ -100,8 +133,12 @@ The first two entries, `.` and `..` have a special meaning. The `.` directory is
 
 There will be times when you want to display all of the files in a directory as well as all of the files in all subdirectories under a directory. This is called a **recursive listing**. To perform a recursive listing, use the `-R` option to the `ls` command.
 
-```shell
-nico@biosdeb:~$ ls -R
+```bash
+bioboost@pop-os:~$ ls -R
+```
+
+::: codeoutput
+<pre>
 .:
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 ./Desktop:
@@ -112,7 +149,8 @@ Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 ./Public:
 ./Templates:
 ./Videos:
-```
+</pre>
+:::
 
 ::: warning Recursive Listing Large Hierarchies
 Try the command `ls -R /` to recursively list the whole filesystem. Use CTRL-C to stop the command.
@@ -126,10 +164,11 @@ A more visual tool for listing directories recursively is the `tree` tool. You c
 
 Now that you can find out where you are in the file system and see what is around you, it is time to learn how to move throughout the file system.
 
-To change to a different directory, you issue the `cd` command, which stands for "change directory":
+To **change to a different directory**, you issue the `cd` command, which stands for "change directory":
 
 ```bash
-cd /home
+bioboost@pop-os:~$ cd /home
+bioboost@pop-os:/home$
 ```
 
 The first `/` character represents the **root directory** while each other `/` character is used to separate the directory names.
@@ -139,11 +178,11 @@ You can follow the `cd` command with either an absolute or a relative pathname.
 * An **absolute path** is a file path that specifies the location of a directory from the top of the directory tree (the root of the filesystem `/`). Absolute paths begin with a "/", as can be seen in the example above.
 * A **relative path** is a file path that is relative to the current working directory. This means that instead of defining a location from the top of the directory structure, it defines the location in relation to where you currently are.
 
-For instance, if you want to move to the home directory of the user `nico`, while in the directory `/home`, you can issue the command:
+For instance, if you want to move to the home directory of the user `bioboost`, while in the directory `/home`, you can issue the command:
 
 ```bash
-nico@biosdeb:/home$ cd nico
-nico@biosdeb:~$
+bioboost@pop-os:/home$ cd bioboost
+bioboost@pop-os:~$
 ```
 
 The lack of the `/` from the beginning tells the shell to use the current directory as the base for looking for the path.
@@ -152,11 +191,11 @@ The lack of the `/` from the beginning tells the shell to use the current direct
 Under this `/home` directory there will be a directory for most users on the system. The directory name will be the same as the name of the user.
 :::
 
-This is where the `..` directory link comes in handy. To move to the parent directory of your current directory, you can type:
+This is where the `..` directory link comes in handy. To **move to the parent directory of your current directory**, you can type:
 
 ```bash
-nico@biosdeb:~$ cd ..
-nico@biosdeb:/home$
+bioboost@pop-os:~$ cd ..
+bioboost@pop-os:/home$
 ```
 
 This will jump 1 level up towards the root of the filesystem.
@@ -164,7 +203,7 @@ This will jump 1 level up towards the root of the filesystem.
 Your home directory is a very important directory. To begin with, when you open a shell, you should automatically be placed in your home directory.
 
 ```bash
-nico@biosdeb:~$
+bioboost@pop-os:~$
 ```
 
 Additionally, your home directory is one of the few directories where you have the full control to create and delete additional files and directories. On most Linux distributions, the only users who can access any files in your home directory are you and the administrator on the system (the `root` user).
@@ -172,8 +211,8 @@ Additionally, your home directory is one of the few directories where you have t
 There is a shortcut to traverse to your home directory, and that is by issueing the `cd` command without any arguments.
 
 ```bash
-nico@biosdeb:/$ cd
-nico@biosdeb:~$
+bioboost@pop-os:/$ cd
+bioboost@pop-os:~$
 ```
 
 This brings you immediately to your home directory.
@@ -181,8 +220,8 @@ This brings you immediately to your home directory.
 Another way to achieve this is to use the `~` symbol, which symbolizes the path to your home directory.
 
 ```bash
-nico@biosdeb:/$ cd ~
-nico@biosdeb:~$
+bioboost@pop-os:/$ cd ~
+bioboost@pop-os:~$
 ```
 
 ## An Overview of the Linux Filesystem Layout
@@ -196,18 +235,21 @@ In Linux, every file and device on the system resides under the **root**, which 
 Thus, if one wanted to go to the top-level directory of the entire operating system and see what is there, one could use the `cd` command followed by the root directory `/` to traverse to the root directory and then simply use the `ls` command to display the files and directories there.
 
 ```bash
-nico@biosdeb:~$ cd /
-nico@biosdeb:/$ ls
-bin   home            lib64       mnt   run   tmp      vmlinuz.old
-boot  initrd.img      libx32      opt   sbin  usr
-dev   initrd.img.old  lost+found  proc  srv   var
-etc   lib             media       root  sys   vmlinuz
-
+bioboost@pop-os:~$ cd /
+bioboost@pop-os:/$ ls
 ```
+
+::: codeoutput
+<pre>
+bin   dev   lib    libx32      mnt   root  snap  tmp
+boot  etc   lib32  lost+found  opt   run   srv   usr
+data  home  lib64  media       proc  sbin  sys   var
+</pre>
+:::
 
 Every file, device, directory, or application is located under this one directory. Under this, we can see the beginnings of the rest of the directory structure.
 
-One of the principles guiding the organization of the file system is to allow it to be split across multiple disk partitions (or multiple disks) in a rational manner, and to allow appropriate pieces of it to be shared between machines. Key to this is the notion of the root partition (/, the parent of the entire file system).
+One of the principles guiding the organization of the file system is to allow it to be split across multiple disk partitions (or multiple disks) in a rational manner, and to allow appropriate pieces of it to be shared between machines. Key to this is the notion of the root partition (`/`, the parent of the entire file system).
 
 When Linux boots, the kernel attaches a single file system partition all by itself. This is known as the **root partition**. Any other partitions that need to be attached are mounted by the `mount` command, usually under control of entries in the file `/etc/fstab`. Because in the early stages of startup, only the root file system is available, it **must contain everything needed for the system to function** and attach the other pieces of the file system.
 
@@ -271,16 +313,54 @@ To view for example the file systems that are mounted on your current setup, you
 cat /etc/fstab
 ```
 
+::: codeoutput
+<pre>
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# &lt;file system&gt;  &lt;mount point&gt;  &lt;type&gt;  &lt;options&gt;  &lt;dump&gt;  &lt;pass&gt;
+PARTUUID=2fb1bb7c-ad70-4a31-8afb-0a585e9e61ac  /boot/efi  vfat  umask=0077  0  0
+UUID=006b9140-c610-462d-9cd9-5e7cd59024d6  /  ext4  noatime,errors=remount-ro  0  0
+/dev/mapper/cryptswap  none  swap  defaults  0  0
+UUID=28E52BD11CEE95C6  /data  ntfs  defaults  0  0
+</pre>
+:::
+
 Or to display some information about the CPU of your system, check the kernel mapped file `/proc/cpuinfo`.
 
 ```bash
 cat /proc/cpuinfo
 ```
 
+::: codeoutput
+<pre>
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8665U CPU @ 1.90GHz
+stepping	: 12
+microcode	: 0xca
+cpu MHz		: 800.106
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+</pre>
+:::
+
 Want to find out what shells are available on your system, then display the content of the file `/etc/shells` using the command `cat /etc/shells`.
 
 ```bash
-nico@biosdeb:/etc$ cat /etc/shells
+cat /etc/shells
+```
+
+::: codeoutput
+<pre>
 # /etc/shells: valid login shells
 /bin/sh
 /bin/bash
@@ -289,7 +369,11 @@ nico@biosdeb:/etc$ cat /etc/shells
 /usr/bin/rbash
 /bin/dash
 /usr/bin/dash
-```
+/usr/bin/tmux
+/bin/zsh
+/usr/bin/zsh
+</pre>
+:::
 
 ### Creating a File
 
@@ -298,10 +382,17 @@ There are several ways of creating a new file, including using a program designe
 One of the most common command line tools used to create an empty file, is the `touch` command.
 
 ```bash
-nico@biosdeb:~$ touch hello
-nico@biosdeb:~$ ls
-Desktop  Documents  Downloads  hello  Music  Pictures  Public  Templates  Videos
+touch hello
+ls
 ```
+
+::: codeoutput
+<pre>
+Desktop  Documents  Downloads  hello
+Music    Pictures   Public     Templates
+Videos
+</pre>
+:::
 
 ::: tip Touch
 Touch is actually not intended to be used as a command to create files. It's primary use is to update the timestamps (creation and modification) on files to the current time. As a side-effect, if the file is non-existent, it is created.
@@ -316,7 +407,7 @@ Some beginner friendly editors are `nano` and `joe`. More common editors used fo
 `nano` should be pre-installed on your system. Use it to edit the content of a file in your home directory. If you specify a file that doesn't exist yet, nano will create it for you.
 
 ```bash
-nico@biosdeb:~$ nano hello
+nano hello
 ```
 
 ![Nano Text Editor](./img/nano.png)
@@ -334,27 +425,38 @@ Some shortcuts in nano:
 To create a directory, one can use the `mkdir` command. Just specify the name of the directory after the command as an argument.
 
 ```bash
-nico@biosdeb:~$ mkdir files
-nico@biosdeb:~$ ls
-Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  Videos
+bioboost@pop-os:~$ mkdir files
+bioboost@pop-os:~$ ls
 ```
+
+::: codeoutput
+<pre>
+Desktop   Documents  Downloads   files
+hello     Music      Pictures    Public
+Templates Videos
+</pre>
+:::
 
 When trying to create a directory with a name that already exists, linux will stop you in your tracks.
 
 ```bash
-nico@biosdeb:~$ ls
-Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  Videos
-nico@biosdeb:~$ mkdir files
-mkdir: cannot create directory ‘files’: File exists
+bioboost@pop-os:~$ mkdir projects
+bioboost@pop-os:~$ mkdir projects
 ```
 
-Creating nested directories requires the `-p` flag, indicating that parent directories should be created as needed.
+::: codeoutput
+<pre>
+mkdir: cannot create directory ‘projects’: File exists
+</pre>
+:::
+
+Creating **nested directories** requires the `-p` flag, indicating that parent directories should be created as needed.
 
 ```bash
-nico@biosdeb:~$ mkdir this/is/a/deep/directory
+bioboost@pop-os:~$ mkdir this/is/a/deep/directory
 mkdir: cannot create directory ‘this/is/a/deep/directory’: No such file or directory
-nico@biosdeb:~$ mkdir -p this/is/a/deep/directory
-nico@biosdeb:~$
+bioboost@pop-os:~$ mkdir -p this/is/a/deep/directory
+bioboost@pop-os:~$
 ```
 
 ### Copying Files
@@ -364,23 +466,23 @@ To copy files on a linux system, one can make use of the `cp` command. It's gene
 It requires that you specify a source and a destination. When successful, the `cp` command will not have any output.
 
 ```bash
-nico@biosdeb:~$ cp hello hello.backup
-nico@biosdeb:~$
+bioboost@pop-os:~$ cp hello hello.backup
+bioboost@pop-os:~$
 ```
 
 This can be changed by applying the `-v` option, which will cause the `cp` command to produce output if successful. The `-v` option stands for verbose.
 
 ```bash
-nico@biosdeb:~$ cp -v hello hello.backup
+bioboost@pop-os:~$ cp -v hello hello.backup
 'hello' -> 'hello.backup'
 ```
 
 When the destination is a directory, the resulting new file will have the same name as the original file. If you want the new file to have a different name, you must provide the new name as part of the destination.
 
-The `cp` command can be destructive to existing data if the destination file already exists. In the case where the destination file exists, the `cp` command will overwrite the existing file's contents with the contents of the source file. With the `-i` (interactive) option, the `cp` will prompt before overwriting a file. If you want to automatically answer no to each prompt, use the `-n` option. It essentially stands for "no rewrite".
+The `cp` command **can be destructive to existing data if the destination file already exists**. In the case where the destination file exists, the `cp` command will overwrite the existing file's contents with the contents of the source file. With the `-i` (interactive) option, the `cp` will prompt before overwriting a file. If you want to automatically answer no to each prompt, use the `-n` option. It essentially stands for "no rewrite".
 
 ```bash
-nico@biosdeb:~$ cp -vi hello hello.backup
+bioboost@pop-os:~$ cp -vi hello hello.backup
 cp: overwrite 'hello.backup'? y
 'hello' -> 'hello.backup'
 ```
@@ -394,17 +496,17 @@ Be warned that many commands in the linux shell can be destructive. This means t
 The `cp` command does not copy directories by default.
 
 ```bash
-nico@biosdeb:~$ ls files
+bioboost@pop-os:~$ ls files
 hello  project.md
-nico@biosdeb:~$ cp files files_backups
+bioboost@pop-os:~$ cp files files_backups
 cp: -r not specified; omitting directory 'files'
 ```
 
 However, the `-r` option to the `cp` command will have it copy both files and directories. `-r` stands for recursive.
 
 ```bash
-nico@biosdeb:~$ cp -r files files_backups
-nico@biosdeb:~$ ls files_backups
+bioboost@pop-os:~$ cp -r files files_backups
+bioboost@pop-os:~$ ls files_backups
 hello  project.md
 ```
 
@@ -415,12 +517,14 @@ To move a file, use the `mv` command. The syntax for the `mv` command is much li
 If the destination for the `mv` command is a directory, the file will be moved to the directory specified. The file name will change only if a destination file name is also specified.
 
 ```bash
-nico@biosdeb:~$ ls
-Desktop  Documents  Downloads  files  linux-commands  Music  Pictures  Public  Templates  this  Videos
-nico@biosdeb:~$ mv linux-commands files
-nico@biosdeb:~$ ls
-Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  this  Videos
-nico@biosdeb:~$ ls files
+bioboost@pop-os:~$ ls
+Desktop  Documents  Downloads  files      linux-commands  
+Music    Pictures   Public     Templates  this  Videos
+bioboost@pop-os:~$ mv linux-commands files
+bioboost@pop-os:~$ ls
+Desktop  Documents  Downloads  files  Music
+Pictures Public     Templates  this   Videos
+bioboost@pop-os:~$ ls files
 hello  linux-commands  project.md
 ```
 
@@ -442,20 +546,24 @@ Linux doesn't have a standard tool to rename files. Linux users use the `mv` com
 
 To delete a file, use the `rm` command.
 
-The files are permanently deleted. There is no command to undelete a file and no "trash can" from which to recover deleted files.
+The files are **permanently deleted**. There is **no command to undelete a file** and no "trash can" from which to recover deleted files.
+
+::: tip
+It is not entirely true that all Linux distro's do not have a Trash can. Ubuntu systems have a `Trash` directory located at `~/.local/share/Trash`. However, not all distro's have this feature.
+:::
 
 ```bash
-nico@biosdeb:~$ ls
+bioboost@pop-os:~$ ls
 Desktop  Documents  Downloads  files  hello  Music  Pictures  Public  Templates  this  Videos
-nico@biosdeb:~$ rm hello
-nico@biosdeb:~$ ls
+bioboost@pop-os:~$ rm hello
+bioboost@pop-os:~$ ls
 Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  this  Videos
 ```
 
 Use `-i` for interactive mode and `-v` for verbose mode.
 
 ```bash
-nico@biosdeb:~$ rm -iv hello
+bioboost@pop-os:~$ rm -iv hello
 rm: remove regular empty file 'hello'? y
 removed 'hello'
 ```
@@ -463,10 +571,10 @@ removed 'hello'
 To delete a directory the `-r` recursive flag is required.
 
 ```bash
-nico@biosdeb:~$ ls
+bioboost@pop-os:~$ ls
 Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  this  Videos
-nico@biosdeb:~$ rm -r files
-nico@biosdeb:~$ ls
+bioboost@pop-os:~$ rm -r files
+bioboost@pop-os:~$ ls
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  this  Videos
 ```
 
@@ -475,8 +583,8 @@ When you delete a directory, all of the files and subdirectories are deleted wit
 Empty directories can also be deleted using the `rmdir` command. This command can be a bit of a safe-guards if you wish to make sure no files are left in the directory before you delete it. Use `-v` for verbose mode and `-p` for also deleting the specified parent directories.
 
 ```bash
-nico@biosdeb:~$ mkdir -p this/is/a/nested/dir
-nico@biosdeb:~$ rmdir -pv this/is/a/nested/dir/
+bioboost@pop-os:~$ mkdir -p this/is/a/nested/dir
+bioboost@pop-os:~$ rmdir -pv this/is/a/nested/dir/
 rmdir: removing directory, 'this/is/a/nested/dir/'
 rmdir: removing directory, 'this/is/a/nested'
 rmdir: removing directory, 'this/is/a'
