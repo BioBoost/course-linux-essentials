@@ -1,9 +1,11 @@
 ---
 description: Introduces operating systems for the Raspberry Pi. Next is shown how to setup a headless RPi with a Raspbian image.
-title: 10 - RPi Operating System
+title: Addendum 01 - Linux on the Raspberry Pi
 ---
 
-# Chapter 10 - RPi Operating System
+# Addendum 01 - Linux on the Raspberry Pi
+
+<!-- This chapter may need a refactor. Maybe we need to be more clear on difference between setup (headless or with display). -->
 
 The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python. It's capable of doing everything you'd expect a desktop computer to do, from browsing the internet and playing high-definition video, to making spreadsheets, word-processing, and playing games.
 
@@ -92,7 +94,7 @@ While the instructions further on are based on how to equip the Raspberry Pi wit
 
 You can download the latest image of Raspbian via the Raspberry Pi website ([https://www.raspberrypi.org/downloads/](https://www.raspberrypi.org/downloads/)). Make sure to pick the "Raspbian Buster with desktop" edition. You do not need to extract the archive as this will be done by the flash tool.
 
-The current Raspbian version at the moment of this writing is of September with a Linux kernel version of 4.19. You can always check out the release notes on [http://downloads.raspberrypi.org/raspbian/release_notes.txt](http://downloads.raspberrypi.org/raspbian/release_notes.txt).
+The current Raspbian version at the moment of this writing is of February with a Linux kernel version of 4.19. You can always check out the release notes on [http://downloads.raspberrypi.org/raspbian/release_notes.txt](http://downloads.raspberrypi.org/raspbian/release_notes.txt).
 
 The Raspberry website also offers a lite edition of Raspbian. This is the same distro but without a graphical desktop environment. If you were to attach a display to the Raspberry Pi, all you would see would be a TTY with a login prompt. If you require a GUI, you will need to download the normal desktop image.
 
