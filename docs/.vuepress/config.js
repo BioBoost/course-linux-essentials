@@ -22,6 +22,7 @@ module.exports = {
         // '/08_remote_access/',
         // '/10_linux_on_the_raspberry_pi/',
         // '/11_basic_shell_scripting/',
+        '/addendum-01-linux-on-the-rpi/',
       ]
     },
     sidebarDepth: 1,
