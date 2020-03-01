@@ -372,9 +372,45 @@ By using the pipe operator `|`, data can be send from one program to another. Wh
 
 ## Update the System
 
-It is important to keep your systems up-to-date, especially security related updates should be deployed periodically. To update your RPi to the latest version run the commands below:
+It is important to **keep your systems up-to-date**, especially security related updates should be deployed periodically. To update your RPi to the latest version run the commands below:
 
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
+
+## Setting up Wifi
+
+To configure Wifi you will need to edit the file `/etc/wpa_supplicant/wpa_supplicant.conf`. This can easily be done using a text editor such as `nano`.
+
+```bash
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+Edit the current configuration so it reflects your WiFi connection setup.
+
+```text
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=BE
+
+network={
+    ssid="YOURSSID"
+    psk="YOURPASSWORD"
+    scan_ssid=1
+}
+```
+
+To try your new WiFi config you can run the following command:
+
+```bash
+sudo wpa_cli -i wlan0 reconfigure
+```
+
+### HeadLess Setup
+
+If you setup an RPi for the first time, you may create a file called `/boot/wpa_supplicant.conf` on the boot partition of the SD card. This will setup the WiFi configuration at boottime.
+
+The `/boot` partition is FAT formatted which is readable by most PC's. So you can simply insert the SD card in a USB reader and a `boot` folder should show up.
+
+If you create a `wpa_supplicant.conf` file in `/boot`, it will be copied to the main partition's `/etc/wpa_supplicant.conf` location at boot time, replacing whatever is there. It will then be deleted from `/boot`, so you won't see it there if you go looking.
