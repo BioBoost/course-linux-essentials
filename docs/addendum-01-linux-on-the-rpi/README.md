@@ -6,6 +6,7 @@ title: Addendum 01 - Linux on the Raspberry Pi
 # Addendum 01 - Linux on the Raspberry Pi
 
 <!-- This chapter may need a refactor. Maybe we need to be more clear on difference between setup (headless or with display). -->
+<!-- This chapter should be usable after any other chapter, based on when our pi's are received. -->
 
 The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python. It's capable of doing everything you'd expect a desktop computer to do, from browsing the internet and playing high-definition video, to making spreadsheets, word-processing, and playing games.
 
@@ -414,3 +415,112 @@ If you setup an RPi for the first time, you may create a file called `/boot/wpa_
 The `/boot` partition is FAT formatted which is readable by most PC's. So you can simply insert the SD card in a USB reader and a `boot` folder should show up.
 
 If you create a `wpa_supplicant.conf` file in `/boot`, it will be copied to the main partition's `/etc/wpa_supplicant.conf` location at boot time, replacing whatever is there. It will then be deleted from `/boot`, so you won't see it there if you go looking.
+
+## Creating a User
+
+Next a new account should be created on the Raspberry Pi for yourself. Use the `adduser` tool to create a new account. Fill in the necessary details.
+
+```bash
+sudo adduser <yourusername>
+```
+
+Next we need to give your user account access to the `sudo` command. This is achieved by adding your user account to the group `sudo`.
+
+```bash
+sudo adduser <yourusername> sudo
+```
+
+To make sure we don't keep using the `pi` account, it's best to lock it. If ever needed, it can be unlocked.
+
+```bash
+sudo passwd -l pi
+```
+
+Logout of the Raspberry Pi and login using your own account.
+
+## Developing for the RPi
+
+The current approach - working on the RPi itself - is doable because we are only doing small projects. However, when your projects starts to grow, this is not a feasible approach anymore. We need to be able to develop our scripts and applications on our development machine using our tools such as Visual Code.
+
+There are a couple of approaches we can take here:
+
+* Transfer our source code **via GitHub**. This is slow and tedious and we would also need to commit non-tested code. So that is not a good path to be taking.
+* Use **secure copy** to transfer our code to the RPi. This is doable but still tedious as a copy action takes up time, especially if the project contains a lot of files.
+* Setup a **network share** on the RPi and develop inside of this directory using our Windows machine. This is probable the best approach for the moment.
+* Another approach is using extensions such as `Remote - SSH`. A very nice solution that uses a remote connection to the Raspberry Pi (or another machine) and allows Visual Code access to the files of the user.
+
+## Setting up a Share
+
+To share network folders to a Windows computer we need to install some special software on the Raspberry Pi. The software providing the secret sauce this time is called *Samba*. The Samba software package implements the SMB protocol and provides support for the Windows naming service (WINS) and for joining a Windows Workgroup.
+
+Installing the software using the commands below:
+
+```shell
+sudo apt update
+sudo apt install samba samba-common-bin
+```
+
+After installation configure the software by opening the file `/etc/samba/smb.conf` using nano.
+
+```shell
+sudo nano /etc/samba/smb.conf
+```
+
+Read through the file and make sure you have the following parameters set:
+
+```text
+workgroup = WORKGROUP
+wins support = yes
+```
+
+You can use anything as your workgroup name as long as it is alphanumerical and matches the workgroup you would like to join. The default workgroup in Windows 7, 8 and 10 is `WORKGROUP`.
+
+### Setup a folder to share
+
+Next step is to create the folder you would like to share. To create a folder called `projects` in your home directory do the following:
+
+```shell
+mkdir ~/projects
+```
+
+With the folder created we can now tell the Samba software to share it on the network. Open the file `/etc/samba/smb.conf` using nano.
+
+```shell
+sudo nano /etc/samba/smb.conf
+```
+
+Scroll to the bottom and add the following (make sure to substitute `<yourusername>` with your account):
+
+```config
+# Sharing our Projects directory
+[projects]
+ comment=Projects Share
+ path=/home/<yourusername>/projects
+ browseable=Yes
+ writeable=Yes
+ only guest=no
+ public=no
+ create mask=0664
+ directory mask=0775
+```
+
+Notice how we tell Samba that public access is not allowed via `public=no` - this means that anyone wanting to access the shared folder must login with a valid user.
+
+In this case the valid user is your own user account. To set the Samba access password for your user, execute the `smbpasswd` command with your own user name.
+
+```shell
+sudo smbpasswd -a <yourusername>
+```
+
+**Restart the Samba service** using `sudo service smbd restart`.
+
+### Opening the shared folder from Windows
+
+Now you should be able to traverse to the share using the network url: `\\<ip>\projects`. It will request the credentials of your user to login.
+
+![RPi Network Share](./img/network_share.png)
+
+Make sure to regularly backup the folder so you don't lose any projects during the course. Also make sure to document all your passwords using a safe password manager.
+
+<!-- TODO: How about MAC and Linux for network share connection? -->
+<!-- TODO: Describe how to use the VSCode plugin -->
