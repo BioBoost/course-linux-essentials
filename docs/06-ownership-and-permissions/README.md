@@ -73,7 +73,8 @@ cat /etc/group
 
 Which should output something like:
 
-```bash
+::: codeoutput
+<pre>
 root:x:0:
 daemon:x:1:
 bin:x:2:
@@ -91,16 +92,19 @@ rtkit:x:122:
 saned:x:123:
 bioboost:x:1000:
 ...
-```
+</pre>
+:::
 
 By executing the `id <username>` command a user can also see to which groups his/her account belongs.
 
 For example `id bioboost` would output:
 
-```shell
+::: codeoutput
+<pre>
 uid=1000(bioboost) gid=1000(bioboost) groups=1000(bioboost),4(adm),
 24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),110(sambashare)
-```
+</pre>
+:::
 
 Similar to user ownership, the association of a file with a group is not actually done internally by the operating system by name, but by the `GID` (group id) of the group.
 
@@ -116,6 +120,10 @@ To create a new user account named `mark` using the `adduser` command one would 
 
 ```bash
 nico@biosdeb:/tmp$ sudo adduser mark
+```
+
+::: codeoutput
+<pre>
 [sudo] password for nico:               
 Adding user `mark' ...
 Adding new group `mark' (1001) ...
@@ -133,7 +141,8 @@ Enter the new value, or press ENTER for the default
 	Home Phone []: 0
 	Other []: 
 Is the information correct? [Y/n] Y
-```
+</pre>
+:::
 
 From this point on `mark` can log in to the system.
 
@@ -161,7 +170,8 @@ You can also list the content of another directory without traversing to it but 
 
 For example `ls -l /etc/network` which outputs:
 
-```bash
+::: codeoutput
+<pre>
 total 24
 drwxr-xr-x 2 root root 4096 Nov  3 13:25 if-down.d
 drwxr-xr-x 2 root root 4096 Nov  3 13:25 if-post-down.d
@@ -169,12 +179,17 @@ drwxr-xr-x 2 root root 4096 Nov  3 13:25 if-pre-up.d
 drwxr-xr-x 2 root root 4096 Nov  3 13:29 if-up.d
 -rw-r--r-- 1 root root  240 Nov  3 13:52 interfaces
 drwxr-xr-x 2 root root 4096 Jan 28  2019 interfaces.d
-```
+</pre>
+:::
 
 Running `ls -l` inside your home directory should result in a listing of all the **metadata** of all files in your home directory.
 
 ```bash
 nico@biosdeb:~$ ls -l
+```
+
+::: codeoutput
+<pre>
 total 32
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Desktop
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Documents
@@ -184,7 +199,8 @@ drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Pictures
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Public
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Templates
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Videos
-```
+</pre>
+:::
 
 Dissecting the above output a bit results in the next diagram.
 
@@ -224,6 +240,10 @@ Even more detailed information about a file can be obtained using the `stat` com
 
 ```bash
 nico@biosdeb:/tmp$ stat test.txt 
+```
+
+::: codeoutput
+<pre>
   File: test.txt
   Size: 6         	Blocks: 8          IO Block: 4096   regular file
 Device: 801h/2049d	Inode: 661187      Links: 1
@@ -232,7 +252,8 @@ Access: 2019-11-26 09:45:19.271159998 +0100
 Modify: 2019-11-26 09:45:16.124734000 +0100
 Change: 2019-11-26 09:45:16.124734000 +0100
  Birth: -
-```
+</pre>
+:::
 
 ## About Ownership and Permissions
 
