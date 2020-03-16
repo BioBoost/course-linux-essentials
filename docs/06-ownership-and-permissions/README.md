@@ -9,7 +9,7 @@ Linux is a multi-user OS that is based on the Unix concepts of file ownership an
 
 ## Linux Users
 
-Linux is a multi-user system. A basic understanding of users and groups is required before ownership and permissions can be discussed, because they are the entities that the ownership and permissions apply to.
+**Linux is a multi-user system**. A basic understanding of users and groups is required before ownership and permissions can be discussed, because they are the entities that the ownership and permissions apply to.
 
 In Linux, there are two types of users: **system users** and **regular users**. Traditionally, system users are used to run non-interactive or background processes on a system, while regular users are used for logging in and running processes interactively.
 
@@ -40,25 +40,25 @@ vboxadd:x:999:1::/var/run/vboxadd:/bin/false
 
 ![passwd entries](./img/passwd_entries.png)
 
-Although, most commands will usually show the user owner as a name, the operating system is actually associating the user ownership with the `UID` for that user name. This is also reflected in the `/etc/passwd` file.
+Although, most commands will usually show the user owner as a name, the operating system is actually associating the user ownership with the `UID` (user id) for that user name. This is also reflected in the `/etc/passwd` file.
 
 ### Super user
 
-In addition to the two user types, there is the **superuser**, or **root user**, who has the ability to override any file ownership and permission restrictions. In practice, this means that the superuser has the rights to access anything on his/her own server. This user is used to make system-wide changes, and must be kept secure.
+In addition to the two user types, there is the **root user** (also called the *superuser*), who has the ability to override any file ownership and permission restrictions. In practice, this means that the superuser has the rights to access anything on his/her own server. This user is used to make system-wide changes, and must be kept secure.
 
-Changing to the superuser can be achieved by executing the command `su`, after which you are required to provide the password of the root user. Once logged in as the root user, notice how the prompt changes from `$` to `#`.
+Opening a shell prompt as the superuser can be achieved by executing the command `su` (substitute user), after which you are required to provide the password of the root user. Once logged in as the root user, notice how the prompt changes from `$` to `#`.
 
-Be careful because the root user has the ability to do anything on the system. When executing commands as the root user there are some disadvantages that need to be kept in mind:
+Be careful because the root user has the **ability to do anything on the system**. When executing commands as the root user there are some disadvantages that need to be kept in mind:
 
 * no record of system altering commands
 * no record of the user that performed the system altering commands
-* no access to your user shell environment
+* no access to your user shell environment (that is the environment variables from the user as which you were originally logged in)
 * you have to enter the root password, meaning that everyone that requires this type of access, needs to know the password.
 
 It is also possible to configure other user accounts with the ability to assume "superuser rights". Using the `sudo` prefix before the command, the user stays logged in with his/her own user account, but can apply system wide changes. In fact, creating a normal user that has `sudo` (superuser do) privileges for system administration tasks is considered to be best practice, as it counters the previously mentioned disadvantages of switching to the superuser account.
 
 ::: warning Switching to root with sudo
-Note that in many cases the super user account is disabled for login. In this case, a regular user with `sudo` rights can switch to the root user using the `sudo su` command.
+Note that in many cases the super user account is disabled for login. In this case, a regular user with `sudo` rights can switch still to the root user using the `sudo su` command. However, one cannot directly login via a login prompt as the root user.
 :::
 
 ## Linux Groups
@@ -102,7 +102,7 @@ uid=1000(bioboost) gid=1000(bioboost) groups=1000(bioboost),4(adm),
 24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),110(sambashare)
 ```
 
-Similar to user ownership, the association of a file with a group is not actually done internally by the operating system by name, but by the `GID` of the group.
+Similar to user ownership, the association of a file with a group is not actually done internally by the operating system by name, but by the `GID` (group id) of the group.
 
 ## Adding Users to the System
 
@@ -143,7 +143,7 @@ To switch to another user account, use the `su` command. However if not logged i
 
 ## File Metadata
 
-In Linux, each file and directory does not only contain its actual data, but is also accompanied by metadata. Metadata is data about data.
+In Linux, each file and directory does not only contain its actual data, but is also accompanied by metadata. **Metadata is data about data**.
 
 The most common way to view the metadata of a file is to use `ls` with the long listing option `-l`, e.g.
 
@@ -210,7 +210,7 @@ Dissecting the above output a bit results in the next diagram.
 
 4. The following part contains the **user** that owns the file. By default, users will own the files that they create. While this ownership can be changed, this function requires administrative privileges.
 
-5. Next is the **group** on which the group permissions are applied. Members of this group will have these permissions applied when they want to access the file/directory. By default, the primary group of the user who creates the file will be the group owner of any new files. Users are allowed to change the group owner of a file to any group that they belong. 
+5. Next is the **group** on which the group permissions are applied. Members of this group will have these permissions applied when they want to access the file/directory. By default, the primary group of the user who creates the file will be the group owner of any new files. Users are allowed to change the group owner of a file to any group that they belong.
 
 6. After the group comes the **file size** in bytes (unless you provided the `-h` flag to `ls` to request human readable file sizes). For directories this does not actually describe the total size of the directory, but rather how many bytes are reserved to track the filenames in the directory.
 
@@ -260,16 +260,16 @@ A hyphen (-) in the place of one of these characters indicates that the respecti
 
 Here is a quick breakdown of the access that the three basic permission types grant
 
-* Read
-  * For a normal file, read permission allows a user to view the contents of the file.
-  * For a directory, read permission allows a user to view the names of the file in the directory.
+* **Read**
+  * For a normal file, read permission allows a user to **view the contents of the file**.
+  * For a directory, read permission allows a user to **view the names of the files in the directory**.
 
-* Write
-  * For a normal file, write permission allows a user to modify and delete the file.
-  * For a directory, write permission allows a user to delete the directory or modify its contents (create, delete, and rename files in it).
+* **Write**
+  * For a normal file, write permission allows a user to **modify and delete the file**.
+  * For a directory, write permission allows a user to **delete the directory or modify its contents (create, delete, and rename files in it)**.
 
-* Execute
-  * For a normal file, execute permission allows a user to execute a file (the user must also have read permission). As such, execute permissions must be set for executable programs and shell scripts before a user can run them.
+* **Execute**
+  * For a normal file, execute permission **allows a user to execute a file** (the user **must also have read permission**). As such, execute permissions must be set for executable programs and shell scripts before a user can run them.
   * For a directory, execute permission allows a user to access, or traverse, into (i.e. `cd`) and access metadata about files in the directory (the information that is listed in an `ls -l`).
 
 <!-- ::: tip The s-bit
@@ -277,6 +277,7 @@ In some cases there may be an `s` instead of `x` for the execute permission of t
 ::: -->
 
 Something to note is that even though many permissions combinations are possible, only certain ones make sense in most situations. For example, write or execute access is almost always accompanied by read access, since it's hard to modify, and impossible to execute, something you can't read.
+
 Let's see some examples
 
 | File Type | Permissions | User | Group | Description |
@@ -296,7 +297,7 @@ As you may have noticed, the owner of a file usually enjoys the most permissions
 
 ## Changing Ownership
 
-To change the ownership of files and directories the `chown` (change owner) and `chgrp` (change group) commands can be used.
+To change the ownership of files and directories the `chown` (change owner) and `chgrp` (change group) commands can be used. However many linux user will often use the `chown` command to do both these tasks.
 
 To change the owner of a file, use the `chown` command followed by the new owner and the file you wish to change. For example to set `mark` as the owner of the file `/tmp/test.txt`, execute:
 
@@ -319,7 +320,7 @@ chown mark:teachers /tmp/test.txt
 All these commands can also be executed recursively by adding `-R` as an argument. This will change the owner, group or mode (according to the issued command) for the given directory and all files and other directories inside that specified directory. Be careful when using the recursive argument as it can really mess up your day, especially in combination with the `sudo` prefix.
 
 ::: tip Temporary Files
-If you wish to experiment with the permissions, feel free to create some files and directories below `/tmp`. No harm to experiment there. Restarting the system will remove all the files and reset the temporary filesystem.
+If you wish to experiment with file permissions, feel free to create some files and directories below `/tmp`. No harm to experiment there. Restarting the system will remove all the files and reset the temporary filesystem.
 :::
 
 ## Changing Permissions
@@ -334,7 +335,7 @@ chmod <options> <permissions> <filenames>
 
 Permissions define the permissions for the owner of the file (the "user"), members of the group who own the file (the "group"), and anyone else ("others"). There are two ways to represent these permissions: with symbols (alphanumeric characters), or with octal numbers (the digits 0 through 7).
 
-##### Symbolic
+### Symbolic
 
 The `chmod` has a really user friendly approach for changing user permissions. All you need to do is specify the class (user, group or others), the type of change (adding, removing or setting the permissions) and the permissions themselves (read, write or execute). This can all be done using a symbolic approach.
 
@@ -356,7 +357,7 @@ The next table shows some examples.
 
 <!-- Maybe add before and after to examples above -->
 
-##### Octal numbers
+### Octal numbers
 
 In this case an octal value specifies the permissions for each class. Here the digits `7`, `5`, and `4` each individually represent the permissions for the user, group, and others, in that order. Each digit is a combination of the numbers `4`, `2`, `1`, and `0`:
 
