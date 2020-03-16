@@ -17,7 +17,7 @@ module.exports = {
         '/03-the-command-line/',
         '/04-getting-help/',
         '/05-the-filesystem/',
-        // '/06_ownership_and_permissions/',
+        '/06-ownership-and-permissions/',
         // '/07_package_managers/',
         // '/08_remote_access/',
         // '/10_linux_on_the_raspberry_pi/',
