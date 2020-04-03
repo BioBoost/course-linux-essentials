@@ -8,23 +8,69 @@ module.exports = {
       {text: 'Report Issue', link: 'https://github.com/BioBoost/course_linux_essentials/issues'},
       {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-linux-essential'}
     ],
-    sidebar: {
-      // fallback
-      '/': [
-        '',
-        '/01-introduction-to-linux/',
-        '/02-start-using-linux/',
-        '/03-the-command-line/',
-        '/04-getting-help/',
-        '/05-the-filesystem/',
-        '/06-ownership-and-permissions/',
-        // '/07_package_managers/',
-        // '/08_remote_access/',
-        // '/10_linux_on_the_raspberry_pi/',
-        '/11-basic-shell-scripting/',
-        '/addendum-01-linux-on-the-rpi/',
-      ]
-    },
+    sidebar: [
+      {
+        title: 'About this Course',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: true, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          ''
+        ]
+      },
+      {
+        title: 'Getting Started with Linux',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/01-introduction-to-linux/',
+          '/02-start-using-linux/',
+          '/03-the-command-line/',
+          '/04-getting-help/',
+        ]
+      },
+      {
+        title: 'The Linux Filesystem',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/05-the-filesystem/',
+          '/06-ownership-and-permissions/',
+        ]
+      },
+      // {
+      //   title: 'Making Linux Your Own',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/07_package_managers/',
+      //     '/06-making-linux-your-own/',
+      //   ]
+      // },
+      {
+        title: 'Automating Things',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/11-basic-shell-scripting/',
+          // Cron Jobs?
+          // SystemD
+        ]
+      },
+      {
+        title: 'Addenda',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/addendum-01-linux-on-the-rpi/',
+        ]
+      },
+    ],
     sidebarDepth: 1,
     repo: 'BioBoost/course_linux_essentials.git',
     docsDir: 'docs',
