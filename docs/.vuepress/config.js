@@ -38,8 +38,21 @@ module.exports = {
         children: [
           '/05-the-filesystem/',
           '/06-ownership-and-permissions/',
+          '/07-locating-things/',
         ]
       },
+      // {
+      //   title: 'Command Line Hacking',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     // '/08-making-linux-your-own/'
+      //     // '/09-making-linux-your-own/'
+      //     // '/10-command-chaining-and-redirection/',
+      //     // '/11-text-manipulation/',
+      //   ]
+      // },
       // {
       //   title: 'Making Linux Your Own',   // required
       //   // path: '/foo/',      // optional, which should be a absolute path.
@@ -50,17 +63,17 @@ module.exports = {
       //     '/06-making-linux-your-own/',
       //   ]
       // },
-      {
-        title: 'Automating Things',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/11-basic-shell-scripting/',
-          // Cron Jobs?
-          // SystemD
-        ]
-      },
+      // {
+      //   title: 'Automating Things',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/11-basic-shell-scripting/',
+      //     // Cron Jobs?
+      //     // SystemD
+      //   ]
+      // },
       {
         title: 'Addenda',   // required
         // path: '/foo/',      // optional, which should be a absolute path.
