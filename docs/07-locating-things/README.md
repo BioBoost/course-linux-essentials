@@ -17,7 +17,13 @@ The `locate` command is one of the easiest commands to use for finding files on 
 locate network
 ```
 
-## Finding Binaries
+::: codeoutput
+<pre>
+TODO
+</pre>
+:::
+
+## Finding Binaries and Man-pages
 
 If you are looking for a binary file on your system, `whereis` can help you it. It attempts to locate the desired program in the standard Linux places, and in the places specified by the environment variables `$PATH` and `$MANPATH`.
 
@@ -30,6 +36,12 @@ whereis ls
 whereis g++
 ```
 
+::: codeoutput
+<pre>
+TODO
+</pre>
+:::
+
 As an extra, `whereis` will also display the location of the source files and the manual pages if there are any.
 
 The easiest way to know what paths `whereis` is looking, just add the `-l` listing option.
@@ -37,3 +49,47 @@ The easiest way to know what paths `whereis` is looking, just add the `-l` listi
 ```bash
 whereis -l g++
 ```
+
+::: codeoutput
+<pre>
+TODO
+</pre>
+:::
+
+## Locating a Command
+
+The `which` command only shows the path to a binary that can be found in the `$PATH` environment variable. This means that it can only be used to find commands that can be executed from the terminal by the current user.
+
+```bash 
+which g++
+```
+
+::: codeoutput
+<pre>
+TODO
+</pre>
+:::
+
+## All around Searching
+
+The most versatile command to search for files on the the filesystem is `find`. It allows the user to search for any type of file in a specified location and has quite a lot of options available to tweak the search criteria.
+
+`find` is capable of looking for files based on:
+
+* the filename
+* the type of file
+* the creation and modification timestamp
+* the owner
+* the group
+* the permissions
+* the filesize
+* and more ...
+
+A lot of documentation about the `find` command can of course be found in the man-pages.
+
+The basic syntax for using the `find` command is: `find [starting-point...] [expression]`.
+
+* The `starting-point` is the place where to start searching for the file. All subdirectories will be included in the search by-default. A option would be to always look from the top of the filesystem, namely root `/`. However this would be a slow search. The search operation is a lot faster if you have a general idea of where the file can be found and start searching from there.
+* The `expression` part is a bit more complicated. In its essence it contains the search criteria. But `find` is a lot more versatile. It can even execute commands for each file found. One could for example set the `read` permissions for every directory that has a certain group set and is created after a certain data. The wildest things are possible.
+
+### Example of find
