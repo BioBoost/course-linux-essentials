@@ -46,13 +46,12 @@ The `$PATH` environment variable contains a list of the directories where linux 
 :::
 
 ```bash
-whereis ls
 whereis g++
 ```
 
 ::: codeoutput
 <pre>
-TODO
+g++: /usr/bin/g++ /usr/share/man/man1/g++.1.gz
 </pre>
 :::
 
@@ -66,7 +65,17 @@ whereis -l g++
 
 ::: codeoutput
 <pre>
-TODO
+bin: /usr/bin
+bin: /usr/sbin
+...
+bin: /snap/bin
+...
+man: /usr/share/info
+src: /usr/src/system76-io-1.0.1~1559663713~19.10~ea5f61a
+...
+src: /usr/src/linux-headers-5.3.0-7625
+g++: /usr/bin/g++ /usr/share/man/man1/g++.1.gz
+
 </pre>
 :::
 
@@ -74,13 +83,13 @@ TODO
 
 The `which` command only shows the path to a binary that can be found in the `$PATH` environment variable. This means that it can only be used to find commands that can be executed from the terminal by the current user.
 
-```bash 
+```bash
 which g++
 ```
 
 ::: codeoutput
 <pre>
-TODO
+/usr/bin/g++
 </pre>
 :::
 
