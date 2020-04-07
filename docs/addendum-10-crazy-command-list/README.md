@@ -20,7 +20,23 @@ title: X - Crazy Command List
 | `ssh` | Connect to remote host using SSH |
 | `scp` | Securely copy (over SSH) files from one host to another |
 | `man` | Open man(ual) page |
-| `git` | Code versioning for developers |
+| `mkdir` | Create directory |
+| `touch` | Update/create file |
+| `adduser` | Add user to the system |
+| `cat` | Concatenate file |
+| `rm` | Remove file |
+| `tree` | List file tree |
+| `nmap` | Network scan |
+| `wc` | Word count |
+| `more` | Pager for output |
+| `less` | Pager for output |
+| `apt` | Package manager |
+| `snap` | Package manager |
+| `find` | Search for files |
+| `id` | id info of user |
+| `whereis` | Find binary |
+| `which` | Locate command |
+| `file` | Details of file type |
 
 ## More Detailed Overview
 
