@@ -81,6 +81,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/addendum-01-linux-on-the-rpi/',
+          '/addendum-10-crazy-command-list/',
         ]
       },
     ],
