@@ -22,7 +22,7 @@ title: X - Crazy Command List
 | `man` | Open man(ual) page |
 | `git` | Code versioning for developers |
 
-Goal is to create a detailed overview of each command. Something like
+## More Detailed Overview
 
 | Command | Description |
 | --- | --- |
