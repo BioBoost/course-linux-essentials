@@ -117,7 +117,7 @@ The basic syntax for using the `find` command is: `find [starting-point...] [exp
 
 ### Examples of find
 
-Below is a basic example that searches the `/etc` directory and all it's subdirectories for a file called `passwd`. Unless specified otherwise, `find` will **by default only return file matches** and not directories.
+Below is a basic example that searches the `/etc` directory and all it's subdirectories for a file called `passwd`.
 
 ```bash
 find /etc -name passwd
