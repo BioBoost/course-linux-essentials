@@ -45,3 +45,9 @@ title: X - Crazy Command List
 | `ls [OPTIONS] [PATH]` | List information about files |
 | **Examples** | `ls -al`, `ls ~`, `ls /boot` |
 | **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+
+| Command | Description |
+| --- | --- |
+| `which [-a] filename` | Locate command |
+| **Examples** | `which bash`, `which sudo`, `which ls` |
+| **Common Options** | `-a` print all matching pathnames |
