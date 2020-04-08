@@ -105,7 +105,7 @@ The most versatile command to search for files on the the filesystem is `find`. 
 * the owner
 * the group
 * the permissions
-* the filesize
+* the file size
 * and more ...
 
 A lot of documentation about the `find` command can of course be found in the man-pages.
