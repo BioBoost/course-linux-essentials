@@ -38,7 +38,7 @@ module.exports = {
         children: [
           '/05-the-filesystem/',
           '/06-ownership-and-permissions/',
-          '/07-locating-things/',
+          // '/07-locating-things/',
         ]
       },
       // {
