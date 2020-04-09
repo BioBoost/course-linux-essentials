@@ -42,6 +42,35 @@ title: X - Crazy Command List
 
 | Command | Description |
 | --- | --- |
-| `ls [OPTIONS] [PATH]` | List information about files |
-| **Examples** | `ls -al`, `ls ~`, `ls /boot` |
-| **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+| `chmod [OPTION]... MODE[,MODE]... FILE...` | chmod modifies the permissions of the file specified by file name to the permissions specified by permissions. |
+| **Examples** | `See next table` |
+| **Common Options** | `-c` like verbose but report only when a change is made <br> `-f`  suppress most error messages <br> `-v` output a diagnostic for every file processed <br> `-R` change files and directories recursively |
+
+Next table:
+| Type | Command | Description|
+| --- | --- | --- |
+| Which user | u | user/owner |
+| | g | group |
+| | o | other |
+| | a | all |
+| What to do | + | Adding this permission |
+| | - | Removing this permission |
+| | = | Setting exactly this permission |
+| Which permission | r | read |
+| | w | write |
+| | x | execute |
+
+```
+For example:
+chmod ug+rwx, ao-rwx /projects
+--> This will take the user en group
+--> adding 
+--> Write, read en execution
+AND
+--> All the others
+--> Removing
+--> Write, read en execution
+
+Only the group and user are able to write, read and execute. All the others have no right to the projects file. 
+You will always need to add the sudo in front. Only the sudo user can set the permissions. (sudo chmod ...)
+```
