@@ -42,6 +42,6 @@ title: X - Crazy Command List
 
 | Command | Description |
 | --- | --- |
-| `ls [OPTIONS] [PATH]` | List information about files |
-| **Examples** | `ls -al`, `ls ~`, `ls /boot` |
-| **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+| `whereis [options] [-BMS directory... -f] name...` | locate the binary, source, and manual page files for a command |
+| **Examples** | `whereis mkdir`, `whereis -b cp`, `whereis ping` |
+| **Common Options** | `-b` search for binary files <br> `-m` search for manual files <br> `-s` search for sources |
