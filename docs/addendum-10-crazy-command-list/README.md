@@ -49,6 +49,6 @@ title: X - Crazy Command List
 | Command | Description |
 | --- | --- |
 | `mkdir [OPTIONS] [directory_name(s)]` | Creates new directories |
-| **Examples** | `mkdir projects`<br> `mkdir -m 640 exercises`<br> `mkdir -p school/linux` |
-| **Common Options** | `-m` control permissions <br> `-p` create parent directory |
+| **Examples** | `mkdir projects`<br> `mkdir -m 640 exercises`<br> `mkdir -p school/linux`|
+| **Common Options** | `-m` control permissions <br> `-p` create parent directory|
 
