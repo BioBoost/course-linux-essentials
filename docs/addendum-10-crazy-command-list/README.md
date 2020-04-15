@@ -18,7 +18,7 @@ title: X - Crazy Command List
 | `chown` | Change ownership of files |
 | `ssh-keygen` | SSH key generator |
 | `ssh` | Connect to remote host using SSH |
-| `scp` | Securely copy (over SSH) files Sfrom one host to another |
+| `scp` | Securely copy (over SSH) files from one host to another |
 | `man` | Open man(ual) page |
 | `mkdir` | Create directory |
 | `touch` | Update/create file |
