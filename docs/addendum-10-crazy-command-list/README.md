@@ -45,3 +45,9 @@ title: X - Crazy Command List
 | `ls [OPTIONS] [PATH]` | List information about files |
 | **Examples** | `ls -al`, `ls ~`, `ls /boot` |
 | **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+
+| Command | Description |
+| --- | --- |
+| `touch [OPTIONS] [FILE]` | change file timestamps |
+| **Examples** | `touch example.txt`, `touch -a example.txt` |
+| **Common Options** | `-a` change only access time <br> `-d` parse STRING and use it instead of current time<br> `-m` change only the modification time|
