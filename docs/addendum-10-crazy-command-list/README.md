@@ -45,3 +45,10 @@ title: X - Crazy Command List
 | `ls [OPTIONS] [PATH]` | List information about files |
 | **Examples** | `ls -al`, `ls ~`, `ls /boot` |
 | **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+
+
+| Command | Description |
+| --- | --- |
+| `rm [OPTIONS] filename` | Remove file |
+| **Examples** | `rm file`, `rm -d directory`, `rm -r file` |
+| **Common Options** | `-d` remove directories and other files <br> `-R` recursive deleting (implies `-d`) <br> `-r` alias for `-R` <br> `-f` force delete files <br> `-v` shows verbose output |
