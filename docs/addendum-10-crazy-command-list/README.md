@@ -18,7 +18,7 @@ title: X - Crazy Command List
 | `chown` | Change ownership of files |
 | `ssh-keygen` | SSH key generator |
 | `ssh` | Connect to remote host using SSH |
-| `scp` | Securely copy (over SSH) files from one host to another |
+| `scp` | Securely copy (over SSH) files Sfrom one host to another |
 | `man` | Open man(ual) page |
 | `mkdir` | Create directory |
 | `touch` | Update/create file |
@@ -40,8 +40,9 @@ title: X - Crazy Command List
 
 ## More Detailed Overview
 
+
 | Command | Description |
 | --- | --- |
-| `ls [OPTIONS] [PATH]` | List information about files |
-| **Examples** | `ls -al`, `ls ~`, `ls /boot` |
-| **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+| `rm [OPTIONS] [FILE]` | Remove files or directories |
+| **Examples** | `rm a.txt`, `rm b.txt c.txt`, `rm -i d.txt` `rm -r textfiles`|
+| **Common Options** | `-i` ask for confirmation for deleting the file/directory <br> `-r` remove directories and their content inside (recursively) <br> `-I` ask confirmation when deleting more then 3 files or removing recursively  <br> `-d` to remove empty directories(without content) |
