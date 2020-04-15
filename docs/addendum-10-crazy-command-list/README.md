@@ -45,3 +45,12 @@ title: X - Crazy Command List
 | `ls [OPTIONS] [PATH]` | List information about files |
 | **Examples** | `ls -al`, `ls ~`, `ls /boot` |
 | **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+
+
+
+| Command | Description |
+| --- | --- |
+| `cd [OPTIONS] [DIRECTORY]` | to change the current directory, the directory wherein the user is currently working |
+| **Examples** | `cd Downloads`, `cd ..`, `cd /` |
+| **Options** | `-L` (default) Follow symbolic links <br> `-P` Don’t follow symbolic links. When  you try to navigate to a symbolic link that points to a directory, cd will change into the directory. |
+| **Common Descriptions** | `/` goes to the root, the first directory in the filesystem hierarchy <br> `.` stays in current directory <br> `..` goes to the parent directory of the current directory <br> `../[name]` goes to the directory with that name, which has the same parent directory <br> ` ` goes to home directory <br> `[name]` (relative path), goes to the directory inside the current directory with that name <br> `/[dir1]/[dir2]` (absolute path), to go to the directory "dir2", even if you are in a totally different directory than "dir1"<br> `~` also goes to home directory <br> `[dir1]/[dir2]` goes to a directory(dir2) inside a directory(dir1) <br> `"[name dir]"` for directory names with black spaces <br> `[name]\[dir]` also for directory names with black spaces, but here the space is replaced with "\" <br> `-` goes to the previous directory the user used|
