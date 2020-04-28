@@ -45,3 +45,9 @@ title: X - Crazy Command List
 | `ls [OPTIONS] [PATH]` | List information about files |
 | **Examples** | `ls -al`, `ls ~`, `ls /boot` |
 | **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+
+| Command | Description |
+| --- | --- |
+| `pwd [OPTION]...` | Print the name of the current working directory |
+| **Examples** | `pwd`, `pwd -L`, `pwd -P` |
+| **Common Options** | `-L` (logical): name of current directory, possibly with symbolic links <br> `-P` (physical): avoid all symbolic links |
