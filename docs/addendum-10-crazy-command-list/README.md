@@ -42,6 +42,6 @@ title: X - Crazy Command List
 
 | Command | Description |
 | --- | --- |
-| `ls [OPTIONS] [PATH]` | List information about files |
-| **Examples** | `ls -al`, `ls ~`, `ls /boot` |
-| **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+| `tree [-a -L] ` | Directory listing command |
+| **Examples** | `tree -a`, `tree -L 2`, `tree` |
+| **Common Options** | `-L` Max depth <br> `-a` include hidden files <br> `-d` directories only |
