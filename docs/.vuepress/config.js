@@ -63,17 +63,17 @@ module.exports = {
       //     '/06-making-linux-your-own/',
       //   ]
       // },
-      // {
-      //   title: 'Automating Things',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/11-basic-shell-scripting/',
-      //     // Cron Jobs?
-      //     // SystemD
-      //   ]
-      // },
+      {
+        title: 'Automating Things',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/11-basic-shell-scripting/',
+          // Cron Jobs?
+          // SystemD
+        ]
+      },
       {
         title: 'Addenda',   // required
         // path: '/foo/',      // optional, which should be a absolute path.
