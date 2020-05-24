@@ -42,6 +42,7 @@ title: X - Crazy Command List
 
 | Command | Description |
 | --- | --- |
-| `ls [OPTIONS] [PATH]` | List information about files |
-| **Examples** | `ls -al`, `ls ~`, `ls /boot` |
-| **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+| `g++ [OPTIONS]` | GNU project for C and C++ compiler |
+| **Examples** | `g++ --version`, `g++ example.cpp`, `g++ -o new_name.exe hello.cpp` |
+| **Common Options** | `-S` no assembling nor linking but creating source file <br> `-c` only compile and assemble and not link to generate object code <br> `-o` Compiles and links, then creates executable target file with name provided by user |
+|**Remarks** | This command compiles and links example.cpp to produce a default target executable file a.out in the working directory. To run the program just type ./a.out in the command line! |
