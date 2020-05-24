@@ -42,6 +42,6 @@ title: X - Crazy Command List
 
 | Command | Description |
 | --- | --- |
-| `ls [OPTIONS] [PATH]` | List information about files |
-| **Examples** | `ls -al`, `ls ~`, `ls /boot` |
-| **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+| `cat [OPTION] [FILE]` | Concatenate files and print on the standard output |
+| **Examples** | `cat -n`, `cat -b` |
+| **Common Options** | `-n` number all output lines <br> `-b` number nonempty output lines, overrides -n |
