@@ -45,3 +45,9 @@ title: X - Crazy Command List
 | `ls [OPTIONS] [PATH]` | List information about files |
 | **Examples** | `ls -al`, `ls ~`, `ls /boot` |
 | **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+
+| Command | Description |
+| --- | --- |
+| `passwd [options] [LOGIN]` | command is used to change the password of a user account |
+| **Examples** | `passwd -a`, `passwd -d`, `passwd -e` |
+| **Common Options** | `-a` report password on all accounts <br> `-d` delete the password for the named account <br> `-e` force expire the password for the named account |
