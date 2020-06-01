@@ -42,6 +42,7 @@ title: X - Crazy Command List
 
 | Command | Description |
 | --- | --- |
-| `ls [OPTIONS] [PATH]` | List information about files |
-| **Examples** | `ls -al`, `ls ~`, `ls /boot` |
-| **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+| `wc [OPTIONS] [FILE]` | Word count |
+| **Examples** | `wc example.txt `, `wc -l example.txt`, `wc -m example.txt` |
+| **Common Options** | `-l` print the byte count <br> `-m` print the character counts 
+| --- | --- |
