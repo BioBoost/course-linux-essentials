@@ -45,3 +45,10 @@ title: X - Crazy Command List
 | `ls [OPTIONS] [PATH]` | List information about files |
 | **Examples** | `ls -al`, `ls ~`, `ls /boot` |
 | **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+
+| Command | Description |
+| --- | --- |
+| `mkdir [OPTIONS] [directory_name(s)]` | Creates new directories |
+| **Examples** | `mkdir projects`<br> `mkdir -m 640 exercises`<br> `mkdir -p school/linux`|
+| **Common Options** | `-m` control permissions <br> `-p` create parent directory|
+
