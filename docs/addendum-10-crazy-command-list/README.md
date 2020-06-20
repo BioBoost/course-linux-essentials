@@ -37,7 +37,7 @@ title: X - Crazy Command List
 | `whereis` | Find binary |
 | `which` | Locate command |
 | `file` | Details of file type |
-
+| `sha256sum` | returns a hash of the file|
 ## More Detailed Overview
 
 | Command | Description |
