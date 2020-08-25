@@ -45,3 +45,17 @@ title: X - Crazy Command List
 | `ls [OPTIONS] [PATH]` | List information about files |
 | **Examples** | `ls -al`, `ls ~`, `ls /boot` |
 | **Common Options** | `-l` long listing <br> `-a` include hidden files <br> `-h` human readable format |
+
+
+| Command | Description |
+| --- | --- |
+| `ls [OPTIONS] [PATH]` | Output all environment variables |
+| **Examples** | `env` |
+| **Common Options** | `-l` start with an empty environment  <br> `-0`end each output line with NUL, not newline   <br> `-u` remove variable from the environment |
+
+
+
+
+
+
+
