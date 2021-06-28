@@ -47,7 +47,7 @@ The first thing you need to do is orient yourself in the filesystem. There are a
 bioboost@pop-os:~$ pwd
 ```
 
-::: codeoutput
+::: output
 <pre>
 /home/bioboost
 </pre>
@@ -61,7 +61,7 @@ To see what files are in the current directory, you can issue the `ls` command, 
 bioboost@pop-os:~$ ls
 ```
 
-::: codeoutput
+::: output
 <pre>
 Desktop   Documents  Downloads  Music
 Pictures  Public     Templates  Videos
@@ -78,7 +78,7 @@ The first most common option is probably `-l`, which forces the command to outpu
 bioboost@pop-os:~$ ls -l
 ```
 
-::: codeoutput
+::: output
 <pre>
 total 32
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Desktop
@@ -104,7 +104,7 @@ The second most important option to the `ls` command is the `-a` flag, which lis
 bioboost@pop-os:~$ ls -a
 ```
 
-::: codeoutput
+::: output
 <pre>
 .                           .npm
 ..                          .nuget
@@ -137,7 +137,7 @@ There will be times when you want to display all of the files in a directory as 
 bioboost@pop-os:~$ ls -R
 ```
 
-::: codeoutput
+::: output
 <pre>
 .:
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
@@ -239,7 +239,7 @@ bioboost@pop-os:~$ cd /
 bioboost@pop-os:/$ ls
 ```
 
-::: codeoutput
+::: output
 <pre>
 bin   dev   lib    libx32      mnt   root  snap  tmp
 boot  etc   lib32  lost+found  opt   run   srv   usr
@@ -313,7 +313,7 @@ To view for example the file systems that are mounted on your current setup, you
 cat /etc/fstab
 ```
 
-::: codeoutput
+::: output
 <pre>
 # /etc/fstab: static file system information.
 #
@@ -335,7 +335,7 @@ Or to display some information about the CPU of your system, check the kernel ma
 cat /proc/cpuinfo
 ```
 
-::: codeoutput
+::: output
 <pre>
 processor	: 0
 vendor_id	: GenuineIntel
@@ -359,7 +359,7 @@ Want to find out what shells are available on your system, then display the cont
 cat /etc/shells
 ```
 
-::: codeoutput
+::: output
 <pre>
 # /etc/shells: valid login shells
 /bin/sh
@@ -386,7 +386,7 @@ touch hello
 ls
 ```
 
-::: codeoutput
+::: output
 <pre>
 Desktop  Documents  Downloads  hello
 Music    Pictures   Public     Templates
@@ -429,7 +429,7 @@ bioboost@pop-os:~$ mkdir files
 bioboost@pop-os:~$ ls
 ```
 
-::: codeoutput
+::: output
 <pre>
 Desktop   Documents  Downloads   files
 hello     Music      Pictures    Public
@@ -444,7 +444,7 @@ bioboost@pop-os:~$ mkdir projects
 bioboost@pop-os:~$ mkdir projects
 ```
 
-::: codeoutput
+::: output
 <pre>
 mkdir: cannot create directory ‘projects’: File exists
 </pre>

@@ -73,7 +73,7 @@ cat /etc/group
 
 Which should output something like:
 
-::: codeoutput
+::: output
 <pre>
 root:x:0:
 daemon:x:1:
@@ -99,7 +99,7 @@ By executing the `id <username>` command a user can also see to which groups his
 
 For example `id bioboost` would output:
 
-::: codeoutput
+::: output
 <pre>
 uid=1000(bioboost) gid=1000(bioboost) groups=1000(bioboost),4(adm),
 24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),110(sambashare)
@@ -122,7 +122,7 @@ To create a new user account named `mark` using the `adduser` command one would 
 nico@biosdeb:/tmp$ sudo adduser mark
 ```
 
-::: codeoutput
+::: output
 <pre>
 [sudo] password for nico:               
 Adding user `mark' ...
@@ -170,7 +170,7 @@ You can also list the content of another directory without traversing to it but 
 
 For example `ls -l /etc/network` which outputs:
 
-::: codeoutput
+::: output
 <pre>
 total 24
 drwxr-xr-x 2 root root 4096 Nov  3 13:25 if-down.d
@@ -188,7 +188,7 @@ Running `ls -l` inside your home directory should result in a listing of all the
 nico@biosdeb:~$ ls -l
 ```
 
-::: codeoutput
+::: output
 <pre>
 total 32
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Desktop
@@ -242,7 +242,7 @@ Even more detailed information about a file can be obtained using the `stat` com
 nico@biosdeb:/tmp$ stat test.txt 
 ```
 
-::: codeoutput
+::: output
 <pre>
   File: test.txt
   Size: 6         	Blocks: 8          IO Block: 4096   regular file

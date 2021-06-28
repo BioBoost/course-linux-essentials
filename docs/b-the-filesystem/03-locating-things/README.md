@@ -23,7 +23,7 @@ The serious downside of this technique is that recently created files might not 
 locate dhcp
 ```
 
-::: codeoutput
+::: output
 <pre>
 ...
 /usr/share/doc/dhcpdump
@@ -49,7 +49,7 @@ The `$PATH` environment variable contains a list of the directories where linux 
 whereis g++
 ```
 
-::: codeoutput
+::: output
 <pre>
 g++: /usr/bin/g++ /usr/share/man/man1/g++.1.gz
 </pre>
@@ -63,7 +63,7 @@ The easiest way to know what paths `whereis` is looking in, just add the `-l` li
 whereis -l g++
 ```
 
-::: codeoutput
+::: output
 <pre>
 bin: /usr/bin
 bin: /usr/sbin
@@ -87,7 +87,7 @@ The `which` command only shows the path to a binary that can be found in the `$P
 which g++
 ```
 
-::: codeoutput
+::: output
 <pre>
 /usr/bin/g++
 </pre>
@@ -123,7 +123,7 @@ Below is a basic example that searches the `/etc` directory and all it's subdire
 find /etc -name passwd
 ```
 
-::: codeoutput
+::: output
 <pre>
 find: ‘/etc/ssl/private’: Permission denied
 find: ‘/etc/cups/ssl’: Permission denied
@@ -145,7 +145,7 @@ When searching system-wide for files using `find` you will get a lot of `Permiss
 find /etc -name passwd 2>/dev/null
 ```
 
-::: codeoutput
+::: output
 <pre>
 /etc/cron.daily/passwd
 /etc/pam.d/passwd
@@ -171,7 +171,7 @@ The next example fill search for files in the `/etc` directory that contain the 
 find /etc -name "*pass*" 2>/dev/null
 ```
 
-::: codeoutput
+::: output
 <pre>
 /etc/passwd-
 /etc/ssl/certs/Buypass_Class_2_Root_CA.pem
@@ -193,7 +193,7 @@ The following example performs a system-wide **search for a directory** that con
 find / -name "*bash*" -type d 2>/dev/null
 ```
 
-::: codeoutput
+::: output
 <pre>
 /etc/bash_completion.d
 /usr/share/cmake/bash-completion
@@ -216,7 +216,7 @@ The following `find` command will search for a file:
 find ~/projects -user bioboost -name "README.md" -size -100k -mtime 0 2>/dev/null
 ```
 
-::: codeoutput
+::: output
 <pre>
 /home/bioboost/projects/challenges-linux-essentials/addendum-10-crazy-command-list/README.md
 /home/bioboost/projects/course_linux_essentials/docs/07-locating-things/README.md
@@ -242,7 +242,7 @@ Let's dissect this command:
   * `'{}'`: this passes the match from find into the command as an argument
   * `\;`: pass each match to separate `ls -lh` command. Basically this tells find to execute `ls -lh` once for each match.
 
-::: codeoutput
+::: output
 <pre>
 -rw-r--r-- 1 bioboost bioboost 870M Mar  5 13:23 /home/bioboost/Downloads/ubuntu-18.04.4-live-server-amd64.iso
 -rw-r--r-- 1 bioboost bioboost 3.7G Jan 28 09:47 /home/bioboost/Downloads/Systeembeheer.zip

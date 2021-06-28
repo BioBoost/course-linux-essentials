@@ -11,77 +11,90 @@ module.exports = {
     sidebar: [
       {
         title: 'About this Course',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: true, // optional, defaults to true
+        path: '/about-this-course/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          ''
-        ]
       },
       {
-        title: 'Getting Started with Linux',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
+        title: 'Introductory',   // required
+        path: '/a-introductory/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/01-introduction-to-linux/',
-          '/02-start-using-linux/',
-          '/03-the-command-line/',
-          '/04-getting-help/',
+          '/a-introductory/01-introduction-to-linux/',
+          '/a-introductory/02-start-using-linux/',
+          '/a-introductory/03-the-command-line/',
+          '/a-introductory/04-getting-help/',
+          '/a-introductory/05-package-managers/',
         ]
       },
       {
         title: 'The Linux Filesystem',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
+        path: '/b-the-filesystem/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/05-the-filesystem/',
-          '/06-ownership-and-permissions/',
-          '/07-locating-things/',
+          '/b-the-filesystem/01-the-filesystem/',
+          '/b-the-filesystem/02-ownership-and-permissions/',
+          '/b-the-filesystem/03-locating-things/',
         ]
       },
-      // {
-      //   title: 'Command Line Hacking',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     // '/08-making-linux-your-own/'
-      //     // '/09-making-linux-your-own/'
-      //     // '/10-command-chaining-and-redirection/',
-      //     // '/11-text-manipulation/',
-      //   ]
-      // },
-      // {
-      //   title: 'Making Linux Your Own',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/07_package_managers/',
-      //     '/06-making-linux-your-own/',
-      //   ]
-      // },
-      // {
-      //   title: 'Automating Things',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/11-basic-shell-scripting/',
-      //     // Cron Jobs?
-      //     // SystemD
-      //   ]
-      // },
       {
-        title: 'Addenda',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
+        title: 'Command Line Hacking',   // required
+        path: '/c-command-line/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/addendum-01-linux-on-the-rpi/',
-          '/addendum-10-crazy-command-list/',
+          '/c-command-line/01-chaining-and-redirection/',
+          // '/11-text-manipulation/',
+        ]
+      },
+      {
+        title: 'Making Linux Your Own',   // required
+        path: '/d-making-linux-your-own/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/d-making-linux-your-own/01-making-linux-your-own/',
+        ]
+      },
+      {
+        title: 'Servers and Services',   // required
+        path: '/e-services/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/e-services/01-remote-access/',
+        ]
+      },
+      {
+        title: 'Scripting Things',   // required
+        path: '/g-scripting/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/g-scripting/01-basic-shell-scripting/',
+          '/g-scripting/02-cron-jobs/',
+          '/g-scripting/03-systemd/',
+        ]
+      },
+      // Not sure about how to call this chapter. Or maybe should be split up.
+      {
+        title: 'Guides',
+        path: '/x-guides/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/x-guides/01-linux-on-the-rpi/',
+        ]
+      },
+      {
+        title: 'References',
+        path: '/z-references/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/z-references/01-crazy-command-list/',
         ]
       },
     ],
@@ -99,23 +112,31 @@ module.exports = {
   plugins: [
     ['vuepress-plugin-zooming', {
       // selector for images that you want to be zoomable
-      // default: '.content img'
-      selector: 'img',
-
-      // make images zoomable with delay after entering a page
-      // default: 500
-      // delay: 1000,
-
-      // options of zooming
-      // default: {}
+      selector: 'img',      // default: '.content img'
       options: {
         bgColor: 'black',
         zIndex: 10000,
       },
     }],
     ['container', {
-      type: 'codeoutput',
+      type: 'output',
       defaultTitle: 'Output',
-    }]
+    }],
+    ['container', {
+      type: 'definition',
+      defaultTitle: 'Definition',
+    }],
+    ['container', {
+      type: 'kata',
+      defaultTitle: 'Code Kata',
+    }],
+    ['container', {
+      type: 'question',
+      defaultTitle: 'Question',
+    }],
+    ['container', {
+      type: 'insight',
+      defaultTitle: 'Key Insight',
+    }],
   ],
 }

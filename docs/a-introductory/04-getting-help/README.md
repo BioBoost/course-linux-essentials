@@ -86,7 +86,7 @@ The `-f` option to the `man` command will display man pages that match, or parti
 nico@biosdeb:~$ man -f ip
 ```
 
-::: codeoutput
+::: output
 <pre>
 ip (7)               - Linux IPv4 protocol implementation
 ip (8)               - show / manipulate routing, network devices, interfaces...
@@ -99,7 +99,7 @@ Note that on most Linux distributions, the `whatis` command does the same thing 
 nico@biosdeb:~$ whatis ip
 ```
 
-::: codeoutput
+::: output
 <pre>
 ip (7)               - Linux IPv4 protocol implementation
 ip (8)               - show / manipulate routing, network devices, interfaces...
@@ -114,7 +114,7 @@ You can search for a keyword in the man pages by using the `-k` option.
 nico@biosdeb:~$ man -k ssh
 ```
 
-::: codeoutput
+::: output
 <pre>
 authorized_keys (5)  - OpenSSH SSH daemon
 rlogin (1)           - OpenSSH SSH client (remote login program)
@@ -127,7 +127,7 @@ The `apropos` command does the same thing as `man -k`.
 nico@biosdeb:~$ apropos ssh
 ```
 
-::: codeoutput
+::: output
 <pre>
 authorized_keys (5)  - OpenSSH SSH daemon
 rlogin (1)           - OpenSSH SSH client (remote login program)
@@ -158,7 +158,7 @@ Many commands will also provide you basic information, very similar to the SYNOP
 nico@biosdeb:~$ passwd --help
 ```
 
-::: codeoutput
+::: output
 <pre>
 Usage: passwd [options] [LOGIN]
 
