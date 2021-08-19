@@ -444,27 +444,35 @@ The case got settled in 1997.
 
 ![Timeline, Christoph S.](./img/timeline.png)
 
-## Linux
+## Why Linux is so Popular
 
 Linux was originally developed as a free operating system for personal computers based on the Intel x86 architecture but has since been ported to more computer hardware platforms than any other operating system. This includes desktop PCs, servers, mainframes, supercomputers, smartphones, tablets, TVs, embedded systems, ...
+
+Linux is often considered more secure than other operating systems. While it also has its flaws and has had many kernel vulnerabilities in the past, it becomes more secure by the day. This is mainly because of the community and its open nature. Linux is also less prone to malware than operating system's such as Microsoft Windows.
+
+Linux does not have the beginner friendly reputation, but it is generally more performant, stable and personalizabel than most other operating systems.
+
+## The meaning of Linux
 
 The definition of the word Linux depends on the context in which it is used.
 
 **Linux means the kernel of the system**, which is the central controller of everything that happens on the computer. People that say their computer "runs Linux" usually refer to the kernel and suite of tools that come with it, called the **distribution**.
 
-Today there are many different variants of the GNU/Linux system (often called “distros”). Most of them include nonfree programs—their developers follow the “open source” philosophy associated with Linux rather than the “free software” philosophy of GNU. But there are also completely free GNU/Linux distros. The FSF supports computer facilities for a few of them.
+Today there are many different variants of the GNU/Linux system (often called "distros"). Most of them include nonfree programs—their developers follow the "open source" philosophy associated with Linux rather than the "free software" philosophy of GNU. But there are also completely free GNU/Linux distros. The FSF supports computer facilities for a few of them.
 
 Making a free GNU/Linux distribution is not just a matter of eliminating various nonfree programs. Nowadays, the usual version of Linux contains nonfree programs too. These programs are intended to be loaded into I/O devices when the system starts, and they are included, as long series of numbers, in the "source code" of Linux. Thus, maintaining free GNU/Linux distributions now entails maintaining a free version of Linux too.
 
-Whether you use GNU/Linux or not, please don't confuse the public by using the name “Linux” ambiguously. Linux is the kernel, one of the essential major components of the system. The system as a whole is basically the GNU system, with Linux added. When you're talking about this combination, please call it “GNU/Linux”.
+Whether you use GNU/Linux or not, please don't confuse the public by using the name "Linux" ambiguously. Linux is the kernel, one of the essential major components of the system. The system as a whole is basically the GNU system, with Linux added. When you're talking about this combination, please call it "GNU/Linux".
 
-### Popular Linux Distributions
+## Common Linux Distributions
+
+<!-- TODO - Expand this section -->
 
 A Linux distribution is usually built around a package management system, which puts together the Linux kernel, free and open-source software, and often some proprietary software.
 
-Some popular distributions are listed below.
+Linux is available in over 600 distributions (or an operating system based on the Linux kernel and supporting software and libraries). Some of the most popular and well-known distributions are listed below.
 
-#### Ubuntu
+### Ubuntu
 
 ![Ubuntu](./img/ubuntu.png)
 
@@ -474,7 +482,7 @@ Like Debian, Ubuntu uses the DEB package manager, while later versions of Ubuntu
 
 Ubuntu also has a massive user base, which means its has a highly active community on which new and advanced users can fall back for support. There are also plenty of derivatives like **Lubuntu** and **Xubuntu**.
 
-#### Red Hat
+### Red Hat
 
 Red Hat started out as a simple distribution that introduced the Red Hat Package Manager (RPM). The developer eventually formed a company around it, which tried to commercialize a Linux desktop for business. Over time, Red Hat started to focus more on the server applications such as web and file serving, and released Red Hat Enterprise Linux, which was a paid service on a long release cycle.
 
@@ -507,6 +515,11 @@ Red Hat started out as a simple distribution that introduced the Red Hat Package
 <!-- Kali -->
 <!-- CentOS -->
 <!-- Linux Mint -->
+<!-- Elementary -->
+<!-- Manjaro -->
+<!-- Gentoo Linux -->
+<!-- Parrot OS -->
+<!-- Arch Linux -->
 
 ## Some Good Videos
 
