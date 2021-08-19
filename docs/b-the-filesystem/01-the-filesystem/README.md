@@ -320,7 +320,7 @@ To output the content of one or more files to the terminal, use the `cat` comman
 To view for example the file systems that are mounted on your current setup, you can view the file `/etc/fstab`.
 
 ```bash
-cat /etc/fstab
+[bioboost@linux][~]$ cat /etc/fstab
 ```
 
 ::: output
@@ -342,7 +342,7 @@ UUID=28E52BD11CEE95C6  /data  ntfs  defaults  0  0
 Or to display some information about the CPU of your system, check the kernel mapped file `/proc/cpuinfo`.
 
 ```bash
-cat /proc/cpuinfo
+[bioboost@linux][~]$ cat /proc/cpuinfo
 ```
 
 ::: output
@@ -366,7 +366,7 @@ cpu cores	: 4
 Want to find out what shells are available on your system, then display the content of the file `/etc/shells` using the command `cat /etc/shells`.
 
 ```bash
-cat /etc/shells
+[bioboost@linux][~]$ cat /etc/shells
 ```
 
 ::: output
@@ -392,8 +392,8 @@ There are several ways of creating a new file, including using a program designe
 One of the most common command line tools used to create an empty file, is the `touch` command.
 
 ```bash
-touch hello
-ls
+[bioboost@linux][~]$ touch hello
+[bioboost@linux][~]$ ls
 ```
 
 ::: output
@@ -404,8 +404,8 @@ Videos
 </pre>
 :::
 
-::: tip Touch
-Touch is actually not intended to be used as a command to create files. It's primary use is to update the timestamps (creation and modification) on files to the current time. As a side-effect, if the file is non-existent, it is created.
+::: tip touch
+`touch` is actually not intended to be used as a command to create files. It's primary use is to update the timestamps (creation and modification) on files to the current time. As a side-effect, if the file is non-existent, it is created.
 :::
 
 ### Editing files
@@ -417,7 +417,7 @@ Some beginner friendly editors are `nano` and `joe`. More common editors used fo
 `nano` should be pre-installed on your system. Use it to edit the content of a file in your home directory. If you specify a file that doesn't exist yet, nano will create it for you.
 
 ```bash
-nano hello
+[bioboost@linux][~]$ nano hello
 ```
 
 ![Nano Text Editor](./img/nano.png)
