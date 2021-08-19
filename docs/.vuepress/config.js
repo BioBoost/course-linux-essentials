@@ -86,6 +86,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/x-guides/01-linux-on-the-rpi/',
+          '/x-guides/02-linux-as-a-vm/',
         ]
       },
       {
