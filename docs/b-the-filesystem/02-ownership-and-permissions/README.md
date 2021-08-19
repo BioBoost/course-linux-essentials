@@ -34,7 +34,7 @@ libuuid:x:100:101::/var/lib/libuuid:
 ...
 syslog:x:101:104::/home/syslog:/bin/false
 kernoops:x:106:65534:Kernel Oops Tracking
-bioboost:x:1000:1000:Nico De Witte,,,:/home/bioboost:/bin/bash
+bioboost:x:1000:1000:BioBoost,,,:/home/bioboost:/bin/bash
 vboxadd:x:999:1::/var/run/vboxadd:/bin/false
 ```
 
@@ -119,12 +119,12 @@ Adding users to the system can be achieved using the command line tools `useradd
 To create a new user account named `mark` using the `adduser` command one would run:
 
 ```bash
-nico@biosdeb:/tmp$ sudo adduser mark
+[bioboost@linux][~]$ sudo adduser mark
 ```
 
 ::: output
 <pre>
-[sudo] password for nico:               
+[sudo] password for bioboost:               
 Adding user `mark' ...
 Adding new group `mark' (1001) ...
 Adding new user `mark' (1001) with group `mark' ...
@@ -185,20 +185,20 @@ drwxr-xr-x 2 root root 4096 Jan 28  2019 interfaces.d
 Running `ls -l` inside your home directory should result in a listing of all the **metadata** of all files in your home directory.
 
 ```bash
-nico@biosdeb:~$ ls -l
+[bioboost@linux][~]$ ls -l
 ```
 
 ::: output
 <pre>
 total 32
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Desktop
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Documents
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Downloads
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Music
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Pictures
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Public
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Templates
-drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Videos
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Desktop
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Documents
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Downloads
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Music
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Pictures
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Public
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Templates
+drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Videos
 </pre>
 :::
 
@@ -239,18 +239,18 @@ Interesting dissection on where the link count comes from [Directory Link Counts
 Even more detailed information about a file can be obtained using the `stat` command.
 
 ```bash
-nico@biosdeb:/tmp$ stat test.txt 
+[bioboost@linux][~]$ stat .bashrc 
 ```
 
 ::: output
 <pre>
-  File: test.txt
-  Size: 6         	Blocks: 8          IO Block: 4096   regular file
-Device: 801h/2049d	Inode: 661187      Links: 1
-Access: (0644/-rw-r--r--)  Uid: ( 1000/    nico)   Gid: ( 1000/    nico)
-Access: 2019-11-26 09:45:19.271159998 +0100
-Modify: 2019-11-26 09:45:16.124734000 +0100
-Change: 2019-11-26 09:45:16.124734000 +0100
+  File: .bashrc
+  Size: 3772      	Blocks: 8          IO Block: 4096   regular file
+Device: 832h/2098d	Inode: 3801091     Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 1000/bioboost)   Gid: ( 1000/bioboost)
+Access: 2021-08-18 18:57:43.786283781 +0200
+Modify: 2021-08-18 18:57:41.274355523 +0200
+Change: 2021-08-18 18:57:41.274355523 +0200
  Birth: -
 </pre>
 :::
@@ -323,19 +323,19 @@ To change the ownership of files and directories the `chown` (change owner) and 
 To change the owner of a file, use the `chown` command followed by the new owner and the file you wish to change. For example to set `mark` as the owner of the file `/tmp/test.txt`, execute:
 
 ```bash
-chown mark /tmp/test.txt
+[bioboost@linux][~]$ chown mark /tmp/test.txt
 ```
 
 This command can also be used to change the group. In this case the name of the group needs to be prefixed with a color `:` as shown in the next example.
 
 ```bash
-chown :teachers /tmp/test.txt
+[bioboost@linux][~]$ chown :teachers /tmp/test.txt
 ```
 
 To change both the owner and group separate both using a colon `:`.
 
 ```bash
-chown mark:teachers /tmp/test.txt
+[bioboost@linux][~]$ chown mark:teachers /tmp/test.txt
 ```
 
 All these commands can also be executed recursively by adding `-R` as an argument. This will change the owner, group or mode (according to the issued command) for the given directory and all files and other directories inside that specified directory. Be careful when using the recursive argument as it can really mess up your day, especially in combination with the `sudo` prefix.

@@ -12,17 +12,17 @@ Shell scripts are very useful to automate repetitive command line tasks.
 To create script file just `touch` it and make it executable.
 
 ```bash
-nico@biosdeb:~$ cd /tmp
-nico@biosdeb:~$ touch hello
-nico@biosdeb:~$ chmod u+x hello
-nico@biosdeb:~$ ls -al hello
+[bioboost@linux][~]$ cd /tmp
+[bioboost@linux][~]$ touch hello
+[bioboost@linux][~]$ chmod u+x hello
+[bioboost@linux][~]$ ls -al hello
 -rwxr--r-- 1 bioboost bioboost 0 Sep 30 11:45 hello
 ```
 
 Open the file with nano and add this `#!/usr/bin/env bash` as a first line:
 
 ```bash
-nico@biosdeb:~$ nano hello
+[bioboost@linux][~]$ nano hello
 ```
 
 This is what is called the **shebang**. Under Unix-like operating systems, when a script with a shebang is run as a program, the program loader parses the rest of the script's initial line as an interpreter directive; the specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script. In this example the script is run by the bash Linux shell.
@@ -50,7 +50,7 @@ echo "Hello World"
 The script can be run using the following command:
 
 ```bash
-nico@biosdeb:~$ ./hello
+[bioboost@linux][~]$ ./hello
 Hello World
 ```
 
@@ -112,7 +112,7 @@ echo "My name is $MYNAME"
 When starting a script, one can pass command line arguments as shown next:
 
 ```bash
-nico@biosdeb:~$ ./hello mark
+[bioboost@linux][~]$ ./hello mark
 ```
 
 These are accessible through variables in the script.
@@ -141,7 +141,7 @@ echo "All: $@"
 Execution example:
 
 ```bash
-nico@biosdeb:~$ ./hello my name is nico
+[bioboost@linux][~]$ ./hello my name is nico
 
 Number of arguments: 4
 First: ./hello
@@ -152,7 +152,7 @@ All: my name is nico
 If you wish the whole sentence to be treated as a single argument, you need to place quotes around the arguments.
 
 ```bash
-nico@biosdeb:~$ ./hello "my name is nico"
+[bioboost@linux][~]$ ./hello "my name is nico"
 
 Number of arguments: 1
 First: ./hello
@@ -176,7 +176,7 @@ echo "Welcome to bash $fullname"
 Running the script
 
 ```bash
-nico@biosdeb:~$ ./demo
+[bioboost@linux][~]$ ./demo
 Please enter your full name
 Nico De Witte
 Welcome to bash Nico De Witte
@@ -244,7 +244,7 @@ Double quotes do not suppress the substitution of words that begin with `$` but 
 For example, try the following:
 
 ```bash
-nico@biosdeb:~$ echo *
+[bioboost@linux][~]$ echo *
 Desktop Documents Downloads ISE Music Pictures projects Public snap Templates Videos hello
 ```
 
@@ -260,7 +260,7 @@ $ echo "*"
 There is another quoting character you will encounter. It is the backslash `\`. The backslash tells the shell to "ignore the next character." This is typically called escaping a character. Here is an example:
 
 ```bash
-nico@biosdeb:~$ echo "My host name is \$HOSTNAME."
+[bioboost@linux][~]$ echo "My host name is \$HOSTNAME."
 My host name is $HOSTNAME.
 ```
 
@@ -269,7 +269,7 @@ By using the backslash, the shell ignored the `$` symbol. Since the shell ignore
 Here is a more useful example:
 
 ```bash
-nico@biosdeb:~$ echo "My host name is \"$HOSTNAME\"."
+[bioboost@linux][~]$ echo "My host name is \"$HOSTNAME\"."
 My host name is "linuxbox".
 ```
 
@@ -309,8 +309,8 @@ A first option for the condition can be the exit status of a command. Each comma
 You can actually output the return values of Linux system commands such as `ls` and all by echoing `$?` on the command line. Try the following example:
 
 ```bash
-nico@biosdeb:~$ ls /usr/bin
-nico@biosdeb:~$ echo $?
+[bioboost@linux][~]$ ls /usr/bin
+[bioboost@linux][~]$ echo $?
 0
 ```
 
@@ -319,9 +319,9 @@ The status of `0` indicates all went well.
 Now try:
 
 ```bash
-nico@biosdeb:~$ ls /does_not_exist
+[bioboost@linux][~]$ ls /does_not_exist
 ls: cannot access 'does_not_exist': No such file or directory
-nico@biosdeb:~$ echo $?
+[bioboost@linux][~]$ echo $?
 2
 ```
 

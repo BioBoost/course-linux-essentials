@@ -44,7 +44,7 @@ Before actually delving into the file system layout, you need to know a few basi
 The first thing you need to do is orient yourself in the filesystem. There are a few ways to do this, but one of the most basic ways is with the `pwd` command, which stands for "print working directory":
 
 ```bash
-bioboost@pop-os:~$ pwd
+[bioboost@linux][~]$ pwd
 ```
 
 ::: output
@@ -58,7 +58,7 @@ This simply returns the **full path of the directory you are currently located i
 To see what files are in the current directory, you can issue the `ls` command, which stands for "list".
 
 ```bash
-bioboost@pop-os:~$ ls
+[bioboost@linux][~]$ ls
 ```
 
 ::: output
@@ -75,7 +75,7 @@ The `ls` command can be used to display the contents of a directory as well as d
 The first most common option is probably `-l`, which forces the command to output information in long-form:
 
 ```bash
-bioboost@pop-os:~$ ls -l
+[bioboost@linux][~]$ ls -l
 ```
 
 ::: output
@@ -101,7 +101,7 @@ This produces output with one line for each file or directory (the name is on th
 The second most important option to the `ls` command is the `-a` flag, which lists all files, **including hidden files**. In Linux, files are **hidden** automatically if they begin with a dot `.`:
 
 ```bash
-bioboost@pop-os:~$ ls -a
+[bioboost@linux][~]$ ls -a
 ```
 
 ::: output
@@ -134,7 +134,7 @@ The first two entries, `.` and `..` have a special meaning. The `.` directory is
 There will be times when you want to display all of the files in a directory as well as all of the files in all subdirectories under a directory. This is called a **recursive listing**. To perform a recursive listing, use the `-R` option to the `ls` command.
 
 ```bash
-bioboost@pop-os:~$ ls -R
+[bioboost@linux][~]$ ls -R
 ```
 
 ::: output
@@ -167,8 +167,8 @@ Now that you can find out where you are in the file system and see what is aroun
 To **change to a different directory**, you issue the `cd` command, which stands for "change directory":
 
 ```bash
-bioboost@pop-os:~$ cd /home
-bioboost@pop-os:/home$
+[bioboost@linux][~]$ cd /home
+[bioboost@linux][/home]$
 ```
 
 The first `/` character represents the **root directory** while each other `/` character is used to separate the directory names.
@@ -181,8 +181,8 @@ You can follow the `cd` command with either an absolute or a relative pathname.
 For instance, if you want to move to the home directory of the user `bioboost`, while in the directory `/home`, you can issue the command:
 
 ```bash
-bioboost@pop-os:/home$ cd bioboost
-bioboost@pop-os:~$
+[bioboost@linux][/home]$ cd bioboost
+[bioboost@linux][~]$
 ```
 
 The lack of the `/` from the beginning tells the shell to use the current directory as the base for looking for the path.
@@ -194,8 +194,8 @@ Under this `/home` directory there will be a directory for most users on the sys
 This is where the `..` directory link comes in handy. To **move to the parent directory of your current directory**, you can type:
 
 ```bash
-bioboost@pop-os:~$ cd ..
-bioboost@pop-os:/home$
+[bioboost@linux][~]$ cd ..
+[bioboost@linux][/home]$
 ```
 
 This will jump 1 level up towards the root of the filesystem.
@@ -203,7 +203,7 @@ This will jump 1 level up towards the root of the filesystem.
 Your home directory is a very important directory. To begin with, when you open a shell, you should automatically be placed in your home directory.
 
 ```bash
-bioboost@pop-os:~$
+[bioboost@linux][~]$
 ```
 
 Additionally, your home directory is one of the few directories where you have the full control to create and delete additional files and directories. On most Linux distributions, the only users who can access any files in your home directory are you and the administrator on the system (the `root` user).
@@ -211,8 +211,8 @@ Additionally, your home directory is one of the few directories where you have t
 There is a shortcut to traverse to your home directory, and that is by issueing the `cd` command without any arguments.
 
 ```bash
-bioboost@pop-os:/$ cd
-bioboost@pop-os:~$
+[bioboost@linux][/]$ cd
+[bioboost@linux][~]$
 ```
 
 This brings you immediately to your home directory.
@@ -220,8 +220,7 @@ This brings you immediately to your home directory.
 Another way to achieve this is to use the `~` symbol, which symbolizes the path to your home directory.
 
 ```bash
-bioboost@pop-os:/$ cd ~
-bioboost@pop-os:~$
+[bioboost@linux][/]$ cd ~
 ```
 
 ## An Overview of the Linux Filesystem Layout
@@ -235,8 +234,8 @@ In Linux, every file and device on the system resides under the **root**, which 
 Thus, if one wanted to go to the top-level directory of the entire operating system and see what is there, one could use the `cd` command followed by the root directory `/` to traverse to the root directory and then simply use the `ls` command to display the files and directories there.
 
 ```bash
-bioboost@pop-os:~$ cd /
-bioboost@pop-os:/$ ls
+[bioboost@linux][~]$ cd /
+[bioboost@linux][/]$ ls
 ```
 
 ::: output
@@ -425,8 +424,8 @@ Some shortcuts in nano:
 To create a directory, one can use the `mkdir` command. Just specify the name of the directory after the command as an argument.
 
 ```bash
-bioboost@pop-os:~$ mkdir files
-bioboost@pop-os:~$ ls
+[bioboost@linux][~]$ mkdir files
+[bioboost@linux][~]$ ls
 ```
 
 ::: output
@@ -440,8 +439,8 @@ Templates Videos
 When trying to create a directory with a name that already exists, linux will stop you in your tracks.
 
 ```bash
-bioboost@pop-os:~$ mkdir projects
-bioboost@pop-os:~$ mkdir projects
+[bioboost@linux][~]$ mkdir projects
+[bioboost@linux][~]$ mkdir projects
 ```
 
 ::: output
@@ -453,10 +452,10 @@ mkdir: cannot create directory ‘projects’: File exists
 Creating **nested directories** requires the `-p` flag, indicating that parent directories should be created as needed.
 
 ```bash
-bioboost@pop-os:~$ mkdir this/is/a/deep/directory
+[bioboost@linux][~]$ mkdir this/is/a/deep/directory
 mkdir: cannot create directory ‘this/is/a/deep/directory’: No such file or directory
-bioboost@pop-os:~$ mkdir -p this/is/a/deep/directory
-bioboost@pop-os:~$
+[bioboost@linux][~]$ mkdir -p this/is/a/deep/directory
+[bioboost@linux][~]$
 ```
 
 ### Copying Files
@@ -466,14 +465,14 @@ To copy files on a linux system, one can make use of the `cp` command. It's gene
 It requires that you specify a source and a destination. When successful, the `cp` command will not have any output.
 
 ```bash
-bioboost@pop-os:~$ cp hello hello.backup
-bioboost@pop-os:~$
+[bioboost@linux][~]$ cp hello hello.backup
+[bioboost@linux][~]$
 ```
 
 This can be changed by applying the `-v` option, which will cause the `cp` command to produce output if successful. The `-v` option stands for verbose.
 
 ```bash
-bioboost@pop-os:~$ cp -v hello hello.backup
+[bioboost@linux][~]$ cp -v hello hello.backup
 'hello' -> 'hello.backup'
 ```
 
@@ -482,7 +481,7 @@ When the destination is a directory, the resulting new file will have the same n
 The `cp` command **can be destructive to existing data if the destination file already exists**. In the case where the destination file exists, the `cp` command will overwrite the existing file's contents with the contents of the source file. With the `-i` (interactive) option, the `cp` will prompt before overwriting a file. If you want to automatically answer no to each prompt, use the `-n` option. It essentially stands for "no rewrite".
 
 ```bash
-bioboost@pop-os:~$ cp -vi hello hello.backup
+[bioboost@linux][~]$ cp -vi hello hello.backup
 cp: overwrite 'hello.backup'? y
 'hello' -> 'hello.backup'
 ```
@@ -496,17 +495,17 @@ Be warned that many commands in the linux shell can be destructive. This means t
 The `cp` command does not copy directories by default.
 
 ```bash
-bioboost@pop-os:~$ ls files
+[bioboost@linux][~]$ ls files
 hello  project.md
-bioboost@pop-os:~$ cp files files_backups
+[bioboost@linux][~]$ cp files files_backups
 cp: -r not specified; omitting directory 'files'
 ```
 
 However, the `-r` option to the `cp` command will have it copy both files and directories. `-r` stands for recursive.
 
 ```bash
-bioboost@pop-os:~$ cp -r files files_backups
-bioboost@pop-os:~$ ls files_backups
+[bioboost@linux][~]$ cp -r files files_backups
+[bioboost@linux][~]$ ls files_backups
 hello  project.md
 ```
 
@@ -517,14 +516,14 @@ To move a file, use the `mv` command. The syntax for the `mv` command is much li
 If the destination for the `mv` command is a directory, the file will be moved to the directory specified. The file name will change only if a destination file name is also specified.
 
 ```bash
-bioboost@pop-os:~$ ls
+[bioboost@linux][~]$ ls
 Desktop  Documents  Downloads  files      linux-commands  
 Music    Pictures   Public     Templates  this  Videos
-bioboost@pop-os:~$ mv linux-commands files
-bioboost@pop-os:~$ ls
+[bioboost@linux][~]$ mv linux-commands files
+[bioboost@linux][~]$ ls
 Desktop  Documents  Downloads  files  Music
 Pictures Public     Templates  this   Videos
-bioboost@pop-os:~$ ls files
+[bioboost@linux][~]$ ls files
 hello  linux-commands  project.md
 ```
 
@@ -553,17 +552,17 @@ It is not entirely true that all Linux distro's do not have a Trash can. Ubuntu 
 :::
 
 ```bash
-bioboost@pop-os:~$ ls
+[bioboost@linux][~]$ ls
 Desktop  Documents  Downloads  files  hello  Music  Pictures  Public  Templates  this  Videos
-bioboost@pop-os:~$ rm hello
-bioboost@pop-os:~$ ls
+[bioboost@linux][~]$ rm hello
+[bioboost@linux][~]$ ls
 Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  this  Videos
 ```
 
 Use `-i` for interactive mode and `-v` for verbose mode.
 
 ```bash
-bioboost@pop-os:~$ rm -iv hello
+[bioboost@linux][~]$ rm -iv hello
 rm: remove regular empty file 'hello'? y
 removed 'hello'
 ```
@@ -571,10 +570,10 @@ removed 'hello'
 To delete a directory the `-r` recursive flag is required.
 
 ```bash
-bioboost@pop-os:~$ ls
+[bioboost@linux][~]$ ls
 Desktop  Documents  Downloads  files  Music  Pictures  Public  Templates  this  Videos
-bioboost@pop-os:~$ rm -r files
-bioboost@pop-os:~$ ls
+[bioboost@linux][~]$ rm -r files
+[bioboost@linux][~]$ ls
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  this  Videos
 ```
 
@@ -583,8 +582,8 @@ When you delete a directory, all of the files and subdirectories are deleted wit
 Empty directories can also be deleted using the `rmdir` command. This command can be a bit of a safe-guards if you wish to make sure no files are left in the directory before you delete it. Use `-v` for verbose mode and `-p` for also deleting the specified parent directories.
 
 ```bash
-bioboost@pop-os:~$ mkdir -p this/is/a/nested/dir
-bioboost@pop-os:~$ rmdir -pv this/is/a/nested/dir/
+[bioboost@linux][~]$ mkdir -p this/is/a/nested/dir
+[bioboost@linux][~]$ rmdir -pv this/is/a/nested/dir/
 rmdir: removing directory, 'this/is/a/nested/dir/'
 rmdir: removing directory, 'this/is/a/nested'
 rmdir: removing directory, 'this/is/a'
