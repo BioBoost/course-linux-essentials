@@ -108,7 +108,7 @@ ip (8)               - show / manipulate routing, network devices, interfaces...
 
 ### Search by Keyword
 
-You can search for a keyword in the man pages by using the `-k` option.
+You can search for a keyword in the man pages names and the short descriptions by using the `-k` option.
 
 ```bash
 nico@biosdeb:~$ man -k ssh
@@ -134,9 +134,11 @@ rlogin (1)           - OpenSSH SSH client (remote login program)
 </pre>
 :::
 
+You can use the `apropos` command to find a specific command based on its description. This is especially helpfull when you know what you want to achieve but don't know what command to use.
+
 ## Info
 
-The `info` command also provides documentation on operating system commands and features. The goal of this command is slightly different from man pages.
+The `info` command also provides documentation on operating system commands and features. The goal of this command is slightly different from the man pages.
 
 Consider man pages to be more of a reference resource and info documents to be more of a learning guide.
 
