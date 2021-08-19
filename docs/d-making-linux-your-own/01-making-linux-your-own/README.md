@@ -45,3 +45,8 @@ ZSH_THEME="random"
 # If set to an empty array, this variable will have no effect.
 ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" "bira" "xiong-chiamiov-plus")
 ```
+
+
+## Personal Prompt
+
+http://bashrcgenerator.com/
