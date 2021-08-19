@@ -1,9 +1,9 @@
 ---
 description: ....
-title: 01 - Introduction to Linux
+title: Introduction to Linux
 ---
 
-# Chapter 01 - Introduction to Linux
+# Introduction to Linux
 
 Most youngsters these days have heard of Linux and many of them may know it as an operating system for a computer. But Linux is so much more than that.
 

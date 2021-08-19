@@ -1,9 +1,9 @@
 ---
 description: ....
-title: 02 - Start Using Linux
+title: Start Using Linux
 ---
 
-# Chapter 02 - Start Using Linux
+# Start Using Linux
 
 <!-- TODO - Add links to the guides where applicable -->
 

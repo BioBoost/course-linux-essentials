@@ -1,9 +1,9 @@
 ---
 description: Introduces operating systems for the Raspberry Pi. Next is shown how to setup a headless RPi with a Raspbian image.
-title: I - Linux on the Raspberry Pi
+title: Linux on the Raspberry Pi
 ---
 
-# Addendum 01 - Linux on the Raspberry Pi
+# Linux on the Raspberry Pi
 
 <!-- This chapter may need a refactor. Maybe we need to be more clear on difference between setup (headless or with display). -->
 <!-- This chapter should be usable after any other chapter, based on when our pi's are received. -->

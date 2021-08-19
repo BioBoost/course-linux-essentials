@@ -1,9 +1,9 @@
 ---
 description: Brief introduction into Secure Shell - the safe way to remotely connect to another host.
-title: 08 - Remote Access
+title: Remote Access
 ---
 
-# Chapter 08 - Remote Access
+# Remote Access
 
 ## Secure Shell
 

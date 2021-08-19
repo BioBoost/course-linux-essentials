@@ -1,9 +1,9 @@
 ---
 description: As a linux power user you need to know your way around the filesystem
-title: 05 - The Filesystem
+title: The Filesystem
 ---
 
-# Chapter 05 - The Filesystem
+# The Filesystem
 
 A filesystem typically allows us to store both files and directories. **Files are used to store data** such as text, graphics and programs. **Directories** (aka "folders") are used to provide a **hierarchical organization structure**. Next to our data, the filesystem also stores **metadata** such as who's the owner of the file, creation and modification timestamps, size information, ...
 

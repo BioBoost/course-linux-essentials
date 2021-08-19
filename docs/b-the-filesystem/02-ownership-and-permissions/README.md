@@ -1,9 +1,9 @@
 ---
 description: This chapter introduces the basics of ownership and permissions on a Linux system.
-title: 06 - Ownership and Permissions
+title: Ownership and Permissions
 ---
 
-# Chapter 06 - Ownership and Permissions
+# Ownership and Permissions
 
 Linux is a multi-user OS that is based on the Unix concepts of file ownership and permissions to provide security, at the file system level. It is essential that a linux user has a decent understanding of how ownership and permissions work.
 

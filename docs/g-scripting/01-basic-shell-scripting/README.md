@@ -1,9 +1,9 @@
 ---
 description: Shell scripts allow us to automate tasks
-title: 11 - Basic Shell Scripting
+title: Basic Shell Scripting
 ---
 
-# Chapter 11 - Basic Shell Scripting
+# Basic Shell Scripting
 
 Shell scripts are very useful to automate repetitive command line tasks.
 

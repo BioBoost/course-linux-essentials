@@ -1,9 +1,9 @@
 ---
 description: ....
-title: 04 - Getting Help
+title: Getting Help
 ---
 
-# Chapter 04 - Getting Help
+# Getting Help
 
 Everyone needs some help from time to time. Basically thats what the man pages are for.
 

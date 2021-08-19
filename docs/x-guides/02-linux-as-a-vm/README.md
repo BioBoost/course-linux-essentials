@@ -1,9 +1,9 @@
 ---
 description: ....
-title: II - Linux as a Virtual Machine
+title: Linux as a Virtual Machine
 ---
 
-# Addendum 02 - Linux as a Virtual Machine
+# Linux as a Virtual Machine
 
 A virtual machine (VM) is an emulation of a particular computer system. This system can be based on an existing or hypothetical machine. As a user we can create such virtual machines and install an operating system of choice on them. This allows us to run a Linux distribution while working on a Windows machine and vice versa.
 

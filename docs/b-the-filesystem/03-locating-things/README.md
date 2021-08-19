@@ -1,11 +1,11 @@
 ---
 description: Searching for and finding files is an important skill of any linux user
-title: 07 - Locating Things
+title: Locating Things
 ---
 
 <!-- This chapter should probable be placed after 06 - the filesystem -->
 
-# Chapter 07 - Locating Things
+# Locating Things
 
 As a beginning Linux user it is not easy to find your way through the structure of the filesystem. Being able to search for binaries and other files will bring you a long way. Linux has several tools available to make this task less daunting.
 

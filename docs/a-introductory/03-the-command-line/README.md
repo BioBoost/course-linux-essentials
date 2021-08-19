@@ -1,9 +1,9 @@
 ---
 description: Learn basics of the command line
-title: 03 - The Command Line
+title: The Command Line
 ---
 
-# Chapter 03 - The Command Line
+# The Command Line
 
 <!-- TODO - Needs a nice intro -->
 <!-- Explain how Linux users often prefer a terminal over a GUI. Faster, more control and can be automated. -->

@@ -1,9 +1,9 @@
 ---
 description: An insane overview of all the commands used in this course
-title: X - Crazy Command List
+title: Crazy Command List
 ---
 
-# Addendum X - Crazy Command List
+# Crazy Command List
 
 | Command / Binary | Description |
 | --- | --- |

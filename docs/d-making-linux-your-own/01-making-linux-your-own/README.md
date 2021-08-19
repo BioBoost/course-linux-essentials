@@ -1,4 +1,4 @@
-# Chapter 06 - Making Linux Your Own
+# Making Linux Your Own
 
 https://www.youtube.com/watch?v=QAaT6BTUnPg
 
