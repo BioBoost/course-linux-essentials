@@ -98,6 +98,16 @@ module.exports = {
           '/z-references/01-crazy-command-list/',
         ]
       },
+      {
+        title: 'Online Tools',
+        // path: '/z-references/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          ['http://bashrcgenerator.com', '.bashrc PS1 generator'],
+          ['https://explainshell.com', 'explainshell.com'],
+        ]
+      },
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course_linux_essentials.git',
