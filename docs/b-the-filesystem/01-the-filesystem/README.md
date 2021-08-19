@@ -32,7 +32,7 @@ Linux inherits many of its concepts of filesystem organization from its Unix pre
 The **Linux File system Hierarchy Standard** (checkout [Filesystem Hierarchy Standard](http://www.pathname.com/fhs/)), or FHS for short, is a prescriptive standard maintained by the Linux Foundation that establishes the organizational layout that Linux distributions should uphold for **interoperability**, **ease of administration**, and the **ability to implement cross-distro applications reliably**.
 
 ::: tip Everything is a File
-One important thing to mention when dealing with these systems is that Linux implements just about **everything as a file**. This means that a text file is a file, a directory is a file (simply a list of other files), a printer is represented by a file (the device drivers can send anything written to the printer file to the physical printer), a serial port is a file, etc.
+One important thing to mention when dealing with these systems is that Linux implements just about **everything as a file**. This means that a text file is a file, a directory is a file (simply a list of other files), a printer is represented by a file (the device drivers can send anything written to the printer file to the physical printer), a serial port is a file, commands and applications are files, etc.
 
 Although this is in some cases an oversimplification, it informs us of the approach that the designers of the system encouraged: passing text and bytes back and forth and being able to apply similar strategies for editing and accessing diverse components.
 :::
@@ -591,6 +591,15 @@ rmdir: removing directory, 'this/is/a'
 rmdir: removing directory, 'this/is'
 rmdir: removing directory, 'this'
 ```
+
+## Core Principles of Linux
+
+This is a good time to talk about the philosophy behind the Linux kernel, basically its core principles:
+
+* **Everything is a file**: Basically Linux implements everything as a file, making devices, applications, configuration files, hardware, ... accessible in a similar way. This is especially handy for developers. If your programming language allows you to open, read and write files, the whole Linux system can be accessed. Also the configuration of the kernel and all the services running on your system are accessible as configuration files.
+* **Avoid captive user interfaces**: By focussing on terminal access instead of fancy GUI control, the user maintains greater control  over the operating system.
+* **Small single-purpose applications**: By keeping tools and applications small and single-purpose, they can focus more on a single well-done job. It also makes them less prone to error and more maintainable. This is basically the single responsibility principle as taught in programming courses.
+* **Perform complexer tasks by chaining applications**: Allow programs to be chained together to perform more complex tasks. The integration and combination of different tools enable more complex tasks to be performed.
 
 ## Quick Recap on Filesystem Commands
 

@@ -6,6 +6,7 @@ title: 03 - The Command Line
 # Chapter 03 - The Command Line
 
 <!-- TODO - Needs a nice intro -->
+<!-- Explain how Linux users often prefer a terminal over a GUI. Faster, more control and can be automated. -->
 
 ## The CLI
 
@@ -146,7 +147,7 @@ The most used command and one of the simplest to start with is the listing comma
 nico@biosdeb:~$ ls
 ```
 
-::: codeoutput
+::: output
 <pre>
 Desktop  Documents  Downloads  Music
 Pictures  Public  Templates  Videos
@@ -167,7 +168,7 @@ Options are used to modify the core behavior of a command. Take for example the 
 nico@biosdeb:~$ ls -l
 ```
 
-::: codeoutput
+::: output
 <pre>
 total 32
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Desktop
@@ -187,7 +188,7 @@ Providing the `ls` command with the `--all` option will request it to show all f
 nico@biosdeb:~$ ls --all
 ```
 
-::: codeoutput
+::: output
 <pre>
 .              .gnome                snap
 ..             .gnupg                .ssh
@@ -210,7 +211,7 @@ Options can often also be combined by **stitching them together**. The next exam
 nico@biosdeb:~$ ls -al
 ```
 
-::: codeoutput
+::: output
 <pre>
 total 324
 drwxr-xr-x 30 bioboost bioboost  4096 Feb  9 12:29 .
@@ -238,7 +239,7 @@ Arguments are used to provide additional information to the command. Take for ex
 nico@biosdeb:~$ ls /
 ```
 
-::: codeoutput
+::: output
 <pre>
 bin   etc    lib64       mnt   run   sys
 boot  home   libx32      opt   sbin  tmp
@@ -275,7 +276,7 @@ You can determine what aliases are set on your shell with the alias command.
 nico@biosdeb:~$ alias
 ```
 
-::: codeoutput
+::: output
 <pre>
 ...
 alias ls='ls --color=auto'
@@ -300,7 +301,7 @@ Now you can use the alias `shell` to check which shell you are running.
 nico@biosdeb:~$ shell
 ```
 
-::: codeoutput
+::: output
 <pre>
 You are using the zsh shell
 </pre>
@@ -314,7 +315,7 @@ nico@biosdeb:~$ ll -aS /
 
 Where `-a` requests to show all files and directories and `-S` request them be ordered by size.
 
-::: codeoutput
+::: output
 <pre>
 total 92K
 drwx------   2 root root  16K Jan 26 23:09 lost+found
