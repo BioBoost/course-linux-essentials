@@ -257,3 +257,5 @@ In one case in May 2018, two applications by the same developer were found to co
 :::
 
 While snap was originally released for cloud applications, it was later ported to work for Internet of Things devices and desktop applications too.
+
+Checkout the snap store at [https://snapcraft.io/](https://snapcraft.io/).
