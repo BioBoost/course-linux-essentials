@@ -256,7 +256,11 @@ When you execute a command in a terminal, the command is stored in a "history li
 
 This is designed to make it easy for you to execute the same command later since you won't need to retype the entire command.
 
+Basically there are a few options to access the command history:
 
+* Press the `up-arrow` in your terminal emulator to scroll through your previous commands. Most terminal emulators / shell's will support this functionality.
+* `CTRL-R` will allow you to search through your command history.
+* You can view the command history file of your current shell. For example bash this is `~/.bash_history`.
 
 There are also some commands that can be used to make use of the command history.
 
@@ -268,4 +272,4 @@ There are also some commands that can be used to make use of the command history
 
 ## Some Good Videos
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hMSByvFHOro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<YoutubeVideo videoId="hMSByvFHOro" />
