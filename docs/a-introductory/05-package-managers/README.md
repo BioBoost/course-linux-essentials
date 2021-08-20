@@ -238,3 +238,22 @@ You can launch the *graphical* frontend by running it from the terminal:
 ![Aptitude Frontend](./img/aptitude.png)
 
 Or you can use most `apt` options from the command line such as `aptitude search`, `aptitude install`, `aptitude purge` and so on.
+
+## Snap
+
+Snap is a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel. The packages, called snaps, and the tool for using them, `snapd`, work across a range of Linux distributions.
+
+Some of the advantages of snap are that:
+
+* It allows upstream software developers to distribute their applications directly to users.
+* Snaps are self-contained applications running in a sandbox with mediated access to the host system.
+
+The Snap Store allows developers to publish their applications directly to users. With traditional Linux package management approaches like `APT`, the applications are packaged and distributed as part of the operating system. This creates a delay between application development and its deployment for end-users. In contrast, application developers can publish their applications in the Snap Store and get them directly to users without any intervention from distribution maintainers.
+
+All apps uploaded to the Snap Store undergo automatic testing, including a malware scan. However, Snap apps do not receive the same level of verification as software in the regular Ubuntu archives.
+
+::: warning Only use thrusted Snap publishers
+In one case in May 2018, two applications by the same developer were found to contain a cryptocurrency miner which ran in the background during application execution. When this issue was found, Canonical removed the applications from the Snap Store and transferred ownership of the Snaps to a trusted third-party which re-published the Snaps without the miner present. Although the Snap sandbox reduces the impact of a malicious app, Canonical recommends users only install Snaps from publishers trusted by the user.
+:::
+
+While snap was originally released for cloud applications, it was later ported to work for Internet of Things devices and desktop applications too.
