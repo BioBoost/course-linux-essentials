@@ -63,7 +63,7 @@ When you use the man` command, it searches each of these sections **in order** u
 For example:
 
 ```bash
-nico@biosdeb:~$ man echo
+[bioboost@linux][~]$ man echo
 ```
 
 To determine which section a specific man page belongs to, look at the numeric value on the first line of the output of the man page.
@@ -75,7 +75,7 @@ In some cases you will need to specify the section in order to display the corre
 There is for example a man page about the `passwd` command (section 1) but also about the file `/etc/passwd` (section 5). To request a man page from a specific section, just add the number before the name of the man page.
 
 ```bash
-nico@biosdeb:~$ man 5 passwd
+[bioboost@linux][~]$ man 5 passwd
 ```
 
 ### Partial Matches
@@ -83,7 +83,7 @@ nico@biosdeb:~$ man 5 passwd
 The `-f` option to the `man` command will display man pages that match, or partially match, a specific name and provide a brief description of each man page.
 
 ```bash
-nico@biosdeb:~$ man -f ip
+[bioboost@linux][~]$ man -f ip
 ```
 
 ::: output
@@ -96,7 +96,7 @@ ip (8)               - show / manipulate routing, network devices, interfaces...
 Note that on most Linux distributions, the `whatis` command does the same thing as `man -f`.
 
 ```bash
-nico@biosdeb:~$ whatis ip
+[bioboost@linux][~]$ whatis ip
 ```
 
 ::: output
@@ -111,7 +111,7 @@ ip (8)               - show / manipulate routing, network devices, interfaces...
 You can search for a keyword in the man pages names and the short descriptions by using the `-k` option.
 
 ```bash
-nico@biosdeb:~$ man -k ssh
+[bioboost@linux][~]$ man -k ssh
 ```
 
 ::: output
@@ -124,7 +124,7 @@ rlogin (1)           - OpenSSH SSH client (remote login program)
 The `apropos` command does the same thing as `man -k`.
 
 ```bash
-nico@biosdeb:~$ apropos ssh
+[bioboost@linux][~]$ apropos ssh
 ```
 
 ::: output
@@ -145,7 +145,7 @@ Consider man pages to be more of a reference resource and info documents to be m
 You may need to install info: `sudo apt install info`
 
 ```bash
-nico@biosdeb:~$ info ls
+[bioboost@linux][~]$ info ls
 ```
 
 The info command automatically redirects to man pages if no info exists.
@@ -157,7 +157,7 @@ Like the `man` command, you can get a listing of traverse keys by typing the let
 Many commands will also provide you basic information, very similar to the SYNOPSIS found in man pages, when you apply the `--help`, `-h` or `-?` option to the command.
 
 ```bash
-nico@biosdeb:~$ passwd --help
+[bioboost@linux][~]$ passwd --help
 ```
 
 ::: output
