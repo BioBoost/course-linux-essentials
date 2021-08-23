@@ -25,46 +25,55 @@ module.exports = {
           '/a-introductory/02-start-using-linux/',
           '/a-introductory/03-the-command-line/',
           '/a-introductory/04-getting-help/',
-          '/a-introductory/05-package-managers/',
+        ]
+      },
+      {
+        title: 'Managing Linux Systems',   // required
+        path: '/b-managing-linux-systems/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/b-managing-linux-systems/01-package-managers/',
+          '/b-managing-linux-systems/02-users-and-groups/',
         ]
       },
       {
         title: 'The Linux Filesystem',   // required
-        path: '/b-the-filesystem/',      // optional, which should be a absolute path.
+        path: '/c-the-filesystem/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/b-the-filesystem/01-the-filesystem/',
-          '/b-the-filesystem/02-ownership-and-permissions/',
-          '/b-the-filesystem/03-locating-things/',
+          '/c-the-filesystem/01-the-filesystem/',
+          '/c-the-filesystem/02-ownership-and-permissions/',
+          '/c-the-filesystem/03-locating-things/',
         ]
       },
       {
         title: 'Making Linux Your Own',   // required
-        path: '/c-making-linux-your-own/',      // optional, which should be a absolute path.
+        path: '/d-making-linux-your-own/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/c-making-linux-your-own/01-making-linux-your-own/',
+          '/d-making-linux-your-own/01-making-linux-your-own/',
         ]
       },
       {
         title: 'Command Line Hacking',   // required
-        path: '/d-command-line/',      // optional, which should be a absolute path.
+        path: '/e-command-line-hacking/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/d-command-line/01-chaining-and-redirection/',
+          '/e-command-line-hacking/01-chaining-and-redirection/',
           // '/11-text-manipulation/',
         ]
       },
       {
         title: 'Servers and Services',   // required
-        path: '/e-services/',      // optional, which should be a absolute path.
+        path: '/f-services/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/e-services/01-remote-access/',
+          '/f-services/01-remote-access/',
         ]
       },
       {
@@ -79,8 +88,8 @@ module.exports = {
         ]
       },
       {
-        title: 'Security',   // required
-        path: '/h-security/',      // optional, which should be a absolute path.
+        title: 'Security and Protection',   // required
+        path: '/h-security-and-protection/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
