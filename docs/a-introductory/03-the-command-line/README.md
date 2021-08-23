@@ -5,13 +5,6 @@ title: The Command Line
 
 # The Command Line
 
-<!-- TODO - Needs a nice intro -->
-<!-- Explain how Linux users often prefer a terminal over a GUI. Faster, more control and can be automated. -->
-
-## The CLI
-
-<!-- TODO: Refactor -->
-
 As most people use an OS with a graphical user interface (GUI) for their day-to-day computer needs, the use of the CLI is a necessity for most Linux server users.
 
 * A CLI (Command Line Interface) provides
