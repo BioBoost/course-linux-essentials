@@ -152,3 +152,5 @@ alias shell='echo "You are using the $0 shell"'
 Save the file using `CTRL-o` and exit using `CTRL-x`.
 
 Launch a new terminal and check if the alias is available.
+
+## Dotfiles
