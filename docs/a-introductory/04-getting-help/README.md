@@ -188,15 +188,15 @@ Mark challenges using a ✅ once they are finished.
 
 ### ❌ The free command
 
-**Describe in your own words what the `free` command does. Give and example and a partial output.**
+**Describe in your own words what the `free` command does. Give an example and a partial output.**
 
 ### ❌ The id command
 
-**Describe in your own words what the `id` command does. Give and example and a partial output.**
+**Describe in your own words what the `id` command does. Give an example and a partial output.**
 
 ### ❌ The tree command
 
-**Describe in your own words what the `tree` command does. How do you list all subdirs too? How can you only include directories?**
+**Describe in your own words what the `tree` command does. How do you list all subdirectories too? How can you only include directories?**
 
 *If not available you can install the `tree` command using `sudo apt install tree`*
 
@@ -222,7 +222,7 @@ Mark challenges using a ✅ once they are finished.
 
 ### ❌ The dmesg command
 
-**Describe in your own words what the `dmesg` command does. Give and example and a partial output.**
+**Describe in your own words what the `dmesg` command does. Give an example and a partial output.**
 
 ### ❌ Checksums
 
@@ -231,3 +231,7 @@ Mark challenges using a ✅ once they are finished.
 **What tool did you use to calculate the checksum? Demonstrate its usage.**
 
 **What is the use of this hash?**
+
+### ❌ The printenv command
+
+**Describe in your own words what the `printenv` command does.**

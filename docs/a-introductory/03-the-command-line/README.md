@@ -231,6 +231,10 @@ drwxr-xr-x  5 bioboost bioboost  4096 Feb  7 10:18 Downloads
 </pre>
 :::
 
+::: tip Some Help
+Most commands on linux well have a flag to get some basic help and an overview of the available options. You can achieve this by issueing the command with the flag `-h` or `--help`.
+:::
+
 ### Arguments
 
 Arguments are used to provide additional information to the command. Take for example the `ls` command. If called without extra arguments, it will list the directories and files in the current working directory. You can also request `ls` to print the content of another directory without actually being in it. To do so, one must provide that directory as a argument as shown in the next example.
@@ -273,3 +277,29 @@ There are also some commands that can be used to make use of the command history
 ## Some Good Videos
 
 <YoutubeVideo videoId="hMSByvFHOro" />
+
+## Challenges
+
+Try to solve the challenges without making use of the Internet.
+
+Mark challenges using a ✅ once they are finished.
+
+### ❌ The whoami command
+
+**Describe in your own words what the `whoami` command does.**
+
+### ❌ Help on ls
+
+**`ls` can be used to list the files and directories in Linux. If you execute the command `ls -h` you do not get any help about the command. How come? What does `ls -h` actually do?**
+
+### ❌ Hidden files
+
+**Linux harbors some hidden files which are not automatically listed when executing `ls`. Find out how to list hidden files. How can we recognize hidden files?**
+
+### ❌ The man command
+
+**Describe in your own words what the `man` command does.**
+
+### ❌ What shells are available
+
+**Check the Internet on how you can get a list of all available shells on your system.**
