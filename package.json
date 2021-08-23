@@ -27,10 +27,10 @@
   },
   "homepage": "https://github.com/BioBoost/course_linux_essentials#readme",
   "devDependencies": {
-    "vuepress": "^1.2.0",
-    "vuepress-plugin-zooming": "^1.1.7"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-zooming": "^1.1.8"
   },
   "dependencies": {
-    "vuepress-plugin-container": "^2.1.2"
+    "vuepress-plugin-container": "^2.1.5"
   }
 }
