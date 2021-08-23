@@ -133,9 +133,13 @@ Some cool features of Fish:
 
 ## The Prompt
 
-A terminal window displays what is known as a **prompt**. The structure of the prompt may vary between distributions, shells and terminal emulators. It will typically contain information about the user and the system.
+A terminal window displays what is known as a **prompt**. The structure of the prompt may vary between distributions, shells and terminal emulators. It will typically contain information about the user, the system and the current location within the filesystem.
 
 ![The Prompt](./img/terminal_parts.png)
+
+When opening a new terminal window you are automatically moved to the current users home directory. This is depicted by the tilde `~` symbol that is displayed.
+
+The dollar `$` symbol will be shown when logged in as a normal user, while the hashtag `#` symbol will indicate if you are logged in as the `root` user (administrator account of the system).
 
 ## Issuing Shell Commands
 
@@ -288,6 +292,10 @@ Mark challenges using a ✅ once they are finished.
 
 **Describe in your own words what the `whoami` command does.**
 
+### ❌ The uptime command
+
+**Describe in your own words what the `uptime` command does.**
+
 ### ❌ Help on ls
 
 **`ls` can be used to list the files and directories in Linux. If you execute the command `ls -h` you do not get any help about the command. How come? What does `ls -h` actually do?**
@@ -303,3 +311,7 @@ Mark challenges using a ✅ once they are finished.
 ### ❌ What shells are available
 
 **Check the Internet on how you can get a list of all available shells on your system.**
+
+### ❌ What date is it
+
+**How would you request the current date and time via the terminal?**
