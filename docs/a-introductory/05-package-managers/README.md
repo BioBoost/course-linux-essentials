@@ -5,7 +5,7 @@ title: Package Managers
 
 # Package Managers
 
-Linux package managers allow software to be managed on your favorite distribution, that is installed, configured, updated and removed. Package manager do so by handling packages - archives that contain the binary files, configuration files, man/info pages, copyright information, information about dependencies, ...
+Linux package managers allow software to be managed on your favorite distribution, that is installed, configured, updated and removed. Package managers do so by handling packages - archives that contain the binary files, configuration files, man/info pages, copyright information, information about dependencies, ...
 
 Every Linux distribution is different in terms of how software is installed. Different Linux distributions use different installation file types, package managers, and commands for installation. Even within a single form of Linux, there are different types of package managers.
 
@@ -124,11 +124,11 @@ Hit:1 https://download.docker.com/linux/ubuntu focal InRelease
 Hit:2 http://dl.google.com/linux/chrome/deb stable InRelease
 Hit:3 http://ppa.launchpad.net/kicad/kicad-dev-nightly/ubuntu focal InRelease
 Hit:4 http://be.archive.ubuntu.com/ubuntu focal InRelease
-Get:5 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]                                                
+Get:5 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
 Get:6 http://security.ubuntu.com/ubuntu focal-security/main amd64 DEP-11 Metadata [27,6 kB]
 Get:7 http://security.ubuntu.com/ubuntu focal-security/universe amd64 DEP-11 Metadata [61,1 kB]
 Get:8 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 DEP-11 Metadata [2.468 B]
-Fetched 205 kB in 1s (186 kB/s)    
+Fetched 205 kB in 1s (186 kB/s)
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -172,7 +172,7 @@ cowbuilder/focal 0.88 amd64
 ::: output
 <pre>
 Reading package lists... Done
-Building dependency tree       
+Building dependency tree
 Reading state information... Done
 The following NEW packages will be installed:
   sl
@@ -199,7 +199,7 @@ Processing triggers for man-db (2.9.1-1) ...
 ::: output
 <pre>
 Reading package lists... Done
-Building dependency tree       
+Building dependency tree
 Reading state information... Done
 The following packages will be REMOVED:
   sl*
