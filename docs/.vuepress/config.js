@@ -40,22 +40,22 @@ module.exports = {
         ]
       },
       {
-        title: 'Command Line Hacking',   // required
-        path: '/c-command-line/',      // optional, which should be a absolute path.
+        title: 'Making Linux Your Own',   // required
+        path: '/c-making-linux-your-own/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/c-command-line/01-chaining-and-redirection/',
-          // '/11-text-manipulation/',
+          '/c-making-linux-your-own/01-making-linux-your-own/',
         ]
       },
       {
-        title: 'Making Linux Your Own',   // required
-        path: '/d-making-linux-your-own/',      // optional, which should be a absolute path.
+        title: 'Command Line Hacking',   // required
+        path: '/d-command-line/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/d-making-linux-your-own/01-making-linux-your-own/',
+          '/d-command-line/01-chaining-and-redirection/',
+          // '/11-text-manipulation/',
         ]
       },
       {
