@@ -172,11 +172,11 @@ You can change the host key if needed inside virtual box by navigating to `File 
 
 If you see the automatic boot screen shown in the next screenshot do nothing and let it pass.
 
-![Live DVD or boot menu option](./img/mint_boot_menu.png)
+<!-- ![Live DVD or boot menu option](./img/mint_boot_menu.png) -->
 
 Linux Mint will automatically boot in Live mode and allow you to start the install process from that point on.
 
-![Mint Live Boot Mode](./img/mint_live_mode.png)
+<!-- ![Mint Live Boot Mode](./img/mint_live_mode.png) -->
 
 To start the installation process just double click the 'Install Linux Mint' icon on the desktop.
 
@@ -220,11 +220,11 @@ Mint will display the message `Please remove the installation media, then press 
 
 Once the system is rebooted, you should have an operational Mint installation. The first thing you will see will be the login screen.
 
-![Mint Login Screen](./img/mint_login_screen.png)
+<!-- ![Mint Login Screen](./img/mint_login_screen.png) -->
 
 Login using your username and password. This will bring you to the desktop environment of Mint.
 
-![Mint Initial Boot](./img/mint_initial_boot.png)
+<!-- ![Mint Initial Boot](./img/mint_initial_boot.png) -->
 
 ::: warning Check your video drivers
 If you get the message `Check you video drivers`, you most likely forgot to enable 3D hardware acceleration.
@@ -253,11 +253,11 @@ Some functionality of Virtual Box will not work until we have installed the gues
 
 Open the **Devices** menu which can be found at the top of the VM window. Next select `Insert Guest Additions CD image ...` as shown in the next screenshot.
 
-![Inserting the Guest Additions for Linux Mint](./img/mint_guest_additions.png)
+<!-- ![Inserting the Guest Additions for Linux Mint](./img/mint_guest_additions.png) -->
 
 A window in Linux will open asking if you'd wish to run the package. Hit run and enter your user password.
 
-![Run Guest Additions Installer](./img/mint_run_guest_additions.png)
+<!-- ![Run Guest Additions Installer](./img/mint_run_guest_additions.png) -->
 
 Once finished, remove the image from the virtual drive (by right clicking the icon on the Desktop of Linux Mint and choosing `Eject`). Restart the virtual machine.
 
