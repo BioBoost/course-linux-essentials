@@ -78,6 +78,14 @@ module.exports = {
           '/g-scripting/03-systemd/',
         ]
       },
+      {
+        title: 'Security',   // required
+        path: '/h-security/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+        ]
+      },
       // Not sure about how to call this chapter. Or maybe should be split up.
       {
         title: 'Guides',
