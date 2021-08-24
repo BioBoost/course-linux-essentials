@@ -45,6 +45,9 @@ The name actually came from **Brian Kernighan**, the co-author of the book "The 
 
 Unics was later renamed to **Unix**, only nobody seems to remember when that happened.
 
+<!-- TODO - 1972, The C Programming Language -->
+<!-- C is a general-purpose programming language developed by Dennis Ritchie at Bell Laboratories in 1972. -->
+
 ### August 12, 1981 - MSDOS
 
 MS-DOS (Microsoft Disk Operating System) is an operating system for x86-based personal computers mostly developed by Microsoft. Collectively, MS-DOS, its rebranding as IBM PC DOS, and some operating systems attempting to be compatible with MS-DOS, are sometimes referred to as "DOS" (which is also the generic acronym for disk operating system). MS-DOS was the main operating system for IBM PC compatible personal computers during the 1980s.
