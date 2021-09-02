@@ -34,6 +34,7 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
 gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
 bioboost:x:1000:1000:Nico De Witte,,,:/home/bioboost:/usr/bin/bash
 </pre>
+:::
 
 The `/etc/passwd` contains one entry per line for each user (user account) of the system. All fields are separated by a colon `:` symbol. It houses a total of seven fields for each user. Generally, an `/etc/passwd` entry consists of the following fields:
 
@@ -71,7 +72,7 @@ It is also possible to configure other user accounts with the ability to assume 
 Take for example the action to view the `/etc/shadow` file. Trying this with a normal user accounts gives you a permission denied error.
 
 ```bash
-cat /etc/shadow
+[bioboost@linux][~]$ cat /etc/shadow
 ```
 
 ::: output
@@ -83,14 +84,14 @@ cat: /etc/shadow: Permission denied
 By prefixing the command with `sudo`, we indicate that we want to execute the command with elevated administrator privileges (of course if the account is permitted to do so). Note that one will need to provide its user password before this will work.
 
 ```bash
-sudo cat /etc/shadow
+[bioboost@linux][~]$ sudo cat /etc/shadow
 ```
 
 ::: output
 <pre>
 root:!:18786:0:99999:7:::
 ...
-bioboost:******************************************************************:18786:0:99999:7:::
+bioboost:**********:18786:0:99999:7:::
 </pre>
 :::
 
@@ -149,7 +150,6 @@ uid=1000(bioboost) gid=1000(bioboost) groups=1000(bioboost),4(adm),
 
 To checkout which groups another user belongs too, one can add the username as an argument after the `id` command. For example `id mark`.
 
-
 ## Adding a User
 
 Adding users to the system can be achieved using the command line tools `adduser` followed by the username for the new user. The tool will then present a step by step wizard to set the new user information.
@@ -162,14 +162,14 @@ As an example, for adding a new user `mark` to the system one would issue the fo
 
 ::: output
 <pre>
-[sudo] password for bioboost:               
+[sudo] password for bioboost:
 Adding user `mark' ...
 Adding new group `mark' (1001) ...
 Adding new user `mark' (1001) with group `mark' ...
 Creating home directory `/home/mark' ...
 Copying files from `/etc/skel' ...
-Enter new UNIX password: 
-Retype new UNIX password: 
+Enter new UNIX password:
+Retype new UNIX password:
 passwd: password updated successfully
 Changing the user information for mark
 Enter the new value, or press ENTER for the default
@@ -177,7 +177,7 @@ Enter the new value, or press ENTER for the default
 	Room Number []:
 	Work Phone []:
 	Home Phone []:
-	Other []: 
+	Other []:
 Is the information correct? [Y/n] y
 </pre>
 :::
@@ -245,7 +245,6 @@ changing the shell
 
 https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/
 -->
-
 
 <!-- Challenges
 
