@@ -222,20 +222,49 @@ Do note that the home directory of `dennis` is configured as `/home/dennis`, how
 
 ## Adding a group
 
-<!-- TODO -->
+A new group can be created using the `addgroup` command followed by the name of the group.
+
+```bash
+[bioboost@linux][~]$ sudo addgroup students
+```
+
+::: output
+<pre>
+Adding group `students' (GID 1003) ...
+Done.
+</pre>
+:::
+
+This will create an empty group (without users) called `students`.
 
 ## Adding a User to a Group
 
-<!-- TODO -->
+Adding a user to an existing group (secondary group), can be achieve using the `adduser` command where the first argument is the name of the user and the second argument is the name of the group.
+
+```bash
+[bioboost@linux][~]$ sudo adduser dennis students
+```
+
+::: output
+<pre>
+Adding user `dennis' to group `students' ...
+Adding user dennis to group students
+Done.
+</pre>
+:::
+
+Another option is to use the user modification tool `usermod`.
+
+```bash
+[bioboost@linux][~]$ sudo usermod -aG gamers,students john
+```
+
+You can check the result using `cat /etc/group`.
 
 ## Removing a User
 
-<!-- TODO -->
-
-<!-- TODO - Also discuss:  -->
-<!-- userdel	Deletes a user account and related files.
-usermod	Modifies a user account.
-addgroup	Adds a group to the system. =>
+<!--
+userdel	Deletes a user account and related files.
 delgroup	Removes a group from the system.
 passwd	Changes user password.
 Locking an account
@@ -255,5 +284,7 @@ https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/
 Try to login to the `daemon` account. Use `sudo su daemon`. What does it display as a message ? What application is outputting this message ? Run it and prove it.
 
 `/usr/sbin/nologin`
+
+Challenge: Create a group with a specific id of 1337.
 
 Some user entries are showing `/bin/false` as the shell command. Do some research and explain what the difference is with `/usr/sbin/nologin` -->
