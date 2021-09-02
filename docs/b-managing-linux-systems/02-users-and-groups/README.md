@@ -103,6 +103,8 @@ Note that in many cases the super user account is disabled for login. In this ca
 
 Groups are collections of zero or more users. A user belongs to a default group (primary group), and can also be a member of any of the other groups on a server (secondary groups).
 
+Groups make it easy to manage users with the same security and access privileges. They also allow the administrator to logically categorize users on the system.
+
 An easy way to view all the groups is to look in the `/etc/group` file.
 
 ```bash
@@ -245,6 +247,8 @@ changing the shell
 
 https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/
 -->
+
+<!-- We should read this: https://security.ias.edu/how-and-why-user-private-groups-unix -->
 
 <!-- Challenges
 
