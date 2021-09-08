@@ -276,6 +276,19 @@ You can check the result using `cat /etc/group`.
 
 ## Removing a User
 
+TODO
+
+## Challenges
+
+Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
+
+Mark challenges using a ✅ once they are finished.
+
+### ❌ System user accounts
+
+*Try to login to the `daemon` system user account. Use `sudo su daemon`. What does it display as a message ? What application is outputting this message ? Run that application and prove it.*
+
+
 <!--
 userdel	Deletes a user account and related files.
 delgroup	Removes a group from the system.
