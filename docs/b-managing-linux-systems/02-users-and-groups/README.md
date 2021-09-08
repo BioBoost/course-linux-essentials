@@ -90,9 +90,22 @@ sudo cat /etc/shadow
 <pre>
 root:!:18786:0:99999:7:::
 ...
-bioboost:******************************************************************:18786:0:99999:7:::
+bioboost:***************************************:18786:0:99999:7:::
 </pre>
 :::
+
+Basically, the `/etc/shadow` file stores secure user account information. All fields are separated by a colon `:`. It contains one entry per line for each user listed in the `/etc/passwd` file. The fields are as follows:
+
+**Username**: The loginname of the user
+**Password**: The hashed password (often called encrypted but those days are luckily way behind us). Usually password format is set to `$id$salt$hashed` where `$id` indicates the algorithm that was used (MD5, Blowfish, SHA-256, SHA-512, ...). If the password field contains an asterisk `*` or exclamation mark `!`, the user will not be able to login to the system using password authentication. Other login methods like key-based authentication or switching to the user are still allowed.
+* **Last password change**: This is the date when the password was last changed. The number of days is counted since January 1, 1970 (epoch date).
+* **Minimum password age**: The number of days that must pass before the user password can be changed. Typically it is set to zero, which means that there is no minimum password age.
+* **Maximum password age**: The number of days after the user password must be changed. By default, this number is set to 99999.
+* **Warning period**: The number of days before the password expires during which the user is warned that the password must be changed.
+* **Inactivity period**: The number of days after the user password expires before the user account is disabled. Typically this field is empty.
+* **Expiration date**. The date when the account was disabled. It is represented as an epoch date.
+
+The `/etc/shadow` file should not be edited by hand unless you know what you are doing. Always use a command that is designed for the purpose. For example, to change a user password, use the `passwd` command, and to change the password aging information, use the `chage` command.
 
 ::: warning Switching to root with sudo
 Note that in many cases the super user account is disabled for login. In this case, a regular user with `sudo` rights can still switch to the root user using the `sudo su` command. The password that is required in this case is not that of the `root` user, but that of the current user. If the root user is disabled, one cannot directly login via a login prompt as the root user.
@@ -138,7 +151,7 @@ The fields of each entry are as follows:
 
 By executing the `id` command a user can also see to which groups his/her account belongs.
 
-For example `id` would output:
+For example `id` may output:
 
 ::: output
 <pre>
