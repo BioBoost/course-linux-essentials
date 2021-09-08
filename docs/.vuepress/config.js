@@ -74,6 +74,8 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/f-services/01-remote-access/',
+          // WebServer, NAS, Samba, ...
+          // Docker for Linux
         ]
       },
       {
@@ -93,6 +95,10 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
+          // Firewall
+          // Backups
+          // OpenVPN
+          // ...
         ]
       },
       // Not sure about how to call this chapter. Or maybe should be split up.
