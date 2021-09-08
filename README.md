@@ -20,7 +20,12 @@ yarn run docs:dev
 
 Teacher edition of this course can be found at [https://github.com/BioBoost/course-linux-essentials-teacher](https://github.com/BioBoost/course-linux-essentials-teacher).
 
-All solutions and demo's are available in `teacher.md` files inside `teacher` branches. Never merge these into `dev` or `master`.
+All solutions and demo's are available in `teacher.md` files inside `teacher` branches.
+
+**Important:**
+
+* Never merge `teacher` into `dev` or `master`.
+* Never push `teacher` to `origin`
 
 To make changes:
 
