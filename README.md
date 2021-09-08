@@ -16,6 +16,21 @@ Setup local dev server
 yarn run docs:dev
 ```
 
+## Teacher
+
+Teacher edition of this course can be found at [https://github.com/BioBoost/course-linux-essentials-teacher](https://github.com/BioBoost/course-linux-essentials-teacher).
+
+All solutions and demo's are available in `teacher.md` files inside `teacher` branches. Never merge these into `dev` or `master`.
+
+To make changes:
+
+```bash
+git remote add teacher git@github.com:BioBoost/course-linux-essentials-teacher.git
+git checkout teacher
+# ...
+git push teacher teacher
+```
+
 ## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
