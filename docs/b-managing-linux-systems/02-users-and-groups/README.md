@@ -34,6 +34,7 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
 gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
 bioboost:x:1000:1000:Nico De Witte,,,:/home/bioboost:/usr/bin/bash
 </pre>
+:::
 
 The `/etc/passwd` contains one entry per line for each user (user account) of the system. All fields are separated by a colon `:` symbol. It houses a total of seven fields for each user. Generally, an `/etc/passwd` entry consists of the following fields:
 
@@ -71,7 +72,7 @@ It is also possible to configure other user accounts with the ability to assume 
 Take for example the action to view the `/etc/shadow` file. Trying this with a normal user accounts gives you a permission denied error.
 
 ```bash
-cat /etc/shadow
+[bioboost@linux][~]$ cat /etc/shadow
 ```
 
 ::: output
@@ -83,14 +84,18 @@ cat: /etc/shadow: Permission denied
 By prefixing the command with `sudo`, we indicate that we want to execute the command with elevated administrator privileges (of course if the account is permitted to do so). Note that one will need to provide its user password before this will work.
 
 ```bash
-sudo cat /etc/shadow
+[bioboost@linux][~]$ sudo cat /etc/shadow
 ```
 
 ::: output
 <pre>
 root:!:18786:0:99999:7:::
 ...
+<<<<<<< HEAD
 bioboost:***************************************:18786:0:99999:7:::
+=======
+bioboost:**********:18786:0:99999:7:::
+>>>>>>> 0f8695b17a9cda31f10927355691e499cf94434a
 </pre>
 :::
 
@@ -114,6 +119,8 @@ Note that in many cases the super user account is disabled for login. In this ca
 ## Linux Groups
 
 Groups are collections of zero or more users. A user belongs to a default group (primary group), and can also be a member of any of the other groups on a server (secondary groups).
+
+Groups make it easy to manage users with the same security and access privileges. They also allow the administrator to logically categorize users on the system.
 
 An easy way to view all the groups is to look in the `/etc/group` file.
 
@@ -162,7 +169,6 @@ uid=1000(bioboost) gid=1000(bioboost) groups=1000(bioboost),4(adm),
 
 To checkout which groups another user belongs too, one can add the username as an argument after the `id` command. For example `id mark`.
 
-
 ## Adding a User
 
 Adding users to the system can be achieved using the command line tools `adduser` followed by the username for the new user. The tool will then present a step by step wizard to set the new user information.
@@ -175,14 +181,14 @@ As an example, for adding a new user `mark` to the system one would issue the fo
 
 ::: output
 <pre>
-[sudo] password for bioboost:               
+[sudo] password for bioboost:
 Adding user `mark' ...
 Adding new group `mark' (1001) ...
 Adding new user `mark' (1001) with group `mark' ...
 Creating home directory `/home/mark' ...
 Copying files from `/etc/skel' ...
-Enter new UNIX password: 
-Retype new UNIX password: 
+Enter new UNIX password:
+Retype new UNIX password:
 passwd: password updated successfully
 Changing the user information for mark
 Enter the new value, or press ENTER for the default
@@ -190,7 +196,7 @@ Enter the new value, or press ENTER for the default
 	Room Number []:
 	Work Phone []:
 	Home Phone []:
-	Other []: 
+	Other []:
 Is the information correct? [Y/n] y
 </pre>
 :::
@@ -233,20 +239,49 @@ Do note that the home directory of `dennis` is configured as `/home/dennis`, how
 
 ## Adding a group
 
-<!-- TODO -->
+A new group can be created using the `addgroup` command followed by the name of the group.
+
+```bash
+[bioboost@linux][~]$ sudo addgroup students
+```
+
+::: output
+<pre>
+Adding group `students' (GID 1003) ...
+Done.
+</pre>
+:::
+
+This will create an empty group (without users) called `students`.
 
 ## Adding a User to a Group
 
-<!-- TODO -->
+Adding a user to an existing group (secondary group), can be achieve using the `adduser` command where the first argument is the name of the user and the second argument is the name of the group.
+
+```bash
+[bioboost@linux][~]$ sudo adduser dennis students
+```
+
+::: output
+<pre>
+Adding user `dennis' to group `students' ...
+Adding user dennis to group students
+Done.
+</pre>
+:::
+
+Another option is to use the user modification tool `usermod`.
+
+```bash
+[bioboost@linux][~]$ sudo usermod -aG gamers,students john
+```
+
+You can check the result using `cat /etc/group`.
 
 ## Removing a User
 
-<!-- TODO -->
-
-<!-- TODO - Also discuss:  -->
-<!-- userdel	Deletes a user account and related files.
-usermod	Modifies a user account.
-addgroup	Adds a group to the system. =>
+<!--
+userdel	Deletes a user account and related files.
 delgroup	Removes a group from the system.
 passwd	Changes user password.
 Locking an account
@@ -259,11 +294,14 @@ changing the shell
 https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/
 -->
 
+<!-- We should read this: https://security.ias.edu/how-and-why-user-private-groups-unix -->
 
 <!-- Challenges
 
 Try to login to the `daemon` account. Use `sudo su daemon`. What does it display as a message ? What application is outputting this message ? Run it and prove it.
 
 `/usr/sbin/nologin`
+
+Challenge: Create a group with a specific id of 1337.
 
 Some user entries are showing `/bin/false` as the shell command. Do some research and explain what the difference is with `/usr/sbin/nologin` -->
