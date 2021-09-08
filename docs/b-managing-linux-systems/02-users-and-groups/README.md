@@ -91,11 +91,7 @@ By prefixing the command with `sudo`, we indicate that we want to execute the co
 <pre>
 root:!:18786:0:99999:7:::
 ...
-<<<<<<< HEAD
-bioboost:***************************************:18786:0:99999:7:::
-=======
 bioboost:**********:18786:0:99999:7:::
->>>>>>> 0f8695b17a9cda31f10927355691e499cf94434a
 </pre>
 :::
 
