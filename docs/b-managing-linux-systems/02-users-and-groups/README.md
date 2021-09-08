@@ -266,7 +266,7 @@ Done.
 </pre>
 :::
 
-Another option is to use the user modification tool `usermod`.
+Another option is to use the user modification tool `usermod`. Let us add `john` to the groups `gamers` and `students`:
 
 ```bash
 [bioboost@linux][~]$ sudo usermod -aG gamers,students john
@@ -274,9 +274,44 @@ Another option is to use the user modification tool `usermod`.
 
 You can check the result using `cat /etc/group`.
 
-## Removing a User
+## Changing Passwords
+
+Own user
+Other users
+
+## Changing the User Shell
 
 TODO
+
+## Locking a User Account
+
+TODO
+
+## Removing a User
+
+To remove a user from the system, one can use the `deluser` command followed by the username of that user.
+
+```bash
+[bioboost@linux][~]$ sudo deluser mark
+```
+
+By default, `deluser` will remove the user without removing the home directory, the mail spool or any other files on the system owned by the user. Removing the home directory and mail spool can be achieved using the `--remove-home` option.
+
+```bash
+[bioboost@linux][~]$ sudo deluser --remove-home mark
+```
+
+## Removing a Group
+
+To remove a group from the system, one can use the `delgroup` command followed by the name of the group. If the option `--only-if-empty` is given, the group won't be removed if it has any members left. 
+
+::: warning Primary Group
+The primary group of an existing user cannot be removed.
+:::
+
+## Adding User to Sudoers
+
+https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/
 
 ## Challenges
 
@@ -295,20 +330,3 @@ Mark challenges using a ✅ once they are finished.
 ### ❌ Difference false and nologin
 
 *Some user entries are showing `/bin/false` as the shell command. Do some research and explain what the difference is with `/usr/sbin/nologin`.*
-
-
-<!--
-userdel	Deletes a user account and related files.
-delgroup	Removes a group from the system.
-passwd	Changes user password.
-Locking an account
-Create group for example for 'students'
-Add multiple accounts to the group users 
-
-locking account
-changing the shell
-
-https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/
--->
-
-<!-- We should read this: https://security.ias.edu/how-and-why-user-private-groups-unix -->

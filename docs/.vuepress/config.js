@@ -96,7 +96,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           // Firewall
-          // Backups
+          // Backups (include creating tar archives and such)
           // OpenVPN
           // ...
         ]
