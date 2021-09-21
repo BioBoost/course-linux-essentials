@@ -121,6 +121,39 @@ module.exports = {
           '/z-references/01-crazy-command-list/',
         ]
       },
+      // {
+      //   title: 'Command Line Hacking',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     // '/08-making-linux-your-own/'
+      //     // '/09-making-linux-your-own/'
+      //     // '/10-command-chaining-and-redirection/',
+      //     // '/11-text-manipulation/',
+      //   ]
+      // },
+      // {
+      //   title: 'Making Linux Your Own',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/07_package_managers/',
+      //     '/06-making-linux-your-own/',
+      //   ]
+      // },
+      {
+        title: 'Automating Things',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/11-basic-shell-scripting/',
+          // Cron Jobs?
+          // SystemD
+        ]
+      },
       {
         title: 'Online Tools',
         // path: '/z-references/',      // optional, which should be a absolute path.

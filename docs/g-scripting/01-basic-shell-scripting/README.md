@@ -9,15 +9,20 @@ Shell scripts are very useful to automate repetitive command line tasks.
 
 ## Creating a shell script
 
-To create script file just `touch` it and make it executable.
+To create script file just `touch` it and make it executable using `chmod`.
 
 ```bash
-[bioboost@linux][~]$ cd /tmp
-[bioboost@linux][~]$ touch hello
-[bioboost@linux][~]$ chmod u+x hello
-[bioboost@linux][~]$ ls -al hello
--rwxr--r-- 1 bioboost bioboost 0 Sep 30 11:45 hello
+nico@biosdeb:~$ cd /tmp
+nico@biosdeb:~$ touch hello
+nico@biosdeb:~$ chmod u+x hello
+nico@biosdeb:~$ ls -al hello
 ```
+
+::: codeoutput
+<pre>
+-rwxr--r-- 1 nico nico 0 Sep 30 11:45 hello
+</pre>
+:::
 
 Open the file with nano and add this `#!/usr/bin/env bash` as a first line:
 
@@ -25,7 +30,7 @@ Open the file with nano and add this `#!/usr/bin/env bash` as a first line:
 [bioboost@linux][~]$ nano hello
 ```
 
-This is what is called the **shebang**. Under Unix-like operating systems, when a script with a shebang is run as a program, the program loader parses the rest of the script's initial line as an interpreter directive; the specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script. In this example the script is run by the bash Linux shell.
+This is what is called the **shebang**. Under Unix-like operating systems, when a script with a shebang is run as a program, the program loader parses the rest of the script's initial line as an interpreter directive; the specified interpreter program is run instead, passing to it as an argument the path that was initially used when attempting to run the script. In this example the script is run by the `bash` Linux shell.
 
 ::: tip The Older Shebang
 In the older days the shebang for a bash script was `#!/bin/bash`. However as some Linux systems dare to put the bash shell executable in a different place, these scripts would fail. By using the newer `#!/usr/bin/env bash` this problem is solved.
@@ -51,8 +56,13 @@ The script can be run using the following command:
 
 ```bash
 [bioboost@linux][~]$ ./hello
-Hello World
 ```
+
+::: output
+<pre>
+Hello World
+</pre>
+:::
 
 ## Comments
 
@@ -76,8 +86,10 @@ To use a variable place a dollar sign `$` in front of the name where you want to
 ```bash
 #!/usr/bin/env bash
 
+# Creating a variable
 hello="Hello World"
 
+# Using a variable
 echo $hello
 ```
 
@@ -90,8 +102,11 @@ So the previous script should actually be written as:
 ```bash
 #!/usr/bin/env bash
 
+# Creating a "constant" variable
+# Note the UPPERCASE_LETTERS
 HELLO="Hello World"
 
+# Using a variable
 echo $HELLO
 ```
 
@@ -131,10 +146,13 @@ Example script:
 ```bash
 #!/usr/bin/env bash
 
-echo
 echo "Number of arguments: $#"
 echo "First: $0"
 echo "Second: $1"
+echo "Third: $2"
+echo "Fourth: $3"
+echo "Fifth: $4"
+echo "Sixth: $5"
 echo "All: $@"
 ```
 
@@ -142,23 +160,35 @@ Execution example:
 
 ```bash
 [bioboost@linux][~]$ ./hello my name is nico
+```
 
+::: codeoutput
+<pre>
 Number of arguments: 4
 First: ./hello
 Second: my
+Third: name
+Fourth: is
+Fifth: nico
+Sixth: 
 All: my name is nico
-```
+</pre>
+:::
 
 If you wish the whole sentence to be treated as a single argument, you need to place quotes around the arguments.
 
 ```bash
 [bioboost@linux][~]$ ./hello "my name is nico"
+```
 
+::: codeoutput
+<pre>
 Number of arguments: 1
 First: ./hello
 Second: my name is nico
 All: my name is nico
-```
+</pre>
+:::
 
 ## Reading Input from User
 
@@ -167,6 +197,7 @@ You can read input from the user using the `read` command.
 ```bash
 #!/usr/bin/env bash
 
+# Request some input from the user
 echo "Please enter your full name"
 read fullname
 
@@ -177,36 +208,69 @@ Running the script
 
 ```bash
 [bioboost@linux][~]$ ./demo
+```
+
+::: codeoutput
+<pre>
 Please enter your full name
 Nico De Witte
 Welcome to bash Nico De Witte
+</pre>
+:::
+
+You can instruct `echo` not to output a newline character using the `-n` option:
+
+```bash
+#!/usr/bin/env bash
+
+# Request some input from the user
+echo -n "Please enter your full name: "
+read fullname
+
+echo "Welcome to bash $fullname"
 ```
+
+::: codeoutput
+<pre>
+Please enter your full name: Nico De Witte
+Welcome to bash Nico De Witte
+</pre>
+:::
 
 ## Command substitution
 
-You can substitute the output of a command into your script by using a dollar sign `$` followed by parentheses. Let's for example say we want to combine the output of a `cat` command with the output of a `date` command to make some sort of log entry.
+You can substitute the output of a command into your script by using a dollar sign `$` followed by parentheses with the commands between the parentheses. Let's for example say we want to fetch the current date and display it with a message to the current user.
 
 ```bash
 #!/usr/bin/env bash
 
-# Determine the available system memory
-mem=$(cat /proc/meminfo | grep 'MemAvailable')
+# Determine the current date
+# using the date command
+currentdate=$(date)
 
-# Determine the date
-logdate=$(date)
-
-# Combine both the memory available and the date
-echo "[$logdate] $mem"
+# $USER is an existing environment variable that contains
+# the username of the current user
+echo "Hello $USER. Today is $currentdate"
 ```
+
+::: codeoutput
+<pre>
+Hello bioboost. Today is Thu 14 May 2020 10:40:37 AM CEST
+</pre>
+:::
 
 The characters `$( )` tell the shell, "substitute the results of the enclosed command."
 
-Or even shorter:
+::: tip Environment Variables
+You can get a list of all available environment variables using the `env` command.
+:::
+
+You can accomplish the same result by substituting the output of the `date` command directly in the string:
 
 ```bash
 #!/usr/bin/env bash
 
-echo "[$(date)] $(cat /proc/meminfo | grep 'MemAvailable')"
+echo "Hello $USER. Today is $(date)"
 ```
 
 ## Quoting
@@ -225,35 +289,56 @@ var="this is some text"
 var='this is some text'
 ```
 
-However, there is an important difference between single and double quotes. Single quotes limit substitution. As we saw in the previous lesson, you can place variables in double quoted text and the shell still performs substitution. We can see this with the echo command:
+However, there is an important difference between single and double quotes. **Single quotes limit substitution.** As we saw in the previous lesson, you can place variables in double quoted text and the shell still performs substitution. We can see this with the `echo` command:
 
 ```bash
-$ echo "My host name is $HOSTNAME."
-My host name is linuxbox.
+nico@biosdeb:~$ echo "My host name is $HOSTNAME."
 ```
+
+::: codeoutput
+<pre>
+My host name is biosdeb.
+</pre>
+:::
 
 If we change to single quotes, the behavior changes:
 
 ```bash
-$ echo 'My host name is $HOSTNAME.'
-My host name is $HOSTNAME.
+nico@biosdeb:~$ echo 'My host name is $HOSTNAME.'
 ```
 
-Double quotes do not suppress the substitution of words that begin with `$` but they do suppress the expansion of wildcard characters.
+::: codeoutput
+<pre>
+My host name is $HOSTNAME.
+</pre>
+:::
+
+Double quotes do not suppress the substitution of words that begin with `$` but they do suppress the expansion of wildcard characters used for shell globbing (more on this topic later).
 
 For example, try the following:
 
 ```bash
 [bioboost@linux][~]$ echo *
-Desktop Documents Downloads ISE Music Pictures projects Public snap Templates Videos hello
 ```
+
+::: codeoutput
+<pre>
+Desktop Documents Downloads ISE Music Pictures
+projects Public snap Templates Videos
+</pre>
+:::
 
 Now try:
 
 ```bash
-$ echo "*"
-*
+nico@biosdeb:~$ echo "*"
 ```
+
+::: codeoutput
+<pre>
+*
+</pre>
+:::
 
 ### Escaping a character
 
@@ -261,8 +346,13 @@ There is another quoting character you will encounter. It is the backslash `\`. 
 
 ```bash
 [bioboost@linux][~]$ echo "My host name is \$HOSTNAME."
-My host name is $HOSTNAME.
 ```
+
+::: codeoutput
+<pre>
+My host name is $HOSTNAME.
+</pre>
+:::
 
 By using the backslash, the shell ignored the `$` symbol. Since the shell ignored it, it did not perform the substitution on `$HOSTNAME`.
 
@@ -270,8 +360,13 @@ Here is a more useful example:
 
 ```bash
 [bioboost@linux][~]$ echo "My host name is \"$HOSTNAME\"."
-My host name is "linuxbox".
 ```
+
+::: codeoutput
+<pre>
+My host name is "biosdeb".
+</pre>
+:::
 
 As you can see, using the `\"` sequence allows us to embed double quotes into our text.
 
@@ -288,7 +383,7 @@ Some examples:
 * Check user input data for validity
 * ...
 
-To add such decisions to our scripts we will require constructs that allow us to test for conditions. The if statement is one of those constructs. It's syntax is the following:
+To add such decisions to our scripts we will require constructs that allow us to test for *conditions*. The if statement is one of those constructs. It's syntax is the following:
 
 ```bash
 if condition; then
@@ -311,8 +406,13 @@ You can actually output the return values of Linux system commands such as `ls` 
 ```bash
 [bioboost@linux][~]$ ls /usr/bin
 [bioboost@linux][~]$ echo $?
-0
 ```
+
+::: codeoutput
+<pre>
+0
+</pre>
+:::
 
 The status of `0` indicates all went well.
 
@@ -322,8 +422,13 @@ Now try:
 [bioboost@linux][~]$ ls /does_not_exist
 ls: cannot access 'does_not_exist': No such file or directory
 [bioboost@linux][~]$ echo $?
-2
 ```
+
+::: codeoutput
+<pre>
+2
+</pre>
+:::
 
 The status is not zero, indicating that the `ls` command did not terminate properly or something went wrong.
 
