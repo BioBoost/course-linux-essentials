@@ -27,6 +27,8 @@ A virtual machine is a computer program that simulates a computer on which other
 
 ![VMWare](./img/vmware.jpg)
 
+Checkout [Linux as a Virtual Machine](/x-guides/02-linux-as-a-vm/README.md) if you wish to setup Linux as a Virtual Machine.
+
 ## Use a Physical Machine
 
 A more permanent solution for switching or using Linux is installing it on a **laptop/desktop** or even **dual boot** the system. While this is probable the most difficult option of all, its still very doable if you are in luck with your hardware. Some wireless adapters and video cards can give some problems.
@@ -61,6 +63,8 @@ The Raspberry Pi has become so popular and accessible that you can even buy SDCa
 
 ![Raspberry Pi](./img/raspberry_pi.jpg)
 
+Checkout [Linux on the Raspberry Pi](/x-guides/01-linux-on-the-rpi/README.md) if you wish to setup Linux on a Raspberry Pi.
+
 ## Use Docker
 
 Docker is a tool for running software in an isolated environment. Docker uses a technique called containerization to create separate environments. Docker in its self is nothing new. Docker is just a collection of readily available features that are present in Linux.
@@ -75,19 +79,7 @@ The reduced overhead, and the fact that containers run directly on the host syst
 
 The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
 
-You can:
-
-* Choose your favorite GNU/Linux distributions from the Microsoft Store.
-* Run common command-line free software such as grep, sed, awk, or other ELF-64 binaries.
-* Run Bash shell scripts and GNU/Linux command-line applications including:
-  * Tools: vim, emacs, tmux
-  * Languages: Javascript/node.js, Ruby, Python, C/C++, C# & F#, Rust, Go, etc.
-  * Services: sshd, MySQL, Apache, lighttpd
-* Install additional software using own GNU/Linux distribution package manager.
-* Invoke Windows applications using a Unix-like command-line shell.
-* Invoke GNU/Linux applications on Windows.
-
-More info about this can be found at [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+Checkout [Windows Subsystem for Linux](/x-guides/03-wsl/README.md) if you wish to setup WSL on Windows.
 
 ## So now what
 
