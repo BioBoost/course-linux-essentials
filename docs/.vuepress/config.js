@@ -110,6 +110,7 @@ module.exports = {
         children: [
           '/x-guides/01-linux-on-the-rpi/',
           '/x-guides/02-linux-as-a-vm/',
+          '/x-guides/03-wsl/',
         ]
       },
       {
