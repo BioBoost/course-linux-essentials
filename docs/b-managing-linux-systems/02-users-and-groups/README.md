@@ -312,13 +312,22 @@ passwd: password updated successfully
 Make sure to specify the name of the account when setting a password of another user using `sudo` powers. If you `sudo passwd`, you are actually changing the password of the root user.
 :::
 
-## Changing the User Shell
+<!-- ## Changing the User Shell -->
 
-TODO
+<!-- TODO -->
 
 ## Locking a User Account
 
-TODO
+One can lock the password of a user account using `passwd -l`, however this does not disable the account. The user may still be able to login using another authentication token (like for example with an SSH key). To disable the account, administrators should use `usermod --expiredate 1`, effectively setting the account's expire date to Jan 2, 1970.
+
+So for example to lock the account of `john`:
+
+```bash
+passwd -l john
+usermod --expiredate 1 john
+```
+
+Note, that this will not even allow root to change to the user `john`.
 
 ## Removing a User
 
@@ -344,7 +353,13 @@ The primary group of an existing user cannot be removed.
 
 ## Adding User to Sudoers
 
-https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/
+The simplest option is to add the user to the `sudo` group specified in the sudoers file. By default, on Debian based distributions like Ubuntu and Linux Mint, members of the `sudo` group are granted with sudo access.
+
+```bash
+usermod -aG sudo <user>
+```
+
+<!-- https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/ -->
 
 ## Challenges
 
@@ -368,5 +383,5 @@ Mark challenges using a ✅ once they are finished.
 
 *What does the file `/log/var/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
 
-### ❌ Expiring a Users Password
+<!-- ### ❌ Expiring a Users Password -->
 
