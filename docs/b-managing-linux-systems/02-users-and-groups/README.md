@@ -276,8 +276,41 @@ You can check the result using `cat /etc/group`.
 
 ## Changing Passwords
 
-Own user
-Other users
+Changing passwords can be achieved using the `passwd` tool. A normal user may only change the password for their own account, while the superuser may change the password for any account.
+
+So to change your own password you can use the `passwd` command without extra arguments.
+
+```bash
+[bioboost@linux][~]$ passwd
+```
+
+::: output
+<pre>
+Changing password for bioboost.
+Current password: 
+New password: 
+Retype new password: 
+passwd: password updated successfully
+</pre>
+:::
+
+The superuser can change any account password by specifying the user as an argument. Note that the superuser does not have to know the original password to be able to change it:
+
+```bash
+[bioboost@linux][~]$ sudo passwd johhny
+```
+
+::: output
+<pre>
+New password: 
+Retype new password: 
+passwd: password updated successfully
+</pre>
+:::
+
+::: warning
+Make sure to specify the name of the account when setting a password of another user using `sudo` powers. If you `sudo passwd`, you are actually changing the password of the root user.
+:::
 
 ## Changing the User Shell
 
@@ -330,3 +363,10 @@ Mark challenges using a ✅ once they are finished.
 ### ❌ Difference false and nologin
 
 *Some user entries are showing `/bin/false` as the shell command. Do some research and explain what the difference is with `/usr/sbin/nologin`.*
+
+### ❌ The auth.log file 
+
+*What does the file `/log/var/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
+
+### ❌ Expiring a Users Password
+
