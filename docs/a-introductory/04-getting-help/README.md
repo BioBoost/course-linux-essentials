@@ -234,3 +234,11 @@ Mark challenges using a ✅ once they are finished.
 ### ❌ The printenv command
 
 *Describe in your own words what the `printenv` command does.*
+
+### ❌ IP Address
+
+*Find the IP address of your WiFi interface. What command did you use?*
+
+### ❌ IP of Sivir Server
+
+*What is the IP address of the internal server `sivir.devbit.be`? Make sure you are connected to the `Devbit` network.*
