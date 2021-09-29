@@ -262,3 +262,39 @@ Checkout the snap store at [https://snapcraft.io/](https://snapcraft.io/).
 
 <!-- TODO - Inspect list of apt package repositories: /etc/apt/sources.list -->
 <!-- TODO - Add another repository for apt to get packages. -->
+
+## Challenges
+
+Find all the info you need in the man-pages. Document the commands you used for solving the challenge. Try to use as little google as possible.
+
+Mark challenges using a ✅ once they are finished.
+
+### ❌ Cowsay
+
+*Download the `.deb` package for `cowsay` and install it using `dpkg`. You can find the package at [https://packages.debian.org/sid/all/cowsay/download](https://packages.debian.org/sid/all/cowsay/download).*
+
+*Run it once it's installed. What does it do ?*
+
+### ❌ Nmap
+
+*Install the `nmap` package using `apt`.*
+
+*Port scan the server `sivir.devbit.be`. Make sure you are connected to the `Devbit` network. What services are running on this machine?*
+
+### ❌ NodeJS
+
+*Install `snap` using `apt`. Next use `snap` to install `nodejs`.*
+
+*Now launch node and tryout the following little code snippet:*
+
+```js
+console.log("Hello World from JavaScript");
+```
+
+### ❌ Dhcpdump
+
+*Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*
+
+### ❌ MQTT
+
+*Find a command line tool that allows you to publish messages to an MQTT broker. Use it to send your name to the topic `linux/students`. Use the broker `mqtt.devbit.be`.*
