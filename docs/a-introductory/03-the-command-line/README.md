@@ -229,7 +229,7 @@ drwxr-xr-x  5 bioboost bioboost  4096 Feb  7 10:18 Downloads
 :::
 
 ::: tip Some Help
-Most commands on linux well have a flag to get some basic help and an overview of the available options. You can achieve this by issueing the command with the flag `-h` or `--help`.
+Most commands on linux will have a flag to get some basic help and an overview of the available options. You can achieve this by issueing the command with the flag `-h` or `--help`.
 :::
 
 ### Arguments
