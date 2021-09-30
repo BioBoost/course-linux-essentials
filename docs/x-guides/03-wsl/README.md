@@ -50,3 +50,32 @@ Once installed you will be requested to enter a username and password.
 You are now running Linux on Windows.
 
 ![Ubuntu on Windows](./img/step-05-started.png)
+
+## Forgot Your Password ?
+
+*Shame on you.*
+
+When you start a WSL distro for the first time, it opens a console window with a progress bar. After a moment of waiting, you will be prompted to type a new user account name, and its password. This account will be your default WSL user account that will be used to sign-in automatically every time you run the current distro. Also, it will be included in the 'sudo' group in order to allow it to run commands elevated (as root).
+
+Each Linux distribution running on the Windows Subsystem for Linux has its own Linux user accounts and passwords. You will have to configure a Linux user account any time you add a distribution, reinstall, or reset. Linux user accounts are not only independent per distribution, they are also independent from your Windows user account.
+
+To reset the default user's password, follow these steps:
+
+1. Change the default user name for your WSL distro to root. Use the following command:
+
+  ```bash
+  ubuntu config --default-user root
+  ```
+
+2. Launch your Linux distribution.
+3. Reset your password using the `passwd` command
+
+  ```bash
+  passwd <username>
+  ```
+
+4. Leave your WSL session and set the default user of the WSL distro back to your user account
+
+  ```bash
+  ubuntu config --default-user <username>
+  ```
