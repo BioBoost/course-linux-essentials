@@ -27,16 +27,16 @@ module.exports = {
           '/a-introductory/04-getting-help/',
         ]
       },
-      // {
-      //   title: 'Managing Linux Systems',   // required
-      //   path: '/b-managing-linux-systems/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/b-managing-linux-systems/01-package-managers/',
-      //     '/b-managing-linux-systems/02-users-and-groups/',
-      //   ]
-      // },
+      {
+        title: 'Managing Linux Systems',   // required
+        path: '/b-managing-linux-systems/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/b-managing-linux-systems/01-package-managers/',
+          '/b-managing-linux-systems/02-users-and-groups/',
+        ]
+      },
       // {
       //   title: 'The Linux Filesystem',   // required
       //   path: '/c-the-filesystem/',      // optional, which should be a absolute path.
