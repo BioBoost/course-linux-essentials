@@ -37,6 +37,7 @@ title: Crazy Command List
 | `whereis` | Find binary |
 | `which` | Locate command |
 | `file` | Details of file type |
+| `lsb_release -a` | Details about the current distro release |
 
 ## More Detailed Overview
 
