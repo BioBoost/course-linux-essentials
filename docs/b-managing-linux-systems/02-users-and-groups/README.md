@@ -359,6 +359,12 @@ The simplest option is to add the user to the `sudo` group specified in the sudo
 usermod -aG sudo <user>
 ```
 
+::: tip admin vs sudo group
+Administrators are added to the `sudo` group, but the `admin` group is supported for backward compatibility. From the release notes:
+
+> Up until Ubuntu 11.10, administrator access using the `sudo` tool was granted via the `admin` Unix group. In Ubuntu 12.04, administrator access will be granted via the `sudo` group. This makes Ubuntu more consistent with the upstream implementation and Debian. For compatibility purposes, the `admin` group will continue to provide sudo/administrator access in 12.04.
+:::
+
 <!-- https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/ -->
 
 ## Challenges
@@ -383,5 +389,16 @@ Mark challenges using a ✅ once they are finished.
 
 *What does the file `/log/var/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
 
-<!-- ### ❌ Expiring a Users Password -->
+### ❌ Locking out Steve
 
+*Create a new user steve and set a password for the user. Login to the `steve` account using `su` to make sure it works.*
+
+*Now lock the user account and make sure there is no way anyone can login as `steve`, not even `root`*
+
+### ❌ Zsh Shell
+
+*Install the zsh shell on your system. Now change your own shell to `zsh`. Make sure to do this in such a way that a new session will also use `zsh`.*
+
+### ❌ Semester Account
+
+*Create a new account for an exchange student called `maggie`. Make sure the account can only be used until 31st of January of the next year. Basically only for this semester*.
