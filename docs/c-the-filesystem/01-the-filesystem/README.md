@@ -187,8 +187,8 @@ For instance, if you want to move to the home directory of the user `bioboost`, 
 
 The lack of the `/` from the beginning tells the shell to use the current directory as the base for looking for the path.
 
-::: tip
-Under this `/home` directory there will be a directory for most users on the system. The directory name will be the same as the name of the user.
+::: tip Home
+Under this `/home` directory there will be a directory for most users on the system (normal users). The directory name will be the same as the login name of the user. This is called the home directory of the user.
 :::
 
 This is where the `..` directory link comes in handy. To **move to the parent directory of your current directory**, you can type:
@@ -266,7 +266,7 @@ Let's take a closer look at the different directories which can be found under t
 
 **/dev** - This directory houses the **files that represent devices** on your system. Every hard drive, terminal device, input or output device available to the system is represented by a file here. Depending on the device, you can operate on the devices in different ways. For instance, for a device that represents a hard drive, like `/dev/sda`, you can mount it to the file system to access it. On the other hand, if you have a file that represents a line printer like `/dev/lpr`, you can write directly to it to send the information to the printer.
 
-**/etc** - Originally stood for **"et cetera"**, as it was originally used for all the stuff that didn't fit into other directories. Nowadays the directory hosts configuration files and is often refered to as the **"Editable Text Configuration"** files directory. This is one area of the file system where you will spend a lot of time if you are working as a system administrator. This directory is basically a **configuration directory for various system-wide services**. By default, this directory contains many files and subdirectories. It contains the configuration files for most of the activities on the system, regardless of their function. In cases where multiple configuration files are needed, many times an application-specific subdirectory is created to hold these files. If you are attempting to configure a service or program for the entire system, this is a great place to look.
+**/etc** - Originally stood for **"et cetera"**, as it was originally used for all the stuff that didn't fit into other directories. Nowadays the directory hosts configuration files and is often referred to as the **"Editable Text Configuration"** files directory. This is one area of the file system where you will spend a lot of time if you are working as a system administrator. This directory is basically a **configuration directory for various system-wide services**. By default, this directory contains many files and subdirectories. It contains the configuration files for most of the activities on the system, regardless of their function. In cases where multiple configuration files are needed, many times an application-specific subdirectory is created to hold these files. If you are attempting to configure a service or program for the entire system, this is a great place to look.
 
 ::: tip etc
 As with many things in the Linux world, there have been some heated discussions on what `etc` actually stands for. Some say *et cetera*, *Editable Text Configuration*, or *Extended Tool Chest*.
@@ -627,3 +627,47 @@ The most used commands to traverse and manipulate the file system of a Linux sys
 | `mv` | `-v` (verbose output), `-i` (interactive) | SOURCE DESTINATION | Move files/directories |
 | `rm` | `-i` (interactive), `-v` (verbose), `-r` (recursive) | FILE(S)/DIR(S) | Remove files/directories |
 | `rmdir` | `-p` (parents), `-v` (verbose) | DIR(S) | Remove empty directories |
+
+## Challenges
+
+Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
+
+Mark challenges using a ✅ once they are finished.
+
+### ❌ Authentication Log
+
+*There is a file on the system that logs authentication changes and failures. Can you guess where it can be found? Provide the path to the file.*
+
+### ❌ Apt Source List
+
+*The apt tool uses a configuration file which specifies in which repositories it should look for packages. Its called the apt `sources.list` file. Can you guess where it can be found? Provide the path to the file.*
+
+### ❌ Tmp Filesystem
+
+*Create a file called `hello` in `/tmp`. Restart your linux distro using `reboot`. Where is the file? What happened?*
+
+### ❌ Timestamps
+
+*Create a file called `first-of-many` in your home directory. Use `nano` to add some content to the file. Now list the details of the file such as the size and when it was last modified.*
+
+### ❌ No space for spaces
+
+*Try to create a file called `second try` (with the space included) using the command `touch second try` in your home directory. What happened? Why did this happen? How can you actually achieve creating a file with a space in its name?*
+
+### ❌ The root
+
+*Try to create a directory `/backups` (under the root of the filesystem). Why is it failing?*
+
+*Now use `sudo` to create the directory. Try creating a file called `README.md` within this `/backups` directory. Can you do it? Why / Why not?*
+
+### ❌ Bash RC
+
+*In your home directory you will find a file called `.bashrc`. Create a backup of that file called `.bashrc.bak`.*
+
+### ❌ Sym Linking
+
+*What does the tool `ln` allow you to do? Use it to create such a link in your home directory called `secrets` to the file `/etc/passwd`. Now use the `cat` tool to open the file `secrets`. What do you see? What happened?*
+
+### ❌ SD Card
+
+*Plugin an SD Card or a USB stick into you computer. Where can we find the actual block device? Where is the filesystem mounted? What is the difference between these two?*
