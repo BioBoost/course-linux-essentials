@@ -37,17 +37,17 @@ module.exports = {
           '/b-managing-linux-systems/02-users-and-groups/',
         ]
       },
-      // {
-      //   title: 'The Linux Filesystem',   // required
-      //   path: '/c-the-filesystem/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/c-the-filesystem/01-the-filesystem/',
-      //     '/c-the-filesystem/02-ownership-and-permissions/',
-      //     '/c-the-filesystem/03-locating-things/',
-      //   ]
-      // },
+      {
+        title: 'The Linux Filesystem',   // required
+        path: '/c-the-filesystem/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/c-the-filesystem/01-the-filesystem/',
+          // '/c-the-filesystem/02-ownership-and-permissions/',
+          // '/c-the-filesystem/03-locating-things/',
+        ]
+      },
       // {
       //   title: 'Making Linux Your Own',   // required
       //   path: '/d-making-linux-your-own/',      // optional, which should be a absolute path.
