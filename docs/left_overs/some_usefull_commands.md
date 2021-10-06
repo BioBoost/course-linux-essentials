@@ -28,3 +28,10 @@ nmap -p0- -v -A -T4 10.0.0.3
 ```
 
 Use `nc` for setting up connection using UDP or TCP.
+
+
+
+Some other useful commands
+
+ssh-import-id-gh
+dhcpdump
