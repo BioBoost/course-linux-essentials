@@ -150,10 +150,6 @@ Here is a quick breakdown of the access that the three basic permission types gr
   * For a normal file, execute permission **allows a user to execute a file** (the user **must also have read permission**). As such, execute permissions must be set for executable programs and shell scripts before a user can run them.
   * For a directory, execute permission allows a user to access, or traverse, into (i.e. `cd`) and access metadata about files in the directory (the information that is listed in an `ls -l`).
 
-<!-- ::: tip The s-bit
-In some cases there may be an `s` instead of `x` for the execute permission of the user. This means that the file, when executed, is ran as the owner of that file and not the one executing it. When an `s` permission is placed on the group of a directory, files created inside of the directory are created with the group specified on the parent directory instead of the primary group of the user creating the file.
-::: -->
-
 Something to note is that even though many permissions combinations are possible, only certain ones make sense in most situations. For example, write or execute access is almost always accompanied by read access, since it's hard to modify, and impossible to execute, something you can't read.
 
 Let's see some examples
@@ -249,6 +245,129 @@ For example:
 * `chmod 700 /tmp/file` will result in `rwx------`
 * `chmod 744 /tmp/file` will result in `rwxr--r--`
 * `chmod 664 /tmp/file` will result in `rw-rw-r--`
+
+## Special Permissions
+
+Special permissions make up a fourth access level in addition to user, group, and other. Special permissions allow for additional privileges over the standard permission sets. There is a special permission option for each access level.
+
+### User level
+
+Commonly noted as `SUID`, the special permission for the user access level has a single function: A file with SUID always executes as the user who owns the file, regardless of the user passing the command. If the file owner doesn't have execute permissions, then use an uppercase `S` here.
+
+Now, to see this in a practical light, let's look at the `/usr/bin/passwd` command. This command, by default, has the SUID permission set:
+
+```bash
+[bioboost@linux][~]$ ls -l /usr/bin/passwd 
+```
+
+::: output
+<pre>
+-rwsr-xr-x 1 root root 68208 Jul 15 00:08 /usr/bin/passwd
+</pre>
+:::
+
+Note the `s` where `x` would usually indicate execute permissions for the user.
+
+<!-- https://stackoverflow.com/questions/33565729/why-do-my-setuid-root-bash-shell-scripts-not-work -->
+
+### Group level
+
+Commonly noted as `SGID`, this special permission has a couple of functions:
+
+* If set on a file, it allows the file to be executed as the group that owns the file (similar to `SUID`).
+* If set on a directory, any files created in the directory will have their group ownership set to that of the directory group.
+
+This permission set is noted by a lowercase `s` where the `x` would normally indicate execute privileges for the group. It is also especially useful for directories that are often used in collaborative efforts between members of a group. Any member of the group can access any new file. This applies to the execution of files, as well.
+
+Let us take a look at an example (assuming we have a user called `dennis`)
+
+```bash
+[bioboost@linux][~]$ cd /tmp
+[bioboost@linux][~]$ mkdir uploads
+[bioboost@linux][~]$ cd uploads
+[bioboost@linux][~]$ chmod g+s,o+w .
+[bioboost@linux][~]$ chown root .
+[bioboost@linux][~]$ ls -al
+```
+
+Note that we also allow anyone to create files in this directory and that we set the owner to `root` to show that the directory group is used.
+
+::: output
+<pre>
+total 8
+drwxrwsrwx  2 root bioboost 4096 Okt 12 15:47 .
+drwxrwxrwt 24 root root     4096 Okt 12 15:45 ..
+</pre>
+:::
+
+Now let's login using `dennis` and create some files:
+
+```bash
+[bioboost@linux][~]$ touch hello
+[bioboost@linux][~]$ ls -al
+```
+
+::: output
+<pre>
+total 8
+drwxrwsrwx  2 root   bioboost 4096 Okt 12 15:48 .
+drwxrwxrwt 24 root   root     4096 Okt 12 15:47 ..
+-rw-rw-r--  1 dennis bioboost    0 Okt 12 15:48 hello
+</pre>
+:::
+
+Note how the user of `hello` is still `dennis`, but the group is the same - `bioboost` - as that of the parent directory.
+
+If the owning group does not have execute permissions, then an uppercase `S` is used.
+
+### Other level
+
+The last special permission has been dubbed the **sticky bit.** This permission does not affect individual files. However, at the directory level, it restricts file deletion. Only the owner (and root) of a file can remove the file within that directory. A common example of this is the /tmp directory:
+
+```bash
+[bioboost@linux][~]$ ls -al /tmp
+```
+
+::: output
+<pre>
+total 132
+drwxrwxrwt 24 root     root      4096 Okt 12 15:51 .
+...
+</pre>
+
+The permission set is noted by the lowercase `t`, where the x would normally indicate the execute privilege.
+
+### Setting special permissions
+
+To set special permissions on a file or directory, you can utilize either of the two methods outlined for standard permissions above: *Symbolic* or *numerical*.
+
+Let's assume that we want to set SGID on the directory `/var/www-data/uploads`.
+
+To do this using the symbolic method, we do the following:
+
+```bash
+[bioboost@linux][~]$ chmod g+s /var/www-data/uploads
+```
+
+Using the numerical method, we need to pass a fourth, preceding digit in our `chmod` command.
+
+The syntax is:
+
+```
+[bioboost@linux][~]$ chmod X### file
+```
+
+Where `X` is the special permissions digit. This digit is defined similarly to the standard permission digits:
+
+* `SUID`: `4`
+* `SGID`: `2`
+* `Sticky`: `1`
+
+Taking the previous example:
+
+```bash
+[bioboost@linux][~]$ chmod 2770 /var/www-data/uploads
+```
 
 <!-- TODO: -->
 <!-- Creation mode -->

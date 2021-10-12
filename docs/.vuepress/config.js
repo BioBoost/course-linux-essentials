@@ -44,7 +44,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/c-the-filesystem/01-the-filesystem/',
-          // '/c-the-filesystem/02-ownership-and-permissions/',
+          '/c-the-filesystem/02-ownership-and-permissions/',
           // '/c-the-filesystem/03-locating-things/',
         ]
       },
