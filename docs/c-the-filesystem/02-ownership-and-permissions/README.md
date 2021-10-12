@@ -334,6 +334,7 @@ total 132
 drwxrwxrwt 24 root     root      4096 Okt 12 15:51 .
 ...
 </pre>
+:::
 
 The permission set is noted by the lowercase `t`, where the x would normally indicate the execute privilege.
 
@@ -371,3 +372,13 @@ Taking the previous example:
 
 <!-- TODO: -->
 <!-- Creation mode -->
+
+## Challenges
+
+Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
+
+Mark challenges using a ✅ once they are finished.
+
+### ❌ Etcetera
+
+*Who is the owner of the `/etc` directory on the system? What are the permissions on this directory? Why can you list the content of this directory?*
