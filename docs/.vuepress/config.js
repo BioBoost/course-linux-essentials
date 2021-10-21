@@ -67,17 +67,17 @@ module.exports = {
       //     // '/11-text-manipulation/',
       //   ]
       // },
-      // {
-      //   title: 'Servers and Services',   // required
-      //   path: '/f-services/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     // TODO: '/f-services/01-remote-access/',
-      //     // WebServer, NAS, Samba, ...
-      //     // Docker for Linux
-      //   ]
-      // },
+      {
+        title: 'Servers and Services',   // required
+        path: '/f-services/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/f-services/01-remote-access/',
+          // WebServer, NAS, Samba, ...
+          // Docker for Linux
+        ]
+      },
       // {
       //   title: 'Scripting',   // required
       //   path: '/g-scripting/',      // optional, which should be a absolute path.
