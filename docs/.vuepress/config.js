@@ -78,17 +78,17 @@ module.exports = {
           // Docker for Linux
         ]
       },
-      // {
-      //   title: 'Scripting',   // required
-      //   path: '/g-scripting/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     // TODO: '/g-scripting/01-basic-shell-scripting/',
+      {
+        title: 'Scripting',   // required
+        path: '/g-scripting/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/g-scripting/01-basic-shell-scripting/',
       //     // TODO: '/g-scripting/02-cron-jobs/',
       //     // TODO: '/g-scripting/03-systemd/',
-      //   ]
-      // },
+        ]
+      },
       // {
       //   title: 'Security and Protection',   // required
       //   path: '/h-security-and-protection/',      // optional, which should be a absolute path.

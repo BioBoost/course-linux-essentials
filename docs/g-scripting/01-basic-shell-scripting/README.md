@@ -18,7 +18,7 @@ nico@biosdeb:~$ chmod u+x hello
 nico@biosdeb:~$ ls -al hello
 ```
 
-::: codeoutput
+::: output
 <pre>
 -rwxr--r-- 1 nico nico 0 Sep 30 11:45 hello
 </pre>
@@ -162,7 +162,7 @@ Execution example:
 [bioboost@linux][~]$ ./hello my name is nico
 ```
 
-::: codeoutput
+::: output
 <pre>
 Number of arguments: 4
 First: ./hello
@@ -181,7 +181,7 @@ If you wish the whole sentence to be treated as a single argument, you need to p
 [bioboost@linux][~]$ ./hello "my name is nico"
 ```
 
-::: codeoutput
+::: output
 <pre>
 Number of arguments: 1
 First: ./hello
@@ -210,7 +210,7 @@ Running the script
 [bioboost@linux][~]$ ./demo
 ```
 
-::: codeoutput
+::: output
 <pre>
 Please enter your full name
 Nico De Witte
@@ -230,7 +230,7 @@ read fullname
 echo "Welcome to bash $fullname"
 ```
 
-::: codeoutput
+::: output
 <pre>
 Please enter your full name: Nico De Witte
 Welcome to bash Nico De Witte
@@ -253,7 +253,7 @@ currentdate=$(date)
 echo "Hello $USER. Today is $currentdate"
 ```
 
-::: codeoutput
+::: output
 <pre>
 Hello bioboost. Today is Thu 14 May 2020 10:40:37 AM CEST
 </pre>
@@ -295,7 +295,7 @@ However, there is an important difference between single and double quotes. **Si
 nico@biosdeb:~$ echo "My host name is $HOSTNAME."
 ```
 
-::: codeoutput
+::: output
 <pre>
 My host name is biosdeb.
 </pre>
@@ -307,7 +307,7 @@ If we change to single quotes, the behavior changes:
 nico@biosdeb:~$ echo 'My host name is $HOSTNAME.'
 ```
 
-::: codeoutput
+::: output
 <pre>
 My host name is $HOSTNAME.
 </pre>
@@ -321,7 +321,7 @@ For example, try the following:
 [bioboost@linux][~]$ echo *
 ```
 
-::: codeoutput
+::: output
 <pre>
 Desktop Documents Downloads ISE Music Pictures
 projects Public snap Templates Videos
@@ -334,7 +334,7 @@ Now try:
 nico@biosdeb:~$ echo "*"
 ```
 
-::: codeoutput
+::: output
 <pre>
 *
 </pre>
@@ -348,7 +348,7 @@ There is another quoting character you will encounter. It is the backslash `\`. 
 [bioboost@linux][~]$ echo "My host name is \$HOSTNAME."
 ```
 
-::: codeoutput
+::: output
 <pre>
 My host name is $HOSTNAME.
 </pre>
@@ -362,7 +362,7 @@ Here is a more useful example:
 [bioboost@linux][~]$ echo "My host name is \"$HOSTNAME\"."
 ```
 
-::: codeoutput
+::: output
 <pre>
 My host name is "biosdeb".
 </pre>
@@ -408,7 +408,7 @@ You can actually output the return values of Linux system commands such as `ls` 
 [bioboost@linux][~]$ echo $?
 ```
 
-::: codeoutput
+::: output
 <pre>
 0
 </pre>
@@ -424,7 +424,7 @@ ls: cannot access 'does_not_exist': No such file or directory
 [bioboost@linux][~]$ echo $?
 ```
 
-::: codeoutput
+::: output
 <pre>
 2
 </pre>
@@ -588,3 +588,48 @@ It is also important to know that the shell will only perform expansion a once, 
 ::: warning Hidden files
 Shell globs do not match hidden files (files that start with a dot `.`). Matching hidden files can be accomplished by explicitly specifying a pattern with the dot as for example `.*`. This will however also match the current `.` and parrent directory `..`. To exclude these but match other dotfiles, use a pattern as `.[^.]*` (dot followed by anything but a dot).
 :::
+
+## Challenges
+
+Solve the challenges by creating small bash scripts. Place the bash scripts here for every challenge. Make sure to add some comments and explain how they work.
+
+Mark challenges using a ✅ once they are finished.
+
+### ❌ Log the Date
+
+*Create a script that output the date every 10 seconds. Use the `sleep` command to wait between calls to the `date` command.*
+
+### ❌ Available Memory
+
+*Output the available system memory together with the current date in the following format:*
+
+```
+[Thu 14 May 2020 11:12:55 AM CEST] MemAvailable:   28439572 kB
+```
+
+*The available memory can be found in the file `/proc/meminfo`. Use the `grep` tool to filter out the line with MemAvailable.*
+
+### ❌ Fetching Github Keys
+
+*Create a script that fetches the public SSH keys of a user on GitHub and displays them in the terminal. This can be accomplished by using the curl tool to access the endpoint `https://github.com/<username>.keys`, where `<username>` is an existing github username.*
+
+*Take in the username via the command line arguments. If none is provided request it from the user using the read command.*
+
+*Example via command line:*
+
+```bash
+./githubkeys bioboost
+```
+
+*or via the read command:*
+
+```bash
+./githubkeys
+Please enter GitHub username: BioBoost
+Fetching Keys
+...
+```
+
+### ❌ DHCP Traffic
+
+*Create a script that filters DHCP network traffic and output matching MAC-Addresses, IP-Addresses and Hostnames.*
