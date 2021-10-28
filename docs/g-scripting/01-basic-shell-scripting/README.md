@@ -9,22 +9,22 @@ Shell scripts are very useful to automate repetitive command line tasks.
 
 ## Creating a shell script
 
-To create script file just `touch` it and make it executable using `chmod`.
+To create a script file just `touch` it and make it executable using `chmod`.
 
 ```bash
-nico@biosdeb:~$ cd /tmp
-nico@biosdeb:~$ touch hello
-nico@biosdeb:~$ chmod u+x hello
-nico@biosdeb:~$ ls -al hello
+[bioboost@linux][~]$ cd /tmp
+[bioboost@linux][~]$ touch hello
+[bioboost@linux][~]$ chmod u+x hello
+[bioboost@linux][~]$ ls -al hello
 ```
 
 ::: output
 <pre>
--rwxr--r-- 1 nico nico 0 Sep 30 11:45 hello
+-rwxr--r-- 1 bioboost bioboost 0 Sep 30 11:45 hello
 </pre>
 :::
 
-Open the file with nano and add this `#!/usr/bin/env bash` as a first line:
+Open the file with nano and add `#!/usr/bin/env bash` as a first line:
 
 ```bash
 [bioboost@linux][~]$ nano hello
@@ -273,6 +273,15 @@ You can accomplish the same result by substituting the output of the `date` comm
 echo "Hello $USER. Today is $(date)"
 ```
 
+The same can be accomplished by placing the command between backticks. However, backtick command substitution cannot be nested, while `$()` can.
+
+```bash
+#!/usr/bin/env bash
+
+today=`date`
+echo "Hello $USER. Today is $today"
+```
+
 ## Quoting
 
 Quoting is used to accomplish two goals:
@@ -289,10 +298,10 @@ var="this is some text"
 var='this is some text'
 ```
 
-However, there is an important difference between single and double quotes. **Single quotes limit substitution.** As we saw in the previous lesson, you can place variables in double quoted text and the shell still performs substitution. We can see this with the `echo` command:
+However, there is an important difference between single and double quotes. **Single quotes limit substitution.** As we saw in the previous section, you can place variables in double quoted text and the shell still performs substitution. We can see this with the `echo` command:
 
 ```bash
-nico@biosdeb:~$ echo "My host name is $HOSTNAME."
+[bioboost@linux][~]$ echo "My host name is $HOSTNAME."
 ```
 
 ::: output
@@ -304,7 +313,7 @@ My host name is biosdeb.
 If we change to single quotes, the behavior changes:
 
 ```bash
-nico@biosdeb:~$ echo 'My host name is $HOSTNAME.'
+[bioboost@linux][~]$ echo 'My host name is $HOSTNAME.'
 ```
 
 ::: output
@@ -331,7 +340,7 @@ projects Public snap Templates Videos
 Now try:
 
 ```bash
-nico@biosdeb:~$ echo "*"
+[bioboost@linux][~]$ echo "*"
 ```
 
 ::: output
@@ -495,12 +504,12 @@ Numeric comparisons
 
 | Expression | Description |
 | ---------- | ----------- |
-| `expr1 -eq expr2` | Returns true if the expressions are equal |
-| `expr1 -ne expr2` | Returns true if the expressions are not equal |
-| `expr1 -gt expr2` | Returns true if expr1 is greater than expr2 |
-| `expr1 -ge expr2` | Returns true if expr1 is greater than or equal to expr2 |
-| `expr1 -lt expr2` | Returns true if expr1 is less than expr2 |
-| `expr1 -le expr2` | Returns true if expr1 is less than or equal to expr2 |
+| `val1 -eq val2` | Returns true if the values are equal |
+| `val1 -ne val2` | Returns true if the values are not equal |
+| `val1 -gt val2` | Returns true if val1 is greater than val2 |
+| `val1 -ge val2` | Returns true if val1 is greater than or equal to val2 |
+| `val1 -lt val2` | Returns true if val1 is less than val2 |
+| `val1 -le val2` | Returns true if val1 is less than or equal to val2 |
 | `! expr1` | Negates the result of the expression |
 
 Some file conditionals:
@@ -583,7 +592,7 @@ echo '*'
 
 which will just output `*`.
 
-It is also important to know that the shell will only perform expansion a once, before the command is executes. This also means that if a wildcard symbol makes it to the executing command, it's up to command to deal with it as needed.
+It is also important to know that the shell will only perform expansion once, before the command is executed. This means that if a wildcard symbol makes it to the executing command, it's up to command to deal with it as needed.
 
 ::: warning Hidden files
 Shell globs do not match hidden files (files that start with a dot `.`). Matching hidden files can be accomplished by explicitly specifying a pattern with the dot as for example `.*`. This will however also match the current `.` and parrent directory `..`. To exclude these but match other dotfiles, use a pattern as `.[^.]*` (dot followed by anything but a dot).
@@ -632,4 +641,8 @@ Fetching Keys
 
 ### ❌ DHCP Traffic
 
-*Create a script that filters DHCP network traffic and output matching MAC-Addresses, IP-Addresses and Hostnames.*
+*Create a script that filters DHCP network traffic and outputs matching MAC-Addresses, IP-Addresses and Hostnames.*
+
+### ❌ Backups
+
+*Choose a directory on your system (best to choose one in your home-dir). Create a script that archives this directory in a `.tar.gz` tarball file. Add a timestamp in the name of the output file.*
