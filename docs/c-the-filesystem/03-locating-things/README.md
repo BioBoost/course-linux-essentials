@@ -251,3 +251,65 @@ Let's dissect this command:
 ::: tip explainshell.com
 Try copy pasting this command in [explainshell.com](https://explainshell.com/) and enjoy the beauty of it all.
 :::
+
+## Challenges
+
+Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
+
+Mark challenges using a ✅ once they are finished.
+
+### ❌ Locate
+
+*Install the `locate` command and update the index database.*
+
+*Locate the following files on your system:*
+
+* `sudoers.dist`
+* the configuration file `ssh_config`
+* `auth.log`
+
+### ❌ Python man-pages
+
+*Use the `whereis` tool to determine the location of the man-pages of `python`.*
+
+### ❌ Python man-pages
+
+*Use the `whereis` tool to determine the location of the `find` binary.*
+
+### ❌ Which
+
+*What is the location of the following commands for the current user:*
+
+* `passwd`
+* `locate`
+* `fdisk`
+
+*Why are the location of `passwd` and `fdisk` different? What is `fdisk` used for?*
+
+### Use find for the following challenges
+
+Make sure to redirect the `permission denied` errors to `/dev/null` for all searches unless specified otherwise.
+
+#### ❌ kernel.log
+
+*Find the file `kernel.log`.*
+
+#### ❌ .bashrc
+
+*Find the files `.bashrc`.*
+
+#### ❌ System Configuration Files
+
+*Search for files that end with the extension `.conf` and contain a filename with the keyword `system` in the `/etc` directory.*
+
+#### ❌ User Readable Files
+
+*What option can we use on `find` to make sure the current user can read the file? Don't use the `-perm` option. There is a better option. Give a nice example.*
+
+#### ❌ Altered Log Files
+
+*Find all log files in `/var/log` that were modified in the last 24 hours. Make sure to only include files and not directories. Now extend the command to perform a long listing human readable `ls` for each file.*
+
+#### ❌ Steal All Logs
+
+*Create a directory `logs` in `/tmp` and copy all `*.log` files you can find on the system to that location.*
