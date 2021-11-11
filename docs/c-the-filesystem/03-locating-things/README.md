@@ -3,8 +3,6 @@ description: Searching for and finding files is an important skill of any linux 
 title: Locating Things
 ---
 
-<!-- This chapter should probable be placed after 06 - the filesystem -->
-
 # Locating Things
 
 As a beginning Linux user it is not easy to find your way through the structure of the filesystem. Being able to search for binaries and other files will bring you a long way. Linux has several tools available to make this task less daunting.
@@ -20,7 +18,7 @@ If you get the error `command not found` you may need to install the `locate` pa
 The serious downside of this technique is that recently created files might not have been indexed yet and may not even show up in your search result. It may also may list files that have already been removed from the system.
 
 ```bash
-[bioboost@linux][~]$ locate dhcp
+locate dhcp
 ```
 
 ::: output
@@ -46,7 +44,7 @@ The `$PATH` environment variable contains a list of the directories where linux 
 :::
 
 ```bash
-[bioboost@linux][~]$ whereis g++
+whereis g++
 ```
 
 ::: output
@@ -60,7 +58,7 @@ As an extra, `whereis` will also display the location of the source files and th
 The easiest way to know what paths `whereis` is looking in, just add the `-l` listing option.
 
 ```bash
-[bioboost@linux][~]$ whereis -l g++
+whereis -l g++
 ```
 
 ::: output
@@ -84,7 +82,7 @@ g++: /usr/bin/g++ /usr/share/man/man1/g++.1.gz
 The `which` command only shows the path to a binary that can be found in the `$PATH` environment variable. This means that it can only be used to find commands that can be executed from the terminal by the current user.
 
 ```bash
-[bioboost@linux][~]$ which g++
+which g++
 ```
 
 ::: output
@@ -120,7 +118,7 @@ The basic syntax for using the `find` command is: `find [starting-point...] [exp
 Below is a basic example that searches the `/etc` directory and all it's subdirectories for a file called `passwd`.
 
 ```bash
-[bioboost@linux][~]$ find /etc -name passwd
+find /etc -name passwd
 ```
 
 ::: output
@@ -142,7 +140,7 @@ When searching system-wide for files using `find` you will get a lot of `Permiss
 2. Redirect the errors (standard error stream) to `/dev/null`, basically throwing them away: `find /etc -name passwd 2>/dev/null`. More about redirection later.
 
 ```bash
-[bioboost@linux][~]$ find /etc -name passwd 2>/dev/null
+find /etc -name passwd 2>/dev/null
 ```
 
 ::: output
@@ -168,7 +166,7 @@ When using wildcards it is important to surround the search criteria with double
 The next example fill search for files in the `/etc` directory that contain the **keyword** `pass`.
 
 ```bash
-[bioboost@linux][~]$ find /etc -name "*pass*" 2>/dev/null
+find /etc -name "*pass*" 2>/dev/null
 ```
 
 ::: output
@@ -190,7 +188,7 @@ The next example fill search for files in the `/etc` directory that contain the 
 The following example performs a system-wide **search for a directory** that contains the word `bash`. This can be achieved by using the search criteria `-type` set to `d` for directory.
 
 ```bash
-[bioboost@linux][~]$ find / -name "*bash*" -type d 2>/dev/null
+find / -name "*bash*" -type d 2>/dev/null
 ```
 
 ::: output
@@ -213,7 +211,7 @@ The following `find` command will search for a file:
 * and was modified in the last `24h`
 
 ```bash
-[bioboost@linux][~]$ find ~/projects -user bioboost -name "README.md" -size -100k -mtime 0 2>/dev/null
+find ~ -user bioboost -name "README.md" -size -100k -mtime 0 2>/dev/null
 ```
 
 ::: output
@@ -227,7 +225,7 @@ The following `find` command will search for a file:
 For the hardcore users, `find` can also execute commands for each file found using the `-exec` argument. For example, the following search will perform a long listing with human readable output for files that are bigger than `500MB` and belong to the user `bioboost`.
 
 ```bash
-[bioboost@linux][~]$ find / -size +500M -user bioboost 2>/dev/null -exec ls -lh '{}' \;
+find / -size +500M -user bioboost 2>/dev/null -exec ls -lh '{}' \;
 ```
 
 Let's dissect this command:
