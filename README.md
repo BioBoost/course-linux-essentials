@@ -16,6 +16,17 @@ Setup local dev server
 yarn run docs:dev
 ```
 
+## Students
+
+You can add/pull changes from this repo using the following commands:
+
+```bash
+git remote add teacher git@github.com:BioBoost/course-linux-essentials.git
+git pull teacher master
+```
+
+Make sure to commit your local changes before doing this.
+
 ## Teacher
 
 Teacher edition of this course can be found at [https://github.com/BioBoost/course-linux-essentials-teacher](https://github.com/BioBoost/course-linux-essentials-teacher).
