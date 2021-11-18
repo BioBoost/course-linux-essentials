@@ -28,15 +28,15 @@ The next sections provide a step-by-step guide on how to setup a basic dotfiles 
 Start by setting up a new repository. Typically a directory called `dotfiles` is used. Create one in your home directory.
 
 ```bash
-pi@red:~ $ mkdir dotfiles
-pi@red:~ $ cd dotfiles
+mkdir dotfiles
+cd dotfiles
 ```
 
 Now let us initialize it as a git repository and add `dot` as a git submodule.
 
 ```bash
-pi@red:~/dotfiles $ git init
-pi@red:~/dotfiles $ git submodule add https://github.com/anishathalye/dotbot
+git init
+git submodule add https://github.com/anishathalye/dotbot
 ```
 
 ::: tip git submodule
@@ -46,9 +46,19 @@ Often a code repository will depend upon external code. This external code can b
 Now we can copy the install script and setup a new configurations file:
 
 ```bash
-pi@red:~/dotfiles $ cp dotbot/tools/git-submodule/install .
-pi@red:~/dotfiles $ touch install.config.yaml
+cp dotbot/tools/git-submodule/install .
+touch install.config.yaml
 ```
+
+
+
+
+
+
+
+
+
+
 
 ### Other Approaches
 
