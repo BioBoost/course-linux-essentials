@@ -1,5 +1,61 @@
 # Making Linux Your Own
 
+## Dotfiles
+
+Dotfiles are used to customize your system. The *dotfiles* name is derived from the configuration files in Unix-like systems that start with a dot (e.g. `.bashrc` and `.gitconfig`). For normal users, this indicates these are not regular documents, and by default are hidden in directory listings. For power users, however, they are a core tool belt.
+
+There is a large dotfiles community. And with it comes a large number of repositories and registries containing many organized dotfiles, advanced installation scripts, dotfile managers, and mashups of things people collect in their own repositories.
+
+A good place to store your dotfiles is GitHub. It's allows you to easily backup, restore, and sync the preferences and settings for your toolbox. Your dotfiles might be the most important files on your machine. Learn from the community. Discover new tools for your toolbox and new tricks for the ones you already use.
+
+### Bootstrap your Dotfiles with dotbot
+
+A customized set of dotfiles can vastly increase your command-line productivity and happiness. Having your dotfiles in a git repository allows you to take your configuration anywhere.
+
+While it can be tempting for some to script dotfiles configuration and installation yourself, it is a hard route take. You would constantly run into edge-cases leading to constant modification of the scripts. With a framework, most of the use-cases have been thought of, so it is very low friction in comparison.
+
+Some of the features that set dotbot apart from other tools out there are:
+
+* Single configuration file
+* Single command to install on a new machine via symbolic links
+* Can be added as a git submodule
+* Python is the only dependency (standard for almost all distros)
+
+The next sections provide a step-by-step guide on how to setup a basic dotfiles repository with dotbot.
+
+### Repository Setup
+
+Start by setting up a new repository. Typically a directory called `dotfiles` is used. Create one in your home directory.
+
+```bash
+pi@red:~ $ mkdir dotfiles
+pi@red:~ $ cd dotfiles
+```
+
+Now let us initialize it as a git repository and add `dot` as a git submodule.
+
+```bash
+pi@red:~/dotfiles $ git init
+pi@red:~/dotfiles $ git submodule add https://github.com/anishathalye/dotbot
+```
+
+::: tip git submodule
+Often a code repository will depend upon external code. This external code can be incorporated in a few different ways. One of these ways is by incorporating it as a git submodule. A git submodule is a record within a host git repository that points to a specific commit in another external repository. Submodules are very static and only track specific commits. Submodules do not track git refs or branches and are not automatically updated when the host repository is updated. When adding a submodule to a repository a new `.gitmodules` file will be created. The `.gitmodules` file contains meta data about the mapping between the submodule project's URL and local directory.
+:::
+
+Now we can copy the install script and setup a new configurations file:
+
+```bash
+pi@red:~/dotfiles $ cp dotbot/tools/git-submodule/install .
+pi@red:~/dotfiles $ touch install.config.yaml
+```
+
+### Other Approaches
+
+Want to get some inspiration or use another dotfiles manager than take a look at [dotfiles.github.io](https://dotfiles.github.io/).
+
+## NeoFetch
+
 https://www.youtube.com/watch?v=QAaT6BTUnPg
 
 <!-- These are some ideas -->
@@ -152,5 +208,3 @@ alias shell='echo "You are using the $0 shell"'
 Save the file using `CTRL-o` and exit using `CTRL-x`.
 
 Launch a new terminal and check if the alias is available.
-
-## Dotfiles
