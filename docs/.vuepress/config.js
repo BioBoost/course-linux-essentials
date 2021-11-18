@@ -6,7 +6,7 @@ module.exports = {
       {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
       {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
       {text: 'Report Issue', link: 'https://github.com/BioBoost/course_linux_essentials/issues'},
-      {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-linux-essential'}
+      // {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-linux-essential'}
     ],
     sidebar: [
       {
