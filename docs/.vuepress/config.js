@@ -95,7 +95,7 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/h-security-and-protection/01-uncomplicated-firewall',
+          '/h-security-and-protection/01-uncomplicated-firewall/',
           // Firewall
           // Backups (include creating tar archives and such)
           // OpenVPN
