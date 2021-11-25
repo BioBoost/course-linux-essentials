@@ -74,8 +74,8 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/f-services/01-remote-access/',
+          '/f-services/02-docker-for-linux/',
           // WebServer, NAS, Samba, ...
-          // Docker for Linux
         ]
       },
       {
