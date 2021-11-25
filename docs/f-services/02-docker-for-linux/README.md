@@ -91,8 +91,8 @@ On successful execution, you should see a similar output:
 <pre>
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
-c1eda109e4da: Pull complete
-Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
+9b157615502d: Pull complete 
+Digest: sha256:cc15c5b292d8525effc0f89cb299f1804f3a725c8d05e158653a563f15e4f685
 Status: Downloaded newer image for hello-world:latest
 
 Hello from Docker!
@@ -217,8 +217,8 @@ docker images
 This command will list all installed images on the computer. The `hello-api` image should be visible in that list.
 
 ```bash
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-hello-api          latest              76b45fcd8c1e        2 minutes ago       77.5MB
+REPOSITORY       TAG         IMAGE ID       CREATED         SIZE
+hello-api        latest      6ff2fd8544e9   9 seconds ago   104MB
 ```
 
 You have now build a Docker image.
@@ -246,6 +246,12 @@ And you can check the container logs using:
 ```bash
 docker logs hello-from-node
 ```
+
+## Challenges
+
+Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
+
+Mark challenges using a ✅ once they are finished.
 
 ### ❌ Docker on the Pi
 

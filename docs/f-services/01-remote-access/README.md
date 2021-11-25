@@ -249,3 +249,5 @@ Now you should be able to traverse to the share using the network url: `\\<ip>\p
 Make sure to regularly backup the folder so you don't lose any projects during the course.
 
 <!-- How about MAC and Linux? -->
+<!-- ssh-copy-id -->
+<!-- Some good tips here: https://www.linode.com/docs/guides/securing-your-server/ -->
