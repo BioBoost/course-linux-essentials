@@ -89,18 +89,19 @@ module.exports = {
       //     // TODO: '/g-scripting/03-systemd/',
         ]
       },
-      // {
-      //   title: 'Security and Protection',   // required
-      //   path: '/h-security-and-protection/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     // Firewall
-      //     // Backups (include creating tar archives and such)
-      //     // OpenVPN
-      //     // ...
-      //   ]
-      // },
+      {
+        title: 'Security and Protection',   // required
+        path: '/h-security-and-protection/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/h-security-and-protection/01-uncomplicated-firewall',
+          // Firewall
+          // Backups (include creating tar archives and such)
+          // OpenVPN
+          // ...
+        ]
+      },
       // Not sure about how to call this chapter. Or maybe should be split up.
       {
         title: 'Guides',
