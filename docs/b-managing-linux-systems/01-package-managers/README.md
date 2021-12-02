@@ -263,6 +263,67 @@ Checkout the snap store at [https://snapcraft.io/](https://snapcraft.io/).
 <!-- TODO - Inspect list of apt package repositories: /etc/apt/sources.list -->
 <!-- TODO - Add another repository for apt to get packages. -->
 
+## App Images
+
+<!-- This will only be explainable when the chapter is move further. Students requested the chapter on filesystem to come quicker -->
+
+There are ways to install software in Ubuntu or any other Linux distribution. Downloading `.deb` files, using package managers like `apt` or generating binaries from source. Recently, you might have noticed that some applications are downloadable with a `.AppImage` extension.
+
+Some examples are:
+
+* **Ultimaker Cura** which can be found at [ultimaker.com](https://ultimaker.com).
+* **FreeCAD** which can be found at [freecadweb.org](https://www.freecadweb.org).
+* **Insomnia** which can be found at [insomnia.rest](https://insomnia.rest/). 
+
+Many AppImages can be found at [appimage.github.io](https://appimage.github.io/) or at [github.com/AppImage/AppImageKit/wiki/AppImages](https://github.com/AppImage/AppImageKit/wiki/AppImages).
+
+::: warning Mainstream
+AppImage is yet widely accepted. While it is a promising way of distributing software, many developers still see it as an extra burden to maintain a package recipe. We will have to wait and see what the future brings.
+:::
+
+### What is an AppImage
+
+For years, DEB packages for Debian/Ubuntu based Linux distributions and RPM for Fedora/SUSE based Linux distributions have ruled the distro world.
+
+While these packages provide a convenient way of installing software for their respective distribution users, it is not the most convenient solution for the application developer. The developers have to create multiple packages for multiple distributions. This is where AppImage comes into the picture.
+
+AppImage is a universal software package format. By packaging the software in AppImage, the developer provides just one file for several distributions - if not all - most modern Linux distributions
+
+A typical Linux application installation will create files at various places, requiring root permission to make these changes to the system.
+
+AppImage doesn’t do that. In fact, AppImage doesn’t really install anything. It is a compressed image with all the dependencies and libraries needed to run the desired software.
+
+You execute the AppImage file, you run the software. There is no extraction, no installation. You delete the AppImage file, the software is removed.
+
+Some advantageous features of AppImage are:
+
+* Distribution agnostic: Can run on various different Linux distributions
+* No need of installing and compiling software: Just click and play
+* No need of root permission: System files are not touched
+* Portability: Can be run anywhere including live disks
+* Apps are in read only mode
+* Software are removed just by deleting the AppImage file
+* Applications packaged in AppImage are not sandboxed by default.
+
+### Running AppImages
+
+One does not need to install anything to be able to run an AppImage. All you need to do is:
+
+1. Download the AppImage file
+2. Make it executable using `chmox u+x <appimage>`
+3. Execute it `./<appimage>`
+
+Download for example the latest release of the Insomnia client:
+
+```bash
+cd ~
+mkdir apps
+cd apps
+wget https://github.com/Kong/insomnia/releases/download/core%402021.6.0/Insomnia.Core-2021.6.0.AppImage
+chmod u+x Insomnia.Core-2021.6.0.AppImage
+./Insomnia.Core-2021.6.0.AppImage
+```
+
 ## Challenges
 
 Find all the info you need in the man-pages. Document the commands you used for solving the challenge. Try to use as little google as possible.
