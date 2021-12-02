@@ -85,7 +85,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/g-scripting/01-basic-shell-scripting/',
-      //     // TODO: '/g-scripting/02-cron-jobs/',
+          '/g-scripting/02-cron-jobs/',
       //     // TODO: '/g-scripting/03-systemd/',
         ]
       },
@@ -131,6 +131,7 @@ module.exports = {
         children: [
           ['http://bashrcgenerator.com', '.bashrc PS1 generator'],
           ['https://explainshell.com', 'explainshell.com'],
+          ['https://crontab.guru/', 'crontab guru'],
         ]
       },
     ],
