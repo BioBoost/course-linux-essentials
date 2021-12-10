@@ -160,11 +160,18 @@ Note that the order in which the redirection is specified is of importance. It w
 Because this is done so often when running scripts in the background or as a service, a shorter form exists which combines both and allows the redirection of both standard error and output to the same target:
 
 ```bash
-cat /etc/passwd /etc/shadow >&output.log
+cat /etc/passwd /etc/shadow &>output.log
 ```
 
-Again both approaches can also be used with the append operator `>>`.
+::: warning Bash 4
+Do note that the operators `&>` and `&>>` are only available since bash 4. Older versions have no such operator.
+:::
 
+Again both approaches can also be used with the append operator `>>`. So for example:
+
+```bash
+date &>>output.log
+```
 
 Take a look at another example where we redirect the error messages to `/dev/null` so they are not displayed. This is typically done with the `find` tool:
 
