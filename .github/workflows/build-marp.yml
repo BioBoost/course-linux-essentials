@@ -1,0 +1,66 @@
+name: Build MARP Slides
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: master
+
+      # Doesn't work as images are not copied
+      # - name: Marp Build HTML (_slides folder)
+      #   uses: docker://marpteam/marp-cli:v1.7.0
+      #   with:
+      #     args: --allow-local-files -I _slides/ -o docs/.vuepress/public/slides
+      #   env:
+      #     MARP_USER: root:root
+
+      - name: Marp Build PDF (temp directory _slides)
+        uses: docker://marpteam/marp-cli:v1.7.0
+        with:
+          args: --allow-local-files --pdf -I docs/ -o docs/.vuepress/public/_slides
+        env:
+          MARP_USER: root:root
+
+      - name: Copy markdown slides to public/slides dir
+        run: find docs/.vuepress/public/_slides -name "slides*.pdf" -exec cp '{}' docs/.vuepress/public/slides \;
+
+      - name: Publish to dist branch
+        uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+        with:
+          # The arguments for the `git add` command (see the paragraph below for more info)
+          # Default: '.'
+          add: 'docs/.vuepress/public/slides'
+
+          # Determines the way the action fills missing author name and email. Three options are available:
+          # - github_actor -> UserName <UserName@users.noreply.github.com>
+          # - user_info -> Your Display Name <your-actual@email.com>
+          # - github_actions -> github-actions <email associated with the github logo>
+          # Default: github_actor
+          default_author: github_actions
+
+          # Arguments for the git fetch command. If set to false, the action won't fetch the repo.
+          # For more info as to why fetching is usually recommended, please see the "Performance on large repos" FAQ. 
+          # Default: --tags --force
+          fetch: false
+
+          # The message for the commit.
+          # Default: 'Commit from GitHub Actions (name of the workflow)'
+          message: 'Build marp slides'
+
+          # If this input is set, the action will push the commit to a new branch with this name.
+          # Default: ''
+          new_branch: dist
+
+          # Whether to push the commit and, if any, its tags to the repo. It can also be used to set the git push arguments (see the paragraph below for more info)
+          # Default: true
+          # push: false
+          push: origin dist --set-upstream --force
