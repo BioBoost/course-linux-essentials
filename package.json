@@ -8,7 +8,8 @@
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "slides:build": "npx @marp-team/marp-cli@latest --allow-local-files --pdf -I docs/ -o docs/.vuepress/public/_slides"
   },
   "repository": {
     "type": "git",

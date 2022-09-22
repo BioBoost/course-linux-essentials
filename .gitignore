@@ -1,2 +1,4 @@
 node_modules/
-*.pdf
+.temp/
+.cache/
+_slides/
