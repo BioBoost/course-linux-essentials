@@ -646,3 +646,12 @@ Fetching Keys
 ### ❌ Backups
 
 *Choose a directory on your system (best to choose one in your home-dir). Create a script that archives this directory in a `.tar.gz` tarball file. Add a timestamp in the name of the output file.*
+
+<!-- TODO:
+Be careful! ./ and source are not quite the same.
+
+./script runs the script as an executable file, launching a new shell to run it
+source script reads and executes commands from filename in the current shell environment
+Note: ./script is not . script, but . script == source script
+
+https://askubuntu.com/questions/182012/is-there-a-difference-between-and-source-in-bash-after-all?lq=1 -->

@@ -202,6 +202,8 @@ Documents      .pam_environment      .zcompdump
 </pre>
 :::
 
+<!-- TODO: It seems they call this UNIX-style (`-`) and GNU-style (`--`). Is this correct? -->
+
 Options can often also be combined by **stitching them together**. The next example request the `ls` command to output all files (`-a` is the same as `--all`) using a long listing format.
 
 ```bash

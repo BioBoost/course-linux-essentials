@@ -367,6 +367,8 @@ Administrators are added to the `sudo` group, but the `admin` group is supported
 
 <!-- https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/ -->
 
+<!-- The `stat` command. Example: stat -c "%a;%G;%U" /home/pi -->
+
 ## Challenges
 
 Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
