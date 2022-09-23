@@ -13,7 +13,7 @@ module.exports = {
     navbar: [
       { text: 'Toledo', link: 'https://toledo.kuleuven.be/portal' },
       { text: 'Report Issue', link: 'https://github.com/BioBoost/course_linux_essentials/issues' },
-      { text: 'Organization', link: 'https://github.com/organizations/vives-linux-essentials-2022-2023' }
+      { text: 'Organization', link: 'https://github.com/vives-linux-essentials-2022-2023' }
     ],
     sidebar: [
       {
