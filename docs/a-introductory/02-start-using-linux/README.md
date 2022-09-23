@@ -85,5 +85,5 @@ Checkout [Windows Subsystem for Linux](/x-guides/03-wsl/README.md) if you wish t
 
 For this course we'll be taking two approaches:
 
-* Initially we'll be deploying a Linux distribution as a Virtual Machine. This allows us to experiment, backup and restore very easily.
+* Initially we'll be using the WSL approach. This allows us to experiment, backup and restore very easily.
 * Later in the course we will install a Linux distribution on the Raspberry Pi, a user-friendly and affordable embedded system with a huge community and out of the box Linux support.
