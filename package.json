@@ -9,15 +9,15 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "slides:build": "npx @marp-team/marp-cli@latest --allow-local-files --pdf -I docs/ -o docs/.vuepress/public/_slides"
+    "slides:build": "find . -name \"slides*.md\" -exec npx @marp-team/marp-cli@latest '{}' --pdf --allow-local-files \\; && find . -name \"slides*.pdf\" -exec mv '{}' ./docs/.vuepress/public/slides \\;"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BioBoost/course_linux_essentials.git"
   },
   "keywords": [
-    "csharp",
-    "programming",
+    "linux",
+    "essentials",
     "course",
     "VIVES"
   ],
@@ -28,11 +28,9 @@
   },
   "homepage": "https://github.com/BioBoost/course_linux_essentials#readme",
   "devDependencies": {
-    "vuepress": "^1.8.2",
-    "vuepress-plugin-zooming": "^1.1.8"
-  },
-  "dependencies": {
-    "vuepress-plugin-code-copy": "^1.0.6",
-    "vuepress-plugin-container": "^2.1.5"
+    "@marp-team/marp-cli": "^2.1.2",
+    "@vuepress/plugin-container": "^2.0.0-beta.49",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.49",
+    "vuepress": "^2.0.0-beta.49"
   }
 }
