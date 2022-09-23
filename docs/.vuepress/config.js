@@ -101,9 +101,9 @@ module.exports = {
       {
         text: 'Online Tools',
         children: [
-          ['http://bashrcgenerator.com', '.bashrc PS1 generator'],
-          ['https://explainshell.com', 'explainshell.com'],
-          ['https://crontab.guru', 'crontab guru'],
+          { text: '.bashrc PS1 generator', link: 'https://bashrcgenerator.com' },
+          { text: 'explainshell.com', link: 'https://explainshell.com' },
+          { text: 'crontab guru', link: 'https://crontab.guru' },
         ]
       },
     ],
