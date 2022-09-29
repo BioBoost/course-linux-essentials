@@ -38,3 +38,44 @@ compression speed (fast > slow): lzop > gzip, zip > xz > bzip2 > 7z > rar
 compression ratio (better > worse): xz > 7z > rar, bzip2 > gzip > zip > lzop
 availability (unix): gzip > bzip2 > xz > lzop > zip > 7z > rar
 availability (windows): zip > rar > 7z > gzip > bzip2, lzop, xz
+
+
+### Excluding files
+
+<!-- Source: https://stackoverflow.com/questions/984204/shell-command-to-tar-directory-excluding-certain-files-folders -->
+
+```bash
+tar --exclude='./folder' --exclude='./upload/folder2' -zcvf /backup/filename.tgz .
+
+```
+
+etc will work. Make sure to put `--exclude` before the source and destination items.
+
+Note that the path to the directory to exclude shouldn't end with a slash. ` --exclude='./folder'` works, but --exclude='./folder/' doesn't work.
+
+Beware that `--exclude=dir/ignore_this_dir` will match in any subtree as well! You'll end up missing files you didn't expect to be excluded.
+
+EDIT: Charles Ma's solution works well. The big gotcha is that the --exclude='./folder' MUST be at the beginning of the tar command. Full command (cd first, so backup is relative to that directory):
+
+```bash
+cd /folder_to_backup
+tar --exclude='./folder' --exclude='./upload/folder2' -zcvf /backup/filename.tgz .
+```
+
+### Versioning ignore
+
+```
+       --exclude-vcs
+              Exclude version control system directories.
+
+       --exclude-vcs-ignores
+              Exclude files that match patterns read from VCS-specific ignore files.  Supported files are: .cvsignore, .gitignore, .bzrignore, and .hgignore.
+```
+
+
+## Examples
+
+```bash
+tar --exclude='node_modules' --exclude='.git' -zcvf linux_course.tar.gz course_linux_essentials
+tar --exclude='node_modules' --exclude='.git' -zcvf projects_backup.tar.gz projects
+```
