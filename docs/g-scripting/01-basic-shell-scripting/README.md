@@ -18,10 +18,10 @@ To create a script file just `touch` it and make it executable using `chmod`.
 [bioboost@linux][~]$ ls -al hello
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 -rwxr--r-- 1 bioboost bioboost 0 Sep 30 11:45 hello
-</pre>
+```
 :::
 
 Open the file with nano and add `#!/usr/bin/env bash` as a first line:
@@ -58,10 +58,10 @@ The script can be run using the following command:
 [bioboost@linux][~]$ ./hello
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Hello World
-</pre>
+```
 :::
 
 ## Comments
@@ -162,8 +162,8 @@ Execution example:
 [bioboost@linux][~]$ ./hello my name is nico
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Number of arguments: 4
 First: ./hello
 Second: my
@@ -172,7 +172,7 @@ Fourth: is
 Fifth: nico
 Sixth: 
 All: my name is nico
-</pre>
+```
 :::
 
 If you wish the whole sentence to be treated as a single argument, you need to place quotes around the arguments.
@@ -181,13 +181,13 @@ If you wish the whole sentence to be treated as a single argument, you need to p
 [bioboost@linux][~]$ ./hello "my name is nico"
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Number of arguments: 1
 First: ./hello
 Second: my name is nico
 All: my name is nico
-</pre>
+```
 :::
 
 ## Reading Input from User
@@ -210,12 +210,12 @@ Running the script
 [bioboost@linux][~]$ ./demo
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Please enter your full name
 Nico De Witte
 Welcome to bash Nico De Witte
-</pre>
+```
 :::
 
 You can instruct `echo` not to output a newline character using the `-n` option:
@@ -230,11 +230,11 @@ read fullname
 echo "Welcome to bash $fullname"
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Please enter your full name: Nico De Witte
 Welcome to bash Nico De Witte
-</pre>
+```
 :::
 
 ## Command substitution
@@ -253,10 +253,10 @@ currentdate=$(date)
 echo "Hello $USER. Today is $currentdate"
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Hello bioboost. Today is Thu 14 May 2020 10:40:37 AM CEST
-</pre>
+```
 :::
 
 The characters `$( )` tell the shell, "substitute the results of the enclosed command."
@@ -304,10 +304,10 @@ However, there is an important difference between single and double quotes. **Si
 [bioboost@linux][~]$ echo "My host name is $HOSTNAME."
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 My host name is biosdeb.
-</pre>
+```
 :::
 
 If we change to single quotes, the behavior changes:
@@ -316,10 +316,10 @@ If we change to single quotes, the behavior changes:
 [bioboost@linux][~]$ echo 'My host name is $HOSTNAME.'
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 My host name is $HOSTNAME.
-</pre>
+```
 :::
 
 Double quotes do not suppress the substitution of words that begin with `$` but they do suppress the expansion of wildcard characters used for shell globbing (more on this topic later).
@@ -330,11 +330,11 @@ For example, try the following:
 [bioboost@linux][~]$ echo *
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Desktop Documents Downloads ISE Music Pictures
 projects Public snap Templates Videos
-</pre>
+```
 :::
 
 Now try:
@@ -343,10 +343,10 @@ Now try:
 [bioboost@linux][~]$ echo "*"
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 *
-</pre>
+```
 :::
 
 ### Escaping a character
@@ -357,10 +357,10 @@ There is another quoting character you will encounter. It is the backslash `\`. 
 [bioboost@linux][~]$ echo "My host name is \$HOSTNAME."
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 My host name is $HOSTNAME.
-</pre>
+```
 :::
 
 By using the backslash, the shell ignored the `$` symbol. Since the shell ignored it, it did not perform the substitution on `$HOSTNAME`.
@@ -371,10 +371,10 @@ Here is a more useful example:
 [bioboost@linux][~]$ echo "My host name is \"$HOSTNAME\"."
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 My host name is "biosdeb".
-</pre>
+```
 :::
 
 As you can see, using the `\"` sequence allows us to embed double quotes into our text.
@@ -417,10 +417,10 @@ You can actually output the return values of Linux system commands such as `ls` 
 [bioboost@linux][~]$ echo $?
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 0
-</pre>
+```
 :::
 
 The status of `0` indicates all went well.
@@ -433,10 +433,10 @@ ls: cannot access 'does_not_exist': No such file or directory
 [bioboost@linux][~]$ echo $?
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 2
-</pre>
+```
 :::
 
 The status is not zero, indicating that the `ls` command did not terminate properly or something went wrong.
@@ -598,54 +598,6 @@ It is also important to know that the shell will only perform expansion once, be
 Shell globs do not match hidden files (files that start with a dot `.`). Matching hidden files can be accomplished by explicitly specifying a pattern with the dot as for example `.*`. This will however also match the current `.` and parrent directory `..`. To exclude these but match other dotfiles, use a pattern as `.[^.]*` (dot followed by anything but a dot).
 :::
 
-## Challenges
-
-Solve the challenges by creating small bash scripts. Place the bash scripts here for every challenge. Make sure to add some comments and explain how they work.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ Log the Date
-
-*Create a script that output the date every 10 seconds. Use the `sleep` command to wait between calls to the `date` command.*
-
-### ❌ Available Memory
-
-*Output the available system memory together with the current date in the following format:*
-
-```
-[Thu 14 May 2020 11:12:55 AM CEST] MemAvailable:   28439572 kB
-```
-
-*The available memory can be found in the file `/proc/meminfo`. Use the `grep` tool to filter out the line with MemAvailable.*
-
-### ❌ Fetching Github Keys
-
-*Create a script that fetches the public SSH keys of a user on GitHub and displays them in the terminal. This can be accomplished by using the curl tool to access the endpoint `https://github.com/<username>.keys`, where `<username>` is an existing github username.*
-
-*Take in the username via the command line arguments. If none is provided request it from the user using the read command.*
-
-*Example via command line:*
-
-```bash
-./githubkeys bioboost
-```
-
-*or via the read command:*
-
-```bash
-./githubkeys
-Please enter GitHub username: BioBoost
-Fetching Keys
-...
-```
-
-### ❌ DHCP Traffic
-
-*Create a script that filters DHCP network traffic and outputs matching MAC-Addresses, IP-Addresses and Hostnames.*
-
-### ❌ Backups
-
-*Choose a directory on your system (best to choose one in your home-dir). Create a script that archives this directory in a `.tar.gz` tarball file. Add a timestamp in the name of the output file.*
 
 <!-- TODO:
 Be careful! ./ and source are not quite the same.

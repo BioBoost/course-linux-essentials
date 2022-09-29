@@ -144,11 +144,11 @@ The most used command and one of the simplest to start with is the listing comma
 [bioboost@linux][~]$ ls
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Desktop  Documents  Downloads  Music
 Pictures  Public  Templates  Videos
-</pre>
+```
 :::
 
 Keep in mind that Linux is case sensitive! Commands, options, arguments, variables and filenames must be entered exactly as shown.
@@ -165,14 +165,14 @@ Options are used to modify the core behavior of a command. Take for example the 
 [bioboost@linux][~]$ ls -l
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 total 32
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Desktop
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Documents
 drwxr-xr-x 2 nico nico 4096 Nov  3 13:54 Downloads
 ...
-</pre>
+```
 :::
 
 Typically, older commands use single letters, while newer commands use complete words for options.
@@ -185,8 +185,8 @@ Providing the `ls` command with the `--all` option will request it to show all f
 [bioboost@linux][~]$ ls --all
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 .              .gnome                snap
 ..             .gnupg                .ssh
 .bash_history  .local                .sudo_as_admin_successful
@@ -199,7 +199,7 @@ cpp-demos      .oh-my-zsh            .wget-hsts
 Desktop        .omnisharp            .yarnrc
 Documents      .pam_environment      .zcompdump
 ...
-</pre>
+```
 :::
 
 <!-- TODO: It seems they call this UNIX-style (`-`) and GNU-style (`--`). Is this correct? -->
@@ -210,8 +210,8 @@ Options can often also be combined by **stitching them together**. The next exam
 [bioboost@linux][~]$ ls -al
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 total 324
 drwxr-xr-x 30 bioboost bioboost  4096 Feb  9 12:29 .
 drwxr-xr-x  3 root     root      4096 Jan 26 23:17 ..
@@ -227,7 +227,7 @@ drwxr-xr-x  6 bioboost bioboost  4096 Jan 27 13:51 dotfiles
 drwxr-xr-x  5 bioboost bioboost  4096 Feb  5 14:15 .dotnet
 drwxr-xr-x  5 bioboost bioboost  4096 Feb  7 10:18 Downloads
 ...
-</pre>
+```
 :::
 
 ::: tip Some Help
@@ -242,13 +242,13 @@ Arguments are used to provide additional information to the command. Take for ex
 [bioboost@linux][~]$ ls /
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 bin   etc    lib64       mnt   run   sys
 boot  home   libx32      opt   sbin  tmp
 data  lib    lost+found  proc  snap  usr
 dev   lib32  media       root  srv   var
-</pre>
+```
 :::
 
 `/` is the argument here, and it represents the root of the filesystem.

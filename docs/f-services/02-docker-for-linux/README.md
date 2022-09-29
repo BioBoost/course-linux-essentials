@@ -87,8 +87,8 @@ docker run hello-world
 
 On successful execution, you should see a similar output:
 
-::: output
-<pre>
+::: codeoutput
+```
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 9b157615502d: Pull complete 
@@ -115,7 +115,7 @@ Share images, automate workflows, and more with a free Docker ID:
 
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
-</pre>
+```
 :::
 
 ## Running Containers
@@ -181,8 +181,8 @@ docker build --tag hello-api .
 
 If all goes well, the output should be similar to:
 
-::: output
-<pre>
+::: codeoutput
+```
 Sending build context to Docker daemon    130kB
 Step 1/6 : FROM node:16.13.0-alpine3.14
  ---> 44e24535dfbf
@@ -203,7 +203,7 @@ Step 6/6 : CMD npm start
  ---> 25caaa0cd526
 Successfully built 25caaa0cd526
 Successfully tagged hello-api:latest
-</pre>
+```
 :::
 
 ### The hello-api image

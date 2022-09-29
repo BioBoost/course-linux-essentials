@@ -44,14 +44,14 @@ sudo ufw default deny incoming
 
 When running `ufw status verbose` this will be shown at the top of the status output:
 
-::: output
-<pre>
+::: codeoutput
+```
 Status: active
 Logging: on (low)
 Default: deny (incoming), allow (outgoing), deny (routed)
 
 ....
-</pre>
+```
 :::
 
 ::: warning Default Deny
@@ -171,26 +171,8 @@ Selecting either `low`, `medium`, or `high` from the list. The default setting i
 
 The log file is located at `/var/log/ufw.log`.
 
-## Docker and UFW
+<!-- ## Docker and UFW
 
 TODO: More info needed here ...
 
-Docker creates its own `iptable` rules. For example if we publish a port on a container to the host port, it will automatically added to `iptables` as being accessible from the outside.
-
-## Challenges
-
-Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ Enable Firewall
-
-*Install and enable the ufw service on your Raspberry Pi.*
-
-*Enable incoming traffic for ssh from any host.*
-
-*Set the default rule to allow outgoing and deny incoming connections.*
-
-### ❌ Setup Apache
-
-*Install and enable the apache webserver. Make sure to enable http connections to the Raspberry Pi. Test it out by surfing to your Raspberry Pi using a webbrowser.*
+Docker creates its own `iptable` rules. For example if we publish a port on a container to the host port, it will automatically added to `iptables` as being accessible from the outside. -->

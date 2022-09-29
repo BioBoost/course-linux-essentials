@@ -28,12 +28,12 @@ echo "Welcome to the pleasurable world of Linux ..." >>hello.txt
 
 Generating the following result if we we're to execute the first command once and the second twice:
 
-::: output
-<pre>
+::: codeoutput
+```
 Hello World
 Welcome to the pleasurable world of Linux ...
 Welcome to the pleasurable world of Linux ...
-</pre>
+```
 :::
 
 ### Standard Input Redirection
@@ -48,14 +48,14 @@ wc
 
 Feel free to type a couple of words or sentences. `ENTER` will take you to a new line. Once finished press `CTRL-D` to indicate you are finished by sending an `EOF` marker.
 
-::: output
-<pre>
+::: codeoutput
+```
 Hello World
 from
 the Terminal in
 Linux ...[CTRL-D]
       4       8      43
-</pre>
+```
 :::
 
 Now to redirect the standard input to a file, one can use the smaller than `<` symbol and specify the path to a file. Building on the example of *Standard Output Redirection* we would get the following result:
@@ -64,12 +64,12 @@ Now to redirect the standard input to a file, one can use the smaller than `<` s
 cat hello.txt
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Hello World
 Welcome to the pleasurable world of Linux ...
 Welcome to the pleasurable world of Linux ...
-</pre>
+```
 :::
 
 ```bash
@@ -78,10 +78,10 @@ wc <hello.txt
 
 Resulting in the output:
 
-::: output
-<pre>
+::: codeoutput
+```
   3  18 104
-</pre>
+```
 :::
 
 ### Combining Input and Output Redirection
@@ -106,15 +106,15 @@ sort <words.txt >sorted.txt
 cat sorted.txt
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 bull
 cool
 drink
 monster
 red
 wings
-</pre>
+```
 :::
 
 As we can see, a command can have both its input and output redirected. The order of the redirection does not matter. The only requirement is that the redirection operators `<` and `>` must appear after the other options and arguments of the command.
@@ -133,10 +133,10 @@ Try reading the file `/etc/shadow` using `cat` without using `sudo`. This will g
 cat /etc/shadow
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 cat: /etc/shadow: Permission denied
-</pre>
+```
 :::
 
 Error messages can be redirected separately, which is really handy for logging errors. This can be achieved by placing the number two before the output redirection operator:
@@ -189,10 +189,10 @@ Count the number of files and directories in a certain directory:
 ls -al | wc
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
      68     613    4317
-</pre>
+```
 :::
 
 `grep` is a very popular tool that can filter lines provided via standard input matching certain criteria (based on regex and such) and only output the lines that match the given criteria. Therefore it is often used in a pipeline to only filter out the useful information.
@@ -201,13 +201,13 @@ ls -al | wc
 ls -al / | grep lib
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 lrwxrwxrwx   1 root root          7 Jun  8 18:43 lib -> usr/lib
 lrwxrwxrwx   1 root root          9 Jun  8 18:43 lib32 -> usr/lib32
 lrwxrwxrwx   1 root root          9 Jun  8 18:43 lib64 -> usr/lib64
 lrwxrwxrwx   1 root root         10 Jun  8 18:43 libx32 -> usr/libx32
-</pre>
+```
 :::
 
 Let take a look at a more complex example where we use the `/usr/share/dict/words` file, which contains a large amount of words. The next command accomplishes the following steps in a pipeline:
@@ -224,10 +224,10 @@ grep ".*home.*" /usr/share/dict/words | sort -r | tail -n 1 | tr a-z A-Z | sed '
 
 Resulting in the output
 
-::: output
-<pre>
+::: codeoutput
+```
 JOW HOMEY
-</pre>
+```
 :::
 
 <!-- Use `ip address` and `grep` to display the line containing the ip and mac address of the interface ... -->

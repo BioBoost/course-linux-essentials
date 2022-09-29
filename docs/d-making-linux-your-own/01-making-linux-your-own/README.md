@@ -128,8 +128,8 @@ cd ~/dotfiles
 ./install
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Submodule 'lib/pyyaml' (https://github.com/yaml/pyyaml) registered for path 'dotbot/lib/pyyaml'
 Cloning into '/home/bioboost/dotfiles/dotbot/lib/pyyaml'...
 Submodule path 'dotbot/lib/pyyaml': checked out '2f463cf5b0e98a52bc20e348d1e69761bf263b86'
@@ -142,7 +142,7 @@ Installing submodules [git submodule update --init --recursive]
 All commands have been executed
 
 ==> All tasks executed successfully
-</pre>
+```
 :::
 
 Once you are satisfied with how you dotfiles install, be sure to commit your changes and push to a remote repository. Typically a `dotfiles` repository is created.
@@ -323,13 +323,13 @@ You can determine what aliases are set on your shell with the alias command.
 alias
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 ...
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 ...
-</pre>
+```
 :::
 
 ### Creating an Alias
@@ -350,10 +350,10 @@ Now you can use the alias `shell` to check which shell you are running.
 shell
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 You are using the zsh shell
-</pre>
+```
 :::
 
 The cool thing about aliasses is, is that they can also take arguments and options (depending on the commands used in the alias). For example the alias `ll='ls -lh' will list files and directories in long format and human readable sizes. When using this alias, we can actually still pass arguments and options, for example:
@@ -364,8 +364,8 @@ ll -aS /
 
 Where `-a` requests to show all files and directories and `-S` request them be ordered by size.
 
-::: output
-<pre>
+::: codeoutput
+```
 total 92K
 drwx------   2 root root  16K Jan 26 23:09 lost+found
 drwxr-xr-x 138 root root  12K Feb  7 10:24 etc
@@ -382,7 +382,7 @@ drwxr-xr-x   3 root root 4.0K Jan 28 08:39 opt
 drwx------   3 root root 4.0K Dec 20 17:27 root
 drwxr-xr-x  14 root root 4.0K Jan 31 09:10 snap
 ...
-</pre>
+```
 :::
 
 ### Making Aliasses Permanent
@@ -407,48 +407,3 @@ alias shell='echo "You are using the $0 shell"'
 Save the file using `CTRL-o` and exit using `CTRL-x`.
 
 Launch a new terminal and check if the alias is available.
-
-## Challenges
-
-Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ Dotfiles
-
-*Setup your own dotfiles. Make the repo public.*
-
-### ❌ Installation Script
-
-*Create an installation script for the tools and libraries you use most. Add the script to your dotfiles.*
-
-### ❌ neofetch
-
-*Add neofetch to your install script.*
-
-### ❌ @vue/cli
-
-*Add @vue/cli as a global install to your script.*
-
-### ❌ Conda
-
-*Add conda and mbed to your installation script. Setup an mbed environment from the installation script.*
-
-You can download and extract the GNU Arm Embedded Toolchain using the following commands:
-
-```bash
-cd ~
-wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
-tar -xf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
-mv gcc-arm-none-eabi-10-2020-q4-major gnu-arm-embedded
-rm gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
-sudo mv gcc-arm-embedded /opt
-```
-
-*You can set the path of the compiler using the command `mbed config -G GCC_ARM_PATH /opt/gnu-arm-embedded/bin`*
-
-*Make sure to add the `~/.mbed/.mbed` config file to your dotfiles.*
-
-### ❌ Alias for mbed
- 
-*Create an alias `mbedc` that compiles an mbed project, flashes the target and starts up the serial terminal at a baudrate of 115200.*

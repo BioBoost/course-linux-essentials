@@ -278,9 +278,9 @@ id
 ```
 
 ::: codeoutput
-<pre>
+```
 uid=1000(nico) gid=1000(nico) groups=1000(nico),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),112(lpadmin),128(sambashare)
-</pre>
+```
 :::
 
 ## Backups and snapshots

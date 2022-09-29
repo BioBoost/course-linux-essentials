@@ -47,10 +47,10 @@ The first thing you need to do is orient yourself in the filesystem. There are a
 [bioboost@linux][~]$ pwd
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 /home/bioboost
-</pre>
+```
 :::
 
 This simply returns the **full path of the directory you are currently located in**, for example `/home/bioboost`.
@@ -61,11 +61,11 @@ To see what files are in the current directory, you can issue the `ls` command, 
 [bioboost@linux][~]$ ls
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Desktop   Documents  Downloads  Music
 Pictures  Public     Templates  Videos
-</pre>
+```
 :::
 
 This will give an overview of all (excluding hidden files and directories) directories and files in your current directory.
@@ -78,8 +78,8 @@ The first most common option is probably `-l`, which forces the command to outpu
 [bioboost@linux][~]$ ls -l
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 total 32
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Desktop
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Documents
@@ -89,7 +89,7 @@ drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Pictures
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Public
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Templates
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Videos
-</pre>
+```
 :::
 
 This produces output with one line for each file or directory (the name is on the far right). This has a lot of information that we are not interested in right now. One part we are interested in though is the very **first character**, which tells us what **kind of file** it is. The three most common types are:
@@ -104,8 +104,8 @@ The second most important option to the `ls` command is the `-a` flag, which lis
 [bioboost@linux][~]$ ls -a
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 .                           .npm
 ..                          .nuget
 .bash_history               .oh-my-zsh
@@ -120,7 +120,7 @@ Documents                   .ssh
 dotfiles                    .templateengine
 .dotnet                     Templates
 ...
-</pre>
+```
 :::
 
 ::: tip .git directory
@@ -137,8 +137,8 @@ There will be times when you want to display all of the files in a directory as 
 [bioboost@linux][~]$ ls -R
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 .:
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 ./Desktop:
@@ -149,7 +149,7 @@ Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 ./Public:
 ./Templates:
 ./Videos:
-</pre>
+```
 :::
 
 ::: warning Recursive Listing Large Hierarchies
@@ -238,12 +238,12 @@ Thus, if one wanted to go to the top-level directory of the entire operating sys
 [bioboost@linux][/]$ ls
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 bin   dev   lib    libx32      mnt   root  snap  tmp
 boot  etc   lib32  lost+found  opt   run   srv   usr
 data  home  lib64  media       proc  sbin  sys   var
-</pre>
+```
 :::
 
 Every file, device, directory, or application is located under this one directory. Under this, we can see the beginnings of the rest of the directory structure.
@@ -323,8 +323,8 @@ To view for example the file systems that are mounted on your current setup, you
 [bioboost@linux][~]$ cat /etc/fstab
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 # /etc/fstab: static file system information.
 #
 # Use 'blkid' to print the universally unique identifier for a
@@ -336,7 +336,7 @@ PARTUUID=2fb1bb7c-ad70-4a31-8afb-0a585e9e61ac  /boot/efi  vfat  umask=0077  0  0
 UUID=006b9140-c610-462d-9cd9-5e7cd59024d6  /  ext4  noatime,errors=remount-ro  0  0
 /dev/mapper/cryptswap  none  swap  defaults  0  0
 UUID=28E52BD11CEE95C6  /data  ntfs  defaults  0  0
-</pre>
+```
 :::
 
 Or to display some information about the CPU of your system, check the kernel mapped file `/proc/cpuinfo`.
@@ -345,8 +345,8 @@ Or to display some information about the CPU of your system, check the kernel ma
 [bioboost@linux][~]$ cat /proc/cpuinfo
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 processor	: 0
 vendor_id	: GenuineIntel
 cpu family	: 6
@@ -360,7 +360,7 @@ physical id	: 0
 siblings	: 8
 core id		: 0
 cpu cores	: 4
-</pre>
+```
 :::
 
 Want to find out what shells are available on your system, then display the content of the file `/etc/shells` using the command `cat /etc/shells`.
@@ -369,8 +369,8 @@ Want to find out what shells are available on your system, then display the cont
 [bioboost@linux][~]$ cat /etc/shells
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 # /etc/shells: valid login shells
 /bin/sh
 /bin/bash
@@ -382,7 +382,7 @@ Want to find out what shells are available on your system, then display the cont
 /usr/bin/tmux
 /bin/zsh
 /usr/bin/zsh
-</pre>
+```
 :::
 
 ### Creating a File
@@ -396,12 +396,12 @@ One of the most common command line tools used to create an empty file, is the `
 [bioboost@linux][~]$ ls
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Desktop  Documents  Downloads  hello
 Music    Pictures   Public     Templates
 Videos
-</pre>
+```
 :::
 
 ::: tip touch
@@ -439,12 +439,12 @@ To create a directory, one can use the `mkdir` command. Just specify the name of
 [bioboost@linux][~]$ ls
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Desktop   Documents  Downloads   files
 hello     Music      Pictures    Public
 Templates Videos
-</pre>
+```
 :::
 
 When trying to create a directory with a name that already exists, linux will stop you in your tracks.
@@ -454,10 +454,10 @@ When trying to create a directory with a name that already exists, linux will st
 [bioboost@linux][~]$ mkdir projects
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 mkdir: cannot create directory ‘projects’: File exists
-</pre>
+```
 :::
 
 Creating **nested directories** requires the `-p` flag, indicating that parent directories should be created as needed.
@@ -627,47 +627,3 @@ The most used commands to traverse and manipulate the file system of a Linux sys
 | `mv` | `-v` (verbose output), `-i` (interactive) | SOURCE DESTINATION | Move files/directories |
 | `rm` | `-i` (interactive), `-v` (verbose), `-r` (recursive) | FILE(S)/DIR(S) | Remove files/directories |
 | `rmdir` | `-p` (parents), `-v` (verbose) | DIR(S) | Remove empty directories |
-
-## Challenges
-
-Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ Authentication Log
-
-*There is a file on the system that logs authentication changes and failures. Can you guess where it can be found? Provide the path to the file.*
-
-### ❌ Apt Source List
-
-*The apt tool uses a configuration file which specifies in which repositories it should look for packages. Its called the apt `sources.list` file. Can you guess where it can be found? Provide the path to the file.*
-
-### ❌ Tmp Filesystem
-
-*Create a file called `hello` in `/tmp`. Restart your linux distro using `reboot`. Where is the file? What happened?*
-
-### ❌ Timestamps
-
-*Create a file called `first-of-many` in your home directory. Use `nano` to add some content to the file. Now list the details of the file such as the size and when it was last modified.*
-
-### ❌ No space for spaces
-
-*Try to create a file called `second try` (with the space included) using the command `touch second try` in your home directory. What happened? Why did this happen? How can you actually achieve creating a file with a space in its name?*
-
-### ❌ The root
-
-*Try to create a directory `/backups` (under the root of the filesystem). Why is it failing?*
-
-*Now use `sudo` to create the directory. Try creating a file called `README.md` within this `/backups` directory. Can you do it? Why / Why not?*
-
-### ❌ Bash RC
-
-*In your home directory you will find a file called `.bashrc`. Create a backup of that file called `.bashrc.bak`.*
-
-### ❌ Sym Linking
-
-*What does the tool `ln` allow you to do? Use it to create such a link in your home directory called `secrets` to the file `/etc/passwd`. Now use the `cat` tool to open the file `secrets`. What do you see? What happened?*
-
-### ❌ SD Card
-
-*Plugin an SD Card or a USB stick into you computer. Where can we find the actual block device? Where is the filesystem mounted? What is the difference between these two?*

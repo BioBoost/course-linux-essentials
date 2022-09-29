@@ -25,15 +25,15 @@ Output the `passwd` file content with the `cat` command:
 
 Rendering an output equivalent to:
 
-::: output
-<pre>
+::: codeoutput
+```
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
 ...
 gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
 bioboost:x:1000:1000:Nico De Witte,,,:/home/bioboost:/usr/bin/bash
-</pre>
+```
 :::
 
 The `/etc/passwd` contains one entry per line for each user (user account) of the system. All fields are separated by a colon `:` symbol. It houses a total of seven fields for each user. Generally, an `/etc/passwd` entry consists of the following fields:
@@ -75,10 +75,10 @@ Take for example the action to view the `/etc/shadow` file. Trying this with a n
 [bioboost@linux][~]$ cat /etc/shadow
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 cat: /etc/shadow: Permission denied
-</pre>
+```
 :::
 
 By prefixing the command with `sudo`, we indicate that we want to execute the command with elevated administrator privileges (of course if the account is permitted to do so). Note that one will need to provide its user password before this will work.
@@ -87,12 +87,12 @@ By prefixing the command with `sudo`, we indicate that we want to execute the co
 [bioboost@linux][~]$ sudo cat /etc/shadow
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 root:!:18786:0:99999:7:::
 ...
 bioboost:**********:18786:0:99999:7:::
-</pre>
+```
 :::
 
 Basically, the `/etc/shadow` file stores secure user account information. All fields are separated by a colon `:`. It contains one entry per line for each user listed in the `/etc/passwd` file. The fields are as follows:
@@ -126,8 +126,8 @@ An easy way to view all the groups is to look in the `/etc/group` file.
 
 Which should output something like:
 
-::: output
-<pre>
+::: codeoutput
+```
 root:x:0:
 daemon:x:1:
 bin:x:2:
@@ -142,7 +142,7 @@ bioboost:x:1000:
 ...
 docker:x:998:bioboost
 ...
-</pre>
+```
 :::
 
 The fields of each entry are as follows:
@@ -156,11 +156,11 @@ By executing the `id` command a user can also see to which groups his/her accoun
 
 For example `id` may output:
 
-::: output
-<pre>
+::: codeoutput
+```
 uid=1000(bioboost) gid=1000(bioboost) groups=1000(bioboost),4(adm),
 24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),110(sambashare)
-</pre>
+```
 :::
 
 To checkout which groups another user belongs too, one can add the username as an argument after the `id` command. For example `id mark`.
@@ -175,8 +175,8 @@ As an example, for adding a new user `mark` to the system one would issue the fo
 [bioboost@linux][~]$ sudo adduser mark
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 [sudo] password for bioboost:
 Adding user `mark' ...
 Adding new group `mark' (1001) ...
@@ -194,7 +194,7 @@ Enter the new value, or press ENTER for the default
 	Home Phone []:
 	Other []:
 Is the information correct? [Y/n] y
-</pre>
+```
 :::
 
 From this point on `mark` can log in to the system. Creating a new user using this approach will automatically also create a new group with the same name as the user and make it primary group for that user. A new home directory in `/home` is also automatically created for the user.
@@ -222,13 +222,13 @@ However, the command options allow us to achieve the same result as `adduser` wo
 
 All changes can be viewed by checking out the `/etc/passwd` file using `cat`:
 
-::: output
-<pre>
+::: codeoutput
+```
 bioboost:x:1000:1000:BioBoost,,,:/home/bioboost:/usr/bin/zsh
 mark:x:1001:1001:Mark Demeester,,,:/home/mark:/bin/bash
 dennis:x:1001:1001::/home/dennis:/bin/sh
 john:x:1002:1002:John Rambo:/home/john:/bin/bash
-</pre>
+```
 :::
 
 Do note that the home directory of `dennis` is configured as `/home/dennis`, however if you were to check you would notice that the actual directory does not exist.
@@ -241,11 +241,11 @@ A new group can be created using the `addgroup` command followed by the name of 
 [bioboost@linux][~]$ sudo addgroup students
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Adding group `students' (GID 1003) ...
 Done.
-</pre>
+```
 :::
 
 This will create an empty group (without users) called `students`.
@@ -258,12 +258,12 @@ Adding a user to an existing group (secondary group), can be achieve using the `
 [bioboost@linux][~]$ sudo adduser dennis students
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Adding user `dennis' to group `students' ...
 Adding user dennis to group students
 Done.
-</pre>
+```
 :::
 
 Another option is to use the user modification tool `usermod`. Let us add `john` to the groups `gamers` and `students`:
@@ -284,14 +284,14 @@ So to change your own password you can use the `passwd` command without extra ar
 [bioboost@linux][~]$ passwd
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Changing password for bioboost.
 Current password: 
 New password: 
 Retype new password: 
 passwd: password updated successfully
-</pre>
+```
 :::
 
 The superuser can change any account password by specifying the user as an argument. Note that the superuser does not have to know the original password to be able to change it:
@@ -300,12 +300,12 @@ The superuser can change any account password by specifying the user as an argum
 [bioboost@linux][~]$ sudo passwd johhny
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 New password: 
 Retype new password: 
 passwd: password updated successfully
-</pre>
+```
 :::
 
 ::: warning
@@ -368,39 +368,3 @@ Administrators are added to the `sudo` group, but the `admin` group is supported
 <!-- https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/ -->
 
 <!-- The `stat` command. Example: stat -c "%a;%G;%U" /home/pi -->
-
-## Challenges
-
-Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ System user accounts
-
-*Try to login to the `daemon` system user account. Use `sudo su daemon`. What does it display as a message ? What application is outputting this message ? Run that application and prove it.*
-
-### ❌ Creating group with id
-
-*Create a group called `hackers` with the specific group id `1337`. Now create two users (students from the class) and add them both the group.*
-
-### ❌ Difference false and nologin
-
-*Some user entries are showing `/bin/false` as the shell command. Do some research and explain what the difference is with `/usr/sbin/nologin`.*
-
-### ❌ The auth.log file 
-
-*What does the file `/log/var/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
-
-### ❌ Locking out Steve
-
-*Create a new user steve and set a password for the user. Login to the `steve` account using `su` to make sure it works.*
-
-*Now lock the user account and make sure there is no way anyone can login as `steve`, not even `root`*
-
-### ❌ Zsh Shell
-
-*Install the zsh shell on your system. Now change your own shell to `zsh`. Make sure to do this in such a way that a new session will also use `zsh`.*
-
-### ❌ Semester Account
-
-*Create a new account for an exchange student called `maggie`. Make sure the account can only be used until 31st of January of the next year. Basically only for this semester*.

@@ -87,11 +87,11 @@ The `-f` option to the `man` command will display man pages that match, or parti
 [bioboost@linux][~]$ man -f ip
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 ip (7)               - Linux IPv4 protocol implementation
 ip (8)               - show / manipulate routing, network devices, interfaces...
-</pre>
+```
 :::
 
 Note that on most Linux distributions, the `whatis` command does the same thing as `man -f`.
@@ -100,11 +100,11 @@ Note that on most Linux distributions, the `whatis` command does the same thing 
 [bioboost@linux][~]$ whatis ip
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 ip (7)               - Linux IPv4 protocol implementation
 ip (8)               - show / manipulate routing, network devices, interfaces...
-</pre>
+```
 :::
 
 ### Search by Keyword
@@ -115,11 +115,11 @@ You can search for a keyword in the man pages names and the short descriptions b
 [bioboost@linux][~]$ man -k ssh
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 authorized_keys (5)  - OpenSSH SSH daemon
 rlogin (1)           - OpenSSH SSH client (remote login program)
-</pre>
+```
 :::
 
 The `apropos` command does the same thing as `man -k`.
@@ -128,11 +128,11 @@ The `apropos` command does the same thing as `man -k`.
 [bioboost@linux][~]$ apropos ssh
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 authorized_keys (5)  - OpenSSH SSH daemon
 rlogin (1)           - OpenSSH SSH client (remote login program)
-</pre>
+```
 :::
 
 You can use the `apropos` command to find a specific command based on its description. This is especially helpfull when you know what you want to achieve but don't know what command to use.
@@ -161,8 +161,8 @@ Many commands will also provide you basic information, very similar to the SYNOP
 [bioboost@linux][~]$ passwd --help
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Usage: passwd [options] [LOGIN]
 
 Options:
@@ -172,7 +172,7 @@ Options:
   -h, --help                    display this help message and exit
   -k, --keep-tokens             change password only if expired
   -i, --inactive INACTIVE       set password inactive after expiration
-</pre>
+```
 :::
 
 ## Documentation

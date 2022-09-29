@@ -31,8 +31,8 @@ To **list** your current scheduled tasks, one can use the `-l` option:
 crontab -l
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 # Edit this file to introduce tasks to be run by cron.
 # 
 # Each task to run has to be defined through a single line
@@ -59,7 +59,7 @@ crontab -l
 
 # Send a message via MQTT
 * * * * * echo "Another minute has passed ... $(date)" >> /tmp/timing.log
-</pre>
+```
 :::
 
 To edit the current user's cron jobs, use the `-e` option:
@@ -128,22 +128,3 @@ Instead of the first five fields, one of eight special strings may appear:
 | `@hourly` | Run once an hour, same as `0 * * * *`. |
 
 Note that startup, as far as `@reboot` is concerned, is the time when the cron daemon starts up. In particular, it may be before some system daemons, or other facilities, were startup. This is due to the boot order sequence of the machine.
-
-
-## Challenges
-
-Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ I am Alive
-
-*Create a cron-job that will publish a message to the `mqtt.devbit.be` broker on the topic `linux/alive/<yourname>` every 15th minute of the day. You can use the `mosquitto_pub` command for this.*
-
-### ❌ My IP
-
-*Create a cron-job that will publish your raspberry pi's IP address to the `mqtt.devbit.be` broker on the topic `linux/ip/<yourname>` every minute. You can use the `mosquitto_pub` command for this.*
-
-### ❌ Backup Home
-
-*Create a cron-job that will backup your user directory to a `tar.gz` archive file every day at a specific time. Choose the time yourself.*

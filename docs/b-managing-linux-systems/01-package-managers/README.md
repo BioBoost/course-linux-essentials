@@ -48,15 +48,15 @@ For example (after downloading the package file from [http://security.ubuntu.com
 [bioboost@linux][~]$ dpkg --install sl_5.02-1_amd64.deb
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Selecting previously unselected package sl.
 (Reading database ... 223821 files and directories currently installed.)
 Preparing to unpack sl_5.02-1_amd64.deb ...
 Unpacking sl (5.02-1) ...
 Setting up sl (5.02-1) ...
 Processing triggers for man-db (2.9.1-1) ...
-</pre>
+```
 :::
 
 ::: tip sl
@@ -98,8 +98,8 @@ Bottom line: `apt` = most common used command options from `apt-get` and `apt-ca
 [bioboost@linux][~]$ apt list --installed
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Listing...
 accountsservice/focal-security,now 0.6.55-0ubuntu12~20.04.4 amd64 [installed,automatic]
 acl/focal,now 2.2.53-6 amd64 [installed,automatic]
@@ -109,7 +109,7 @@ adduser/focal,focal,now 3.118ubuntu2 all [installed,automatic]
 adwaita-icon-theme/now 3.36.1-2ubuntu0.20.04.2 all [installed,local]
 aisleriot/focal,now 1:3.22.9-1 amd64 [installed,automatic]
 ...
-</pre>
+```
 :::
 
 * To **update** your local package cache, use the command `apt update`. It will also show the number of upgradable packages installed on your system.
@@ -118,8 +118,8 @@ aisleriot/focal,now 1:3.22.9-1 amd64 [installed,automatic]
 [bioboost@linux][~]$ apt update
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Hit:1 https://download.docker.com/linux/ubuntu focal InRelease
 Hit:2 http://dl.google.com/linux/chrome/deb stable InRelease
 Hit:3 http://ppa.launchpad.net/kicad/kicad-dev-nightly/ubuntu focal InRelease
@@ -133,7 +133,7 @@ Reading package lists... Done
 Building dependency tree
 Reading state information... Done
 All packages are up to date.
-</pre>
+```
 :::
 
 ::: tip Take a Peek at the Package Repositories
@@ -146,8 +146,8 @@ Feel free to click the HTTP url of the package repositories and take a look at w
 [bioboost@linux][~]$ apt search cow
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Sorting... Done
 Full Text Search... Done
 averell/focal,focal 1.2.5-1.1 all
@@ -160,7 +160,7 @@ cowbuilder/focal 0.88 amd64
   pbuilder running on cowdancer
 
 ...
-</pre>
+```
 :::
 
 * To **install** a package, use the `apt install <pkgname>` command.
@@ -169,8 +169,8 @@ cowbuilder/focal 0.88 amd64
 [bioboost@linux][~]$ apt install sl
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -187,7 +187,7 @@ Preparing to unpack .../archives/sl_5.02-1_amd64.deb ...
 Unpacking sl (5.02-1) ...
 Setting up sl (5.02-1) ...
 Processing triggers for man-db (2.9.1-1) ...
-</pre>
+```
 :::
 
 * To **remove** a package (leaving the configuration files in tact), use the `apt remove <pkgname>` command. To **purge** a package (also removing the configuration files), use the `apt purge <pkgname>` command.
@@ -196,8 +196,8 @@ Processing triggers for man-db (2.9.1-1) ...
 [bioboost@linux][~]$ apt purge sl
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -209,7 +209,7 @@ Do you want to continue? [Y/n] y
 (Reading database ... 223519 files and directories currently installed.)
 Removing sl (5.02-1) ...
 Processing triggers for man-db (2.9.1-1) ...
-</pre>
+```
 :::
 
 Some other useful options might be:
@@ -323,39 +323,3 @@ wget https://github.com/Kong/insomnia/releases/download/core%402021.6.0/Insomnia
 chmod u+x Insomnia.Core-2021.6.0.AppImage
 ./Insomnia.Core-2021.6.0.AppImage
 ```
-
-## Challenges
-
-Find all the info you need in the man-pages. Document the commands you used for solving the challenge. Try to use as little google as possible.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ Cowsay
-
-*Download the `.deb` package for `cowsay` and install it using `dpkg`. You can find the package at [https://packages.debian.org/sid/all/cowsay/download](https://packages.debian.org/sid/all/cowsay/download).*
-
-*Run it once it's installed. What does it do ?*
-
-### ❌ Nmap
-
-*Install the `nmap` package using `apt`.*
-
-*Port scan the server `sivir.devbit.be`. Make sure you are connected to the `Devbit` network. What services are running on this machine?*
-
-### ❌ NodeJS
-
-*Install `snap` using `apt`. Next use `snap` to install `nodejs`.*
-
-*Now launch node and tryout the following little code snippet:*
-
-```js
-console.log("Hello World from JavaScript");
-```
-
-### ❌ Dhcpdump
-
-*Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*
-
-### ❌ MQTT
-
-*Find a command line tool that allows you to publish messages to an MQTT broker. Use it to send your name to the topic `linux/students`. Use the broker `mqtt.devbit.be`.*

@@ -21,8 +21,8 @@ The serious downside of this technique is that recently created files might not 
 locate dhcp
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 ...
 /usr/share/doc/dhcpdump
 /usr/share/doc/dhcpdump/changelog.Debian.gz
@@ -32,7 +32,7 @@ locate dhcp
 /usr/share/doc/isc-dhcp-client/README.gz
 /usr/share/nmap/nselib/dhcp6.lua
 ...
-</pre>
+```
 :::
 
 ## Finding Binaries and Man-pages
@@ -47,10 +47,10 @@ The `$PATH` environment variable contains a list of the directories where linux 
 whereis g++
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 g++: /usr/bin/g++ /usr/share/man/man1/g++.1.gz
-</pre>
+```
 :::
 
 As an extra, `whereis` will also display the location of the source files and the manual pages if there are any.
@@ -61,8 +61,8 @@ The easiest way to know what paths `whereis` is looking in, just add the `-l` li
 whereis -l g++
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 bin: /usr/bin
 bin: /usr/sbin
 ...
@@ -74,7 +74,7 @@ src: /usr/src/system76-io-1.0.1~1559663713~19.10~ea5f61a
 src: /usr/src/linux-headers-5.3.0-7625
 g++: /usr/bin/g++ /usr/share/man/man1/g++.1.gz
 
-</pre>
+```
 :::
 
 ## Locating a Command
@@ -85,10 +85,10 @@ The `which` command only shows the path to a binary that can be found in the `$P
 which g++
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 /usr/bin/g++
-</pre>
+```
 :::
 
 ## All around Searching
@@ -121,8 +121,8 @@ Below is a basic example that searches the `/etc` directory and all it's subdire
 find /etc -name passwd
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 find: ‘/etc/ssl/private’: Permission denied
 find: ‘/etc/cups/ssl’: Permission denied
 /etc/cron.daily/passwd
@@ -131,7 +131,7 @@ find: ‘/etc/polkit-1/localauthority’: Permission denied
 find: ‘/etc/chatscripts’: Permission denied
 find: ‘/etc/ppp/peers’: Permission denied
 /etc/passwd
-</pre>
+```
 :::
 
 When searching system-wide for files using `find` you will get a lot of `Permission denied` errors from `find`. This error pops up for every directory `find` tries to enter and it does not have access too. This happens because `find` is running with the permissions of the logged in user. There are two approaches to solving this:
@@ -143,12 +143,12 @@ When searching system-wide for files using `find` you will get a lot of `Permiss
 find /etc -name passwd 2>/dev/null
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 /etc/cron.daily/passwd
 /etc/pam.d/passwd
 /etc/passwd
-</pre>
+```
 :::
 
 Basically `find` will only return results with the **exact name specified as the criteria**. However, often one looks for a file that contains a partial word. This can be achieved by using **wildcard operators**.
@@ -169,8 +169,8 @@ The next example fill search for files in the `/etc` directory that contain the 
 find /etc -name "*pass*" 2>/dev/null
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 /etc/passwd-
 /etc/ssl/certs/Buypass_Class_2_Root_CA.pem
 /etc/ssl/certs/Buypass_Class_3_Root_CA.pem
@@ -182,7 +182,7 @@ find /etc -name "*pass*" 2>/dev/null
 /etc/pam.d/common-password
 /etc/pam.d/gdm-password
 /etc/passwd
-</pre>
+```
 :::
 
 The following example performs a system-wide **search for a directory** that contains the word `bash`. This can be achieved by using the search criteria `-type` set to `d` for directory.
@@ -191,8 +191,8 @@ The following example performs a system-wide **search for a directory** that con
 find / -name "*bash*" -type d 2>/dev/null
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 /etc/bash_completion.d
 /usr/share/cmake/bash-completion
 /usr/share/bug/bash-completion
@@ -200,7 +200,7 @@ find / -name "*bash*" -type d 2>/dev/null
 /usr/share/doc/bash
 /usr/share/doc/bash-completion
 /usr/lib/python2.7/dist-packages/bzrlib/plugins/bash_completion
-</pre>
+```
 :::
 
 The following `find` command will search for a file:
@@ -214,12 +214,12 @@ The following `find` command will search for a file:
 find ~ -user bioboost -name "README.md" -size -100k -mtime 0 2>/dev/null
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 /home/bioboost/projects/challenges-linux-essentials/addendum-10-crazy-command-list/README.md
 /home/bioboost/projects/course_linux_essentials/docs/07-locating-things/README.md
 /home/bioboost/projects/course_linux_essentials/docs/addendum-10-crazy-command-list/README.md
-</pre>
+```
 :::
 
 For the hardcore users, `find` can also execute commands for each file found using the `-exec` argument. For example, the following search will perform a long listing with human readable output for files that are bigger than `500MB` and belong to the user `bioboost`.
@@ -240,80 +240,14 @@ Let's dissect this command:
   * `'{}'`: this passes the match from find into the command as an argument
   * `\;`: pass each match to separate `ls -lh` command. Basically this tells find to execute `ls -lh` once for each match.
 
-::: output
-<pre>
+::: codeoutput
+```
 -rw-r--r-- 1 bioboost bioboost 870M Mar  5 13:23 /home/bioboost/Downloads/ubuntu-18.04.4-live-server-amd64.iso
 -rw-r--r-- 1 bioboost bioboost 3.7G Jan 28 09:47 /home/bioboost/Downloads/Systeembeheer.zip
 -rw-r--r-- 1 bioboost bioboost 1.8G Feb 13 17:10 /home/bioboost/Downloads/2020-02-13-raspbian-buster-lite.img
-</pre>
+```
 :::
 
 ::: tip explainshell.com
 Try copy pasting this command in [explainshell.com](https://explainshell.com/) and enjoy the beauty of it all.
 :::
-
-## Challenges
-
-Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ Locate
-
-*Install the `locate` command and update the index database.*
-
-*Locate the following files on your system:*
-
-* `sudoers.dist`
-* the configuration file `ssh_config`
-* `auth.log`
-
-### ❌ Python man-pages
-
-*Use the `whereis` tool to determine the location of the man-pages of `python`.*
-
-### ❌ Python man-pages
-
-*Use the `whereis` tool to determine the location of the `find` binary.*
-
-### ❌ Which
-
-*What is the location of the following commands for the current user:*
-
-* `passwd`
-* `locate`
-* `fdisk`
-
-*Why are the location of `passwd` and `fdisk` different? What is `fdisk` used for?*
-
-### Use find for the following challenges
-
-Make sure to redirect the `permission denied` errors to `/dev/null` for all searches unless specified otherwise.
-
-#### ❌ kernel.log
-
-*Find the file `kernel.log`.*
-
-#### ❌ .bashrc
-
-*Find the files `.bashrc`.*
-
-#### ❌ System Configuration Files
-
-*Search for files that end with the extension `.conf` and contain a filename with the keyword `system` in the `/etc` directory.*
-
-#### ❌ User Readable Files
-
-*What option can we use on `find` to make sure the current user can read the file? Don't use the `-perm` option. There is a better option. Give a nice example.*
-
-#### ❌ Altered Log Files
-
-*Find all log files in `/var/log` that were modified in the last 24 hours. Make sure to only include files and not directories. Now extend the command to perform a long listing human readable `ls` for each file.*
-
-#### ❌ Steal All Logs
-
-*Create a directory `logs` in `/tmp` and copy all `*.log` files you can find on the system to that location.*
-
-#### ❌ Markdown README files
-
-*Find all `README.md` files on your system. Can you make it so the case of the filename does not matter? In other words, you should also be able to find `readme.md`, `Readme.md`, `readme.MD`, ...*

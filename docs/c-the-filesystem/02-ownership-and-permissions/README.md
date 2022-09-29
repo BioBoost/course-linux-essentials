@@ -27,8 +27,8 @@ You can also list the content of another directory without traversing to it but 
 
 For example `ls -l /etc/network` which outputs:
 
-::: output
-<pre>
+::: codeoutput
+```
 total 24
 drwxr-xr-x 2 root root 4096 Nov  3 13:25 if-down.d
 drwxr-xr-x 2 root root 4096 Nov  3 13:25 if-post-down.d
@@ -36,7 +36,7 @@ drwxr-xr-x 2 root root 4096 Nov  3 13:25 if-pre-up.d
 drwxr-xr-x 2 root root 4096 Nov  3 13:29 if-up.d
 -rw-r--r-- 1 root root  240 Nov  3 13:52 interfaces
 drwxr-xr-x 2 root root 4096 Jan 28  2019 interfaces.d
-</pre>
+```
 :::
 
 Running `ls -l` inside your home directory should result in a listing of all the **metadata** of all files in your home directory.
@@ -45,8 +45,8 @@ Running `ls -l` inside your home directory should result in a listing of all the
 [bioboost@linux][~]$ ls -l
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 total 32
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Desktop
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Documents
@@ -56,7 +56,7 @@ drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Pictures
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Public
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Templates
 drwxr-xr-x 2 bioboost bioboost 4096 Nov  3 13:54 Videos
-</pre>
+```
 :::
 
 Dissecting the above output a bit results in the next diagram.
@@ -99,8 +99,8 @@ Even more detailed information about a file can be obtained using the `stat` com
 [bioboost@linux][~]$ stat .bashrc 
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
   File: .bashrc
   Size: 3772      	Blocks: 8          IO Block: 4096   regular file
 Device: 832h/2098d	Inode: 3801091     Links: 1
@@ -109,7 +109,7 @@ Access: 2021-08-18 18:57:43.786283781 +0200
 Modify: 2021-08-18 18:57:41.274355523 +0200
 Change: 2021-08-18 18:57:41.274355523 +0200
  Birth: -
-</pre>
+```
 :::
 
 ## About Ownership and Permissions
@@ -260,10 +260,10 @@ Now, to see this in a practical light, let's look at the `/usr/bin/passwd` comma
 [bioboost@linux][~]$ ls -l /usr/bin/passwd 
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 -rwsr-xr-x 1 root root 68208 Jul 15 00:08 /usr/bin/passwd
-</pre>
+```
 :::
 
 Note the `s` where `x` would usually indicate execute permissions for the user.
@@ -292,12 +292,12 @@ Let us take a look at an example (assuming we have a user called `dennis`)
 
 Note that we also allow anyone to create files in this directory and that we set the owner to `root` to show that the directory group is used.
 
-::: output
-<pre>
+::: codeoutput
+```
 total 8
 drwxrwsrwx  2 root bioboost 4096 Okt 12 15:47 .
 drwxrwxrwt 24 root root     4096 Okt 12 15:45 ..
-</pre>
+```
 :::
 
 Now let's login using `dennis` and create some files:
@@ -307,13 +307,13 @@ Now let's login using `dennis` and create some files:
 [bioboost@linux][~]$ ls -al
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 total 8
 drwxrwsrwx  2 root   bioboost 4096 Okt 12 15:48 .
 drwxrwxrwt 24 root   root     4096 Okt 12 15:47 ..
 -rw-rw-r--  1 dennis bioboost    0 Okt 12 15:48 hello
-</pre>
+```
 :::
 
 Note how the user of `hello` is still `dennis`, but the group is the same - `bioboost` - as that of the parent directory.
@@ -328,12 +328,12 @@ The last special permission has been dubbed the **sticky bit.** This permission 
 [bioboost@linux][~]$ ls -al /tmp
 ```
 
-::: output
-<pre>
+::: codeoutput
+```
 total 132
 drwxrwxrwt 24 root     root      4096 Okt 12 15:51 .
 ...
-</pre>
+```
 :::
 
 The permission set is noted by the lowercase `t`, where the x would normally indicate the execute privilege.
@@ -372,13 +372,3 @@ Taking the previous example:
 
 <!-- TODO: -->
 <!-- Creation mode -->
-
-## Challenges
-
-Try to solve the challenges without using google. Better to use the man-pages to find the information you need.
-
-Mark challenges using a ✅ once they are finished.
-
-### ❌ Etcetera
-
-*Who is the owner of the `/etc` directory on the system? What are the permissions on this directory? Why can you list the content of this directory?*
