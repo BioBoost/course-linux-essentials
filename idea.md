@@ -17,3 +17,9 @@ Now regenerate the AppImage from this folder by using appimagetool from the offi
 Run the new AppImage (it should generate a default name like FreeCAD_Conda-x86_64.AppImage)
 ./FreeCAD_Conda-x86_64.AppImage
 Result: FreeCAD AppImage should successfully run
+
+## X-Forwarding opzetten
+
+## Provisioning / Testing met die tool van tom ?
+
+## Raspberry Pi Network boot

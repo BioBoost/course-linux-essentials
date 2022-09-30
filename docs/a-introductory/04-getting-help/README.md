@@ -59,7 +59,7 @@ There are thousands of man pages on a typical Linux distribution. To organize al
 1. System administration commands (usually only for root)
 1. Kernel routines [Non standard]
 
-When you use the man` command, it searches each of these sections **in order** until it finds the first "match".
+When you use the `man` command, it searches each of these sections **in order** until it finds the first "match".
 
 For example:
 

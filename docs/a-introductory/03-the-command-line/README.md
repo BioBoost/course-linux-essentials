@@ -157,6 +157,12 @@ Many Linux commands can be used by themselves with no further input.
 
 Some commands require additional information to run properly. This additional information comes in two forms: **options** and **arguments**.
 
+<!-- TODO: Next sections contain some things that are not correct. Needs to be refactored and revised.
+Source: https://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm
+Note that some apps don't follow this convention !
+Source: https://unix.stackexchange.com/questions/11376/what-does-double-dash-mean
+Maybe also note on flags ! -->
+
 ### Options
 
 Options are used to modify the core behavior of a command. Take for example the option `-l` which requests the output to use long formatting.
@@ -262,7 +268,7 @@ This is designed to make it easy for you to execute the same command later since
 Basically there are a few options to access the command history:
 
 * Press the `up-arrow` in your terminal emulator to scroll through your previous commands. Most terminal emulators / shell's will support this functionality.
-* `CTRL-R` will allow you to search through your command history.
+* `CTRL-r` will allow you to search through your command history.
 * You can view the command history file of your current shell. For example bash this is `~/.bash_history`.
 
 There are also some commands that can be used to make use of the command history.
