@@ -71,7 +71,7 @@ module.exports = {
           '/g-scripting/01-basic-shell-scripting/README.md',
           '/g-scripting/02-cron-jobs/README.md',
           // /g-scripting/03-systemd
-          // backups
+          '/g-scripting/04-backups/README.md',
         ]
       },
       {
