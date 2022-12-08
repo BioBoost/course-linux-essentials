@@ -1,0 +1,1 @@
+* static ip address via /etc/dhcpcd.conf
