@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Configuration
+SOURCE_DIR="source"
+DESTINATION_DIR="."
+FILENAME="backup6.tar.bz2"
+BACKUP_FILE="${DESTINATION_DIR}/${FILENAME}"
+EXCLUDE_FILE=".exclude"
+
+
+
+
+
+  # exclude:  --exclude='node_modules/
+
+TIME=$(/usr/bin/time 2>&1 -f "%E" tar -cjpf "${BACKUP_FILE}" -X "${EXCLUDE_FILE}" "${SOURCE_DIR}")
+
+  # /usr/bin/time the command (don't use non-portable shell builtin 'time')
+    # -f format
+    # %E Elapsed real (wall clock) time used by the process, in [hours:]minutes:seconds.
+  
+  # Tar archive
+  # -c: create
+  # -W: verify tar file
+  # -f: specify tar filename
+  # -j: [bz2] bzip compression (better compression)
+  # -z: [gz] gzip compression (faster)
+  # -p: preserver permissions
+  # -X: exclude files matching patters in FILE
+
+# Redirect errors to log file ?
+# Do we need to preserve permissions ?
+
+# Let's output some stats
+ORIGINAL_SIZE=$(du -sh source | cut -f1)
+TAR_SIZE=$(ls -sh "${BACKUP_FILE}" | cut -d' ' -f1)
+CHECKSUM=$(shasum "${BACKUP_FILE}" | cut -d' ' -f1)
+
+# echo "Original size: ${ORIGINAL_SIZE}"
+# echo "Archive size: ${TAR_SIZE}"
+# echo "Time: ${TIME}"
+
+echo -e "${ORIGINAL_SIZE}\t${TAR_SIZE}\t${TIME}\t${CHECKSUM}"
+  # -e means 'enable interpretation of backslash escapes'
+
+# We should also create hash checksum !
+# Maybe we should create log file with: original size, file size, time taken, hash

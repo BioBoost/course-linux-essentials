@@ -1,0 +1,4 @@
+node_modules
+mbed-os
+.vscode
+.git
